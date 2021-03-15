@@ -170,3 +170,21 @@ Low Priority Features
 - APIs (frontend and server)
 - Third-party APIs (payment gateway and server)
 - Third-party APIs (payment gateway and frontend)
+
+## <span style="color:grey"> Tech Stack </span>
+
+- Django(Backend)
+- PostgreSQL(Database)
+- HTML & CSS(Frontend)
+- ReactJS & JavaScript(Frontend)
+- Razorpay(Payment)
+
+## <span style="color:grey"> Running the Frontend </span>
+
+- Clone the frontend folder
+- Unzip and open the frontend folder in terminal
+- Run "npm install"
+- Run "npm start"
+- Go to "localhost:8000/" in your browser
+
+## <span style="color:grey"> Running the Backend </span>
