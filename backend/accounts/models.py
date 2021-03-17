@@ -31,9 +31,9 @@ class UserAccount(AbstractBaseUser,PermissionsMixin):
     last_name = models.CharField(max_length=255)
     phone = models.CharField(max_length=15)
     access_levels = [
-        ("NORMAL", 2),
-        ("STORE_ADMIN", 1),
-        ("SUPERUSER", 0),
+        (2,"NORMAL"),
+        (1,"STORE_ADMIN"),
+        (0,"SUPERUSER"),
     ]
     access = models.PositiveSmallIntegerField(choices=access_levels,default=2)
     is_active = models.BooleanField(default=True)
