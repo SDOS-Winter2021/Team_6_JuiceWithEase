@@ -17,6 +17,11 @@ def getRoutes(request):
     ]
     return Response(routes)
 
+def getHome(request):
+    context = {}
+    return render(request,'base/index.html',context)
+
+
 @api_view(["GET"])
 def getProducts(request):
     products = Product.objects.all()
