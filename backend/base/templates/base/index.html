@@ -55,14 +55,14 @@
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
                 <li class="active"><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% static 'about.html' %}">About</a></li>
-                <li><a href="{% static 'subscribe.html' %}">Subscribe</a></li>
-                <li><a href="{% static 'shop.html' %}">Shop</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'subscribe' %}">Subscribe</a></li>
+                <li><a href="{% url 'shop' %}">Shop</a></li>
                 
-                <li><a href="{% static 'blog.html' %}">Blog</a></li>
-                <li><a href="{% static 'contact.html' %}">Contact Us</a></li>
-                <li><a href="{% static 'cart.html' %}" ><i><img src="{% static 'images/basket.png' %}" alt="Cart" /></i></i></a></li>
-                <li><a href="{% static 'user.html' %}" ><i><img src="{% static 'images/login-icon.png' %}" alt="Profile" /></i></i></a></li>
+                <li><a href="{% url 'blog' %}">Blog</a></li>
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                <li><a href="{% url 'cart' %}" ><i><img src="{% static 'images/basket.png' %}" alt="Cart" /></i></i></a></li>
+                <li><a href="{% url 'user' %}" ><i><img src="{% static 'images/login-icon.png' %}" alt="Profile" /></i></i></a></li>
 
 
     
@@ -305,7 +305,7 @@
                  <p>At “Juice with ease” we understand your juicy world. We also know the problems you face while consuming fruit/vegetable
                 juices and other beverages. Juice with ease takes care of all these challenges, thus providing healthy fresh made
                 beverages at your doorstep so that you enjoy them with “EASE”.</p>
-                 <a href="{% static 'about.html' %}">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                 <a href="{% url 'about' %}">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
              </div>
          </div>
           <div class="col-xl-5 col-lg-5 col-md-10 col-sm-12 about_img_boxpdnt">
@@ -627,7 +627,7 @@
     <script src="{% static 'js/custom.js' %}"></script>
      <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
     
-     <script src="{% static 'js/jquery-3.0.0.min.js"></script>
+     <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
    <script type="text/javascript">
         $(document).ready(function() {
             $("#sidebar").mCustomScrollbar({
