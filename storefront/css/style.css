@@ -635,13 +635,19 @@ header .container-fluid {
   background: transparent;
 }
 .slider_section {
-  background: #212020;
+  /* background: #212020; */
+  /* background: linear-gradient(
+      white,#ffffff
+    ),
+    url("../images/banner-bg.jpg"); */
+  background: url("../images/banner-bg3.jpg");
   min-height: 100vh;
   padding-top: 93px;
 }
 /** slider section **/
 #main_slider {
-  padding: 90px 0 30px;
+  /* margin-top: 10px; */
+  /* padding: 70px 0 30px; */
 }
 .slider_section .container {
   width: 100%;
@@ -677,14 +683,14 @@ header .container-fluid {
 .slider_cont h4 {
   font-size: 70px;
   font-weight: 600;
-  color: #e9bc40;
+  color: #050400;
   line-height: 70px;
   letter-spacing: -2px;
   font-style: italic;
 }
 .slider_cont p {
   font-size: 18px;
-  color: #999;
+  color: rgb(0, 0, 0);
   line-height: normal;
   font-weight: 300;
   margin-top: 15px;
@@ -704,7 +710,7 @@ header .container-fluid {
 #main_slider a.carousel-control-prev {
   position: absolute;
   left: 50px;
-  top: 42%;
+  top: 40%;
 }
 #main_slider a.carousel-control-next {
   position: absolute;
@@ -713,10 +719,11 @@ header .container-fluid {
 }
 .main_bt_border {
   color: #fff;
-  font-size: 18px;
-  font-weight: 300;
+  font-size: 24px;
+  font-weight: 600;
   min-width: 150px;
-  border: solid #fff 1px;
+  background-color: #000;
+  /* border: solid rgb(0, 0, 0) 1px; */
   float: left;
   text-align: center;
   min-height: 50px;
@@ -725,8 +732,9 @@ header .container-fluid {
 }
 .main_bt_border:hover,
 .main_bt_border:focus {
-  background: #e3d105;
-  border-color: #e3d105;
+  background: #ffffff;
+  border-color: #000000;
+
   color: #222;
 }
 .theme_color {
@@ -1693,7 +1701,8 @@ a.article:hover {
   margin-top: 180px;
 }
 .blog_page .blog {
-  padding-top: 90px;
+  padding-top: 50px;
+  margin-bottom: 30px;
 }
 .blog_page .blog span {
   padding-top: 15px;

@@ -38,68 +38,37 @@
     <div class="wrapper">
     <!-- end loader -->
 
-     <div class="sidebar">
-            <!-- Sidebar  -->
-            <nav id="sidebar">
-
-                <div id="dismiss">
-                    <i class="fa fa-arrow-left"></i>
-                </div>
-
-                <ul class="list-unstyled components">
-
-                    <li >
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="about.html">About</a>
-                    </li>
-                    <li>
-                        <a href="recipe.html">Recipe</a>
-                    </li>
-                    <li class="active">
-                        <a href="blog.html">Blog</a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact Us</a>
-                    </li>
-                </ul>
-
-            </nav>
-        </div>
+ 
 
     <div id="content">
-    <!-- header -->
-    <header>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="full">
-                        <a class="logo" href="index.html"><img src="images/logo.png" alt="#" /></a>
-                    </div>
-                </div>
-                <div class="col-md-9">
-                    <div class="full">
-                        <div class="right_header_info">
-                            <ul>
-                                <li class="dinone">Contact Us : <img style="margin-right: 15px;margin-left: 15px;" src="images/phone_icon.png" alt="#"><a href="#">987-654-3210</a></li>
-                                <li class="dinone"><img style="margin-right: 15px;" src="images/mail_icon.png" alt="#"><a href="#">demo@gmail.com</a></li>
-                                <li class="dinone"><img style="margin-right: 15px;height: 21px;position: relative;top: -2px;" src="images/location_icon.png" alt="#"><a href="#">104 New york , USA</a></li>
-                                <li class="button_user"><a class="button active" href="#">Login</a><a class="button" href="#">Register</a></li>
-                                <li><img style="margin-right: 15px;" src="images/search_icon.png" alt="#"></li>
-                                <li>
-                                    <button type="button" id="sidebarCollapse">
-                                        <img src="images/menu_icon.png" alt="#">
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- end header -->
+<!-- header -->
+<header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center justify-content-between">
+
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="index.html" class="logo"><img src="images/bottle.png" alt="" class="img-fluid"><span> Juice With
+                Ease!</span></a>
+        <!-- <h1 class="logo"><a href="index.html"><span>JuiceWithEase</span></a></h1> -->
+
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="subscribe.html">Subscribe</a></li>
+                <li><a href="shop.html">Shop</a></li>
+
+                <li class="active"><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="cart.html"><i><img src="images/basket.png" alt="Cart" /></i></i></a></li>
+                <li><a href="user.html"><i><img src="images/login-icon.png" alt="Profile" /></i></i></a></li>
+
+
+
+            </ul>
+        </nav><!-- .nav-menu -->
+
+    </div>
+</header><!-- End Header -->
 <div class="yellow_bg">
    <div class="container">
             <div class="row">
@@ -114,12 +83,12 @@
 </div>
 
 <!-- blog -->
-<div class="blog">
+<div class="blog" style="display: 200px;">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="title">
-          <i><img src="images/title.png" alt="#"/></i>
+          <!-- <i><img src="images/title.png" alt="#"/></i> -->
           
           <span>when looking at its layout. The point of using Lorem</span>
         </div>
@@ -166,76 +135,69 @@
 
 
     <!-- footer -->
-    <fooetr>
-        <div class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                  <div class=" col-md-12">
-                    <h2>Request  A<strong class="white"> Call  Back</strong></h2>
-                  </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                      
-                        <form class="main_form">
-                            <div class="row">
-                             
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <input class="form-control" placeholder="Name" type="text" name="Name">
-                                </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <input class="form-control" placeholder="Email" type="text" name="Email">
-                                </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <input class="form-control" placeholder="Phone" type="text" name="Phone">
-                                </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <textarea class="textarea" placeholder="Message" type="text" name="Message"></textarea>
-                                </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <button class="send">Send</button>
-                                </div>
-                            </div>
-                        </form>
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-info">
+                        <div style="display: inline-flex;">
+                            <h3><img style="height: 60px; width:auto; display: inline; margin-right: 10px;"
+                                    src="images/bottle.png">
+                                <span style="display: inline-block;">JuiceWithEase.</span>
+                            </h3>
+                        </div>
+                        <p>KM 29, J P Kosmos<br>
+                            Sector 134, Noida 201304
+                        </p>
+
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                        <div class="img-box">
-                            <figure><img src="images/img.jpg" alt="img" /></figure>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-info">
+                        <p>
+                            <strong>Phone:</strong> +91-8800699360<br>
+                            <strong>Email:</strong> reachjuicewithease@gmail.com<br>
+                        </p>
+                        <div class="social-links mt-3">
+                            <a href="#" class="twitter"><i><img src="images/twitter_icon.png" alt="#" /></i></a>
+                            <a href="#" class="facebook"><i><img src="images/facebook_icon.png" alt="#" /></i></i></a>
+                            <a href="#" class="instagram"><i><img src="images/instagram_icon.png" alt="#" /></i></a>
+                            <a href="#" class="linkedin"><i><img src="images/linkedin_icon.png" alt="#" /></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="footer_logo">
-                          <a href="index.html"><img src="images/logo1.jpg" alt="logo" /></a>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <ul class="lik">
-                            <li > <a href="index.html">Home</a></li>
-                            <li> <a href="about.html">About</a></li>
-                            <li> <a href="recipe.html">Recipe</a></li>
-                            <li class="active"> <a href="blog.html">Blog</a></li>
-                            <li> <a href="contact.html">Contact us</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="new">
-                            <h3>Newsletter</h3>
-                            <form class="newtetter">
-                                <input class="tetter" placeholder="Your email" type="text" name="Your email">
-                                <button class="submit">Subscribe</button>
-                            </form>
-                        </div>
-                    </div>
+
+                <div class="col-lg-2 col-md-6 footer-links">
+                    <h4 style="color:#ffc451">Useful Links</h4><br>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+
+                    </ul>
                 </div>
-            </div>
-            <div class="copyright">
-                <div class="container">
-                    <p>© 2019 All Rights Reserved. Design by<a href="https://html.design/"> Free Html Templates</a></p>
+                <div class="col-lg-2 col-md-6 footer-links">
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Subscribe</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Shop</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Refund policy</a></li>
+                    </ul>
                 </div>
+
+
             </div>
         </div>
-    </fooetr>
-    <!-- end footer -->
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>JuiceWithEase</span></strong>. All Rights Reserved
+        </div>
+
+    </div>
+</footer><!-- End Footer -->
 
     </div>
     </div>
