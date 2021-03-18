@@ -50,7 +50,21 @@ def getBlog(request):
     context = {}
     return render(request,'base/blog.html',context)
 
+def getUser(request):
+    context = {}
+    return render(request,'base/user1.html',context)
 
+def getCheckout(request):
+    context = {}
+    return render(request,'base/checkout.html',context)
+
+def getProductDet(request):
+    context = {}
+    return render(request,'base/product-details.html',context)
+
+def getAllProducts(request):
+    context = {}
+    return render(request,'base/products.html',context)
 
 
 

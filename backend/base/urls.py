@@ -12,6 +12,8 @@ urlpatterns = [
     path("mycart/",views.getCart,name= "cart"),
     path("myprofile/",views.getProfile,name= "user"),
     
+
+
     path("products/",views.getProducts,name= "products"),
     path("categories/",views.getProductCategories,name= "productcategories"),
     path('product/<int:pk>/',views.getProduct,name= "product"),
