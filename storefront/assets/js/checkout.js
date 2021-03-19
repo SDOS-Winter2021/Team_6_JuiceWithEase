@@ -29,85 +29,85 @@ del = (e) => {
     row.remove();
 }
 
-var products = [{
-    id : '1',
-    name : 'Orange Juice',
-    category : 'pulpyPure',
-    price : '97',
-    bottle_type : '300ml',
-    description : ''
-  }, {
-    id : '2',
-    name : 'Red Juice',
-    category : 'dailyDetox',
-    price : '217',
-    bottle_type : '500ml',
-    description : 'Beet root + Carrot + Ginger + Lemon + Apple + Chia Seeds + Flax Seeds'
-  }, {
-    id : '3',
-    name : 'Ginger Mint Lemon(From East)',
-    category : 'desiSplash',
-    price : '67',
-    bottle_type : '300ml',
-    description : ''
-  }, {
-    id : '4',
-    name : 'Beet Root',
-    category : 'pulpyPure',
-    price : '97',
-    bottle_type : '300ml',
-    description : ''
-  }, {
-    id : '5',
-    name : 'Red Juice',
-    category : 'dailyDetox',
-    price : '217',
-    bottle_type : '300ml',
-    description : 'Beet root + Carrot + Ginger + Lemon + Apple + Chia Seeds + Flax Seeds'
-  }, {
-    id : '6',
-    name : 'Ginger Mint Lemon(From East)',
-    category : 'pulpyPure',
-    price : '67',
-    bottle_type : '300ml',
-    description : ''
-  }, {
-    id : '7',
-    name : 'Blueberry',
-    category : 'exoticDelight',
-    price : '97',
-    bottle_type : '300ml',
-    description : ''
-  }, {
-    id : '8',
-    name : 'Red Juice',
-    category : 'dailyDetox',
-    price : '217',
-    bottle_type : '300ml',
-    description : 'Beet root + Carrot + Ginger + Lemon + Apple + Chia Seeds + Flax Seeds'
-  }, {
-    id : '9',
-    name : 'Ginger Mint Lemon(From East)',
-    category : 'desiSplash',
-    price : '67',
-    bottle_type : '300ml',
-    description : ''
-  }, {
-    id : '10',
-    name : 'Ginger Mint Lemon(From East)',
-    category : 'desiSplash',
-    price : '97',
-    bottle_type : '300ml',
-    description : ''
-  }, {
-    id : '11',
-    name : 'Blueberry',
-    category : 'exoticDelight',
-    price : '217',
-    bottle_type : '300ml',
-    description : 'Beet root + Carrot + Ginger + Lemon + Apple + Chia Seeds + Flax Seeds'
-  }
-  ]
+// var products = [{
+//     id : '1',
+//     name : 'Orange Juice',
+//     category : 'pulpyPure',
+//     price : '97',
+//     bottle_type : '300ml',
+//     description : ''
+//   }, {
+//     id : '2',
+//     name : 'Red Juice',
+//     category : 'dailyDetox',
+//     price : '217',
+//     bottle_type : '500ml',
+//     description : 'Beet root + Carrot + Ginger + Lemon + Apple + Chia Seeds + Flax Seeds'
+//   }, {
+//     id : '3',
+//     name : 'Ginger Mint Lemon(From East)',
+//     category : 'desiSplash',
+//     price : '67',
+//     bottle_type : '300ml',
+//     description : ''
+//   }, {
+//     id : '4',
+//     name : 'Beet Root',
+//     category : 'pulpyPure',
+//     price : '97',
+//     bottle_type : '300ml',
+//     description : ''
+//   }, {
+//     id : '5',
+//     name : 'Red Juice',
+//     category : 'dailyDetox',
+//     price : '217',
+//     bottle_type : '300ml',
+//     description : 'Beet root + Carrot + Ginger + Lemon + Apple + Chia Seeds + Flax Seeds'
+//   }, {
+//     id : '6',
+//     name : 'Ginger Mint Lemon(From East)',
+//     category : 'pulpyPure',
+//     price : '67',
+//     bottle_type : '300ml',
+//     description : ''
+//   }, {
+//     id : '7',
+//     name : 'Blueberry',
+//     category : 'exoticDelight',
+//     price : '97',
+//     bottle_type : '300ml',
+//     description : ''
+//   }, {
+//     id : '8',
+//     name : 'Red Juice',
+//     category : 'dailyDetox',
+//     price : '217',
+//     bottle_type : '300ml',
+//     description : 'Beet root + Carrot + Ginger + Lemon + Apple + Chia Seeds + Flax Seeds'
+//   }, {
+//     id : '9',
+//     name : 'Ginger Mint Lemon(From East)',
+//     category : 'desiSplash',
+//     price : '67',
+//     bottle_type : '300ml',
+//     description : ''
+//   }, {
+//     id : '10',
+//     name : 'Ginger Mint Lemon(From East)',
+//     category : 'desiSplash',
+//     price : '97',
+//     bottle_type : '300ml',
+//     description : ''
+//   }, {
+//     id : '11',
+//     name : 'Blueberry',
+//     category : 'exoticDelight',
+//     price : '217',
+//     bottle_type : '300ml',
+//     description : 'Beet root + Carrot + Ginger + Lemon + Apple + Chia Seeds + Flax Seeds'
+//   }
+//   ]
   
   var product_categories = [{
     PulpyPure : 'Get the real pulp extracted from your favourite fruits. We ensure that the nutrient value of the juice is kept intact, so that you consume the best for your health. With no sugar, water, preservative or chemical in your juice, “Juice with ease” offers you the pure and pulpy juices.',
@@ -118,13 +118,18 @@ var products = [{
 
 var queryString = decodeURIComponent(window.location.search);
 queryString = queryString.substring(1);
-var cartList = queryString.substring(9,).split(',');
+var queries = queryString.split("&");
+var cartList = queries[0].substring(9,).split(',');
+var products = JSON.parse(queries[1].substring(9,));
+//var cartList = queryString.substring(9,).split(',');
+console.log(cartList);
+console.log(products);
 
 cartProducts = []
 for (var i in cartList) {
     for (var j in products) {
         if (products[j].id == cartList[i]) {
-            cartProducts.push(products[i]);
+            cartProducts.push(products[j]);
         }
     }
 }
