@@ -402,7 +402,7 @@ if (container != undefined) {
 var cart = document.getElementById('cart');
 if (cart != null) {
   cart.addEventListener('click', () => {
-    var queryString = "?cartList=" + cartList;
+    var queryString = "?cartList=" + cartList + "&products=" + JSON.stringify(products);
     window.location.href = "checkout.html" + queryString;
   })
 }
