@@ -4,12 +4,19 @@ from stores.models import *
 # Create your models here.
 
 class UserAccountManager(BaseUserManager):
-    def create_user(self,email,password=None,**other_fields):
+    def create_user(self,email,password,phone,access):
         if not email:
             raise ValueError("Users must have an email address")
+        if not password:
+            raise ValueError("Users must have a password")
         
         email = self.normalize_email(email)
-        user = self.model(email=email,**other_fields)
+        user = self.model(
+            email=email,
+            password=password,
+            phone = phone,
+            access= access,
+            )
         user.set_password(password)
         user.save()
 
@@ -27,19 +34,23 @@ class UserAccountManager(BaseUserManager):
 
 
 class UserAccount(AbstractBaseUser,PermissionsMixin):
-    email = models.EmailField(max_length=255, unique=True)
-    first_name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255)
+    email = models.EmailField(max_length=50, unique=True)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
     phone = models.CharField(max_length=15)
+    
     access_levels = [
         (2,"NORMAL"),
         (1,"STORE ADMIN"),
         (0,"SUPERUSER"),
     ]
+    
     access = models.PositiveSmallIntegerField(choices=access_levels,default=2)
+    
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
+    
     objects = UserAccountManager()
 
     USERNAME_FIELD = "email"
