@@ -1712,3 +1712,12 @@ a.article:hover {
   color: #fff;
   font-weight: 500;
 }
+
+#productPage {
+  color: white;
+}
+
+#productPage:hover {
+  cursor: pointer;
+  color: #f8c450;
+}
