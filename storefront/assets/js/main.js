@@ -234,7 +234,8 @@ addToCart = (e, id) => {
 
 var queryString = decodeURIComponent(window.location.search);
 queryString = queryString.substring(1);
-if (queryString.length > 500) {
+console.log(queryString);
+if (queryString.substring(0, 12) == 'productTable') {
   var productTable = JSON.parse(queryString.substring(13));
   //console.log(JSON.parse(productTable));
 } else {

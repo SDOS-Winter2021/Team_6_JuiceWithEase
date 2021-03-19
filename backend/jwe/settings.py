@@ -156,7 +156,7 @@ SIMPLE_JWT = {
    'AUTH_HEADER_TYPES': ('JWT',),
 }
 
-COR_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = True
 
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
@@ -179,4 +179,3 @@ DJOSER = {
 }
 
 AUTH_USER_MODEL  = "accounts.UserAccount"
-LOGIN_REDIRECT_URL = './storefront/index.html'

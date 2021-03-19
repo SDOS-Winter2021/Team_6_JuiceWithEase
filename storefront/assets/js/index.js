@@ -13,4 +13,4 @@ var productPage = document.getElementById('productPage');
 productPage.addEventListener('click', () => {
     var queryString = "?productTable=" + productTable;
     window.location.href = "products.html" + queryString;
-})
+});
