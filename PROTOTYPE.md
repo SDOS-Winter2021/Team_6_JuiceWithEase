@@ -14,4 +14,7 @@ Run Server
 `pip manage.py runserver`
 
 Finally, go to the Team_6_JuiceWithEase/storefront directory and open index.html file on your web browser 
- 
+
+To access the admin functionality, go to the link `127.0.0.0.8000/admin` and login using the credentials:  
+Email : admin@example.com  
+password: 123  
