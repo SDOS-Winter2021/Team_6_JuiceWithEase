@@ -21,9 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
-    path('',include("base.urls")),
-    path('accounts/',include("accounts.urls")),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('api/',include("base.urls")),
 ]
 
 # For React URLS. Modify if needed.
