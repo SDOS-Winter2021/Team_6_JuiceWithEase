@@ -12,3 +12,8 @@ body {
 .minus:hover {
   cursor: pointer;
 }
+
+.productPic {
+  max-height: 100px;
+  width: auto;
+}

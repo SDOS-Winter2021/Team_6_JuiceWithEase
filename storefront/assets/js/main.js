@@ -1,6 +1,12 @@
+console.log(localStorage.getItem('cartList'));
+var count = document.getElementById('count');
+console.log(JSON.parse(localStorage.getItem('cartList')));
+var c = JSON.parse(localStorage.getItem('cartList')).length;
+if (count != null) {
+  count.innerHTML = c;
+}
 !(function($) {
   "use strict";
-
   // Preloader
   $(window).on('load', function() {
     if ($('#preloader').length) {
@@ -220,24 +226,39 @@
 
 })(jQuery);
 
-var cartList = [];
+if (!localStorage.getItem('cartList')) {
+  var cartList = [];
+  localStorage.setItem('cartList', JSON.stringify(cartList));
+}
+console.log(localStorage);
+console.log(JSON.parse(localStorage.getItem('cartList')));
 
 addToCart = (e, id) => {
-  if (cartList.includes(id)) {
+  if (JSON.parse(localStorage.getItem('cartList')).includes(id)) {
     return;
   }
   var count = document.getElementById('count');
-  var c = parseInt(count.innerHTML);
+  console.log(JSON.parse(localStorage.getItem('cartList')));
+  var c = JSON.parse(localStorage.getItem('cartList')).length;
+  console.log(c);
   count.innerHTML = c+1;
-  cartList.push(id);
+  console.log(c);
+  var temp = JSON.parse(localStorage.getItem('cartList'));
+  temp.push(id);
+  console.log(temp);
+  localStorage.setItem('cartList', JSON.stringify(temp));
+  console.log(localStorage.getItem('cartList'));
 }
 
 var queryString = decodeURIComponent(window.location.search);
+console.log(queryString);
 queryString = queryString.substring(1);
-if (queryString.length > 500) {
+console.log(queryString);
+if (queryString.substring(0, 12) == 'productTable') {
   var productTable = JSON.parse(queryString.substring(13));
-  //console.log(JSON.parse(productTable));
+  console.log(productTable);
 } else {
+  console.log(queryString);
   var product = JSON.parse(queryString.substring(8,));
   console.log(product);
 }
@@ -268,85 +289,85 @@ for (var i in productTable) {
 }
 console.log(products);
 
-// var products = [{
-//   id : '1',
-//   name : 'Orange Juice',
-//   category : 'pulpyPure',
-//   price : '97',
-//   bottle_type : '300ml',
-//   description : ''
-// }, {
-//   id : '2',
-//   name : 'Red Juice',
-//   category : 'dailyDetox',
-//   price : '217',
-//   bottle_type : '500ml',
-//   description : 'Beet root + Carrot + Ginger + Lemon + Apple + Chia Seeds + Flax Seeds'
-// }, {
-//   id : '3',
-//   name : 'Ginger Mint Lemon(From East)',
-//   category : 'desiSplash',
-//   price : '67',
-//   bottle_type : '300ml',
-//   description : ''
-// }, {
-//   id : '4',
-//   name : 'Beet Root',
-//   category : 'pulpyPure',
-//   price : '97',
-//   bottle_type : '300ml',
-//   description : ''
-// }, {
-//   id : '5',
-//   name : 'Red Juice',
-//   category : 'dailyDetox',
-//   price : '217',
-//   bottle_type : '300ml',
-//   description : 'Beet root + Carrot + Ginger + Lemon + Apple + Chia Seeds + Flax Seeds'
-// }, {
-//   id : '6',
-//   name : 'Ginger Mint Lemon(From East)',
-//   category : 'pulpyPure',
-//   price : '67',
-//   bottle_type : '300ml',
-//   description : ''
-// }, {
-//   id : '7',
-//   name : 'Blueberry',
-//   category : 'exoticDelight',
-//   price : '97',
-//   bottle_type : '300ml',
-//   description : ''
-// }, {
-//   id : '8',
-//   name : 'Red Juice',
-//   category : 'dailyDetox',
-//   price : '217',
-//   bottle_type : '300ml',
-//   description : 'Beet root + Carrot + Ginger + Lemon + Apple + Chia Seeds + Flax Seeds'
-// }, {
-//   id : '9',
-//   name : 'Ginger Mint Lemon(From East)',
-//   category : 'desiSplash',
-//   price : '67',
-//   bottle_type : '300ml',
-//   description : ''
-// }, {
-//   id : '10',
-//   name : 'Ginger Mint Lemon(From East)',
-//   category : 'desiSplash',
-//   price : '97',
-//   bottle_type : '300ml',
-//   description : ''
-// }, {
-//   id : '11',
-//   name : 'Blueberry',
-//   category : 'exoticDelight',
-//   price : '217',
-//   bottle_type : '300ml',
-//   description : 'Beet root + Carrot + Ginger + Lemon + Apple + Chia Seeds + Flax Seeds'
-// }
-// ]
+var products = [{
+  id : '1',
+  name : 'Orange Juice',
+  category : 'pulpyPure',
+  price : '97',
+  bottle_type : '300ml',
+  description : ''
+}, {
+  id : '2',
+  name : 'Red Juice',
+  category : 'dailyDetox',
+  price : '217',
+  bottle_type : '500ml',
+  description : 'Beet root + Carrot + Ginger + Lemon + Apple + Chia Seeds + Flax Seeds'
+}, {
+  id : '3',
+  name : 'Ginger Mint Lemon(From East)',
+  category : 'desiSplash',
+  price : '67',
+  bottle_type : '300ml',
+  description : ''
+}, {
+  id : '4',
+  name : 'Beet Root',
+  category : 'pulpyPure',
+  price : '97',
+  bottle_type : '300ml',
+  description : ''
+}, {
+  id : '5',
+  name : 'Red Juice',
+  category : 'dailyDetox',
+  price : '217',
+  bottle_type : '300ml',
+  description : 'Beet root + Carrot + Ginger + Lemon + Apple + Chia Seeds + Flax Seeds'
+}, {
+  id : '6',
+  name : 'Ginger Mint Lemon(From East)',
+  category : 'pulpyPure',
+  price : '67',
+  bottle_type : '300ml',
+  description : ''
+}, {
+  id : '7',
+  name : 'Blueberry',
+  category : 'exoticDelight',
+  price : '97',
+  bottle_type : '300ml',
+  description : ''
+}, {
+  id : '8',
+  name : 'Red Juice',
+  category : 'dailyDetox',
+  price : '217',
+  bottle_type : '300ml',
+  description : 'Beet root + Carrot + Ginger + Lemon + Apple + Chia Seeds + Flax Seeds'
+}, {
+  id : '9',
+  name : 'Ginger Mint Lemon(From East)',
+  category : 'desiSplash',
+  price : '67',
+  bottle_type : '300ml',
+  description : ''
+}, {
+  id : '10',
+  name : 'Ginger Mint Lemon(From East)',
+  category : 'desiSplash',
+  price : '97',
+  bottle_type : '300ml',
+  description : ''
+}, {
+  id : '11',
+  name : 'Blueberry',
+  category : 'exoticDelight',
+  price : '217',
+  bottle_type : '300ml',
+  description : 'Beet root + Carrot + Ginger + Lemon + Apple + Chia Seeds + Flax Seeds'
+}
+]
 
 var product_categories = {
   pulpyPure : 'Get the real pulp extracted from your favourite fruits. We ensure that the nutrient value of the juice is kept intact, so that you consume the best for your health. With no sugar, water, preservative or chemical in your juice, “Juice with ease” offers you the pure and pulpy juices.',
@@ -379,21 +400,38 @@ var images = ['assets/img/portfolio/portfolio-1.jpg',
 'assets/img/portfolio/portfolio-3.jpg',
 'assets/img/portfolio/portfolio-4.jpg']
 
+images = [
+  'https://letsimagine.in/wp-content/uploads/2017/10/24-carrots-6.png',
+  'https://letsimagine.in/wp-content/uploads/2017/10/berry-go-round-3.png',
+  'https://letsimagine.in/wp-content/uploads/2017/10/citrus_burst-3.png',
+  'https://letsimagine.in/wp-content/uploads/2017/10/green-day-3.png',
+  'https://letsimagine.in/wp-content/uploads/2017/10/heart-beet-3.png',
+  'https://letsimagine.in/wp-content/uploads/2017/10/green-day-3.png',
+  'https://letsimagine.in/wp-content/uploads/2017/10/what-a-melon-1.png',
+  'https://letsimagine.in/wp-content/uploads/2017/10/24-carrots-6.png',
+  'https://letsimagine.in/wp-content/uploads/2017/10/what-a-melon-1.png',
+  'https://letsimagine.in/wp-content/uploads/2017/10/citrus_burst-3.png',
+  'https://letsimagine.in/wp-content/uploads/2017/10/what-a-melon-1.png'
+]
+
+for (var i in products) {
+  products[i]['image'] = images[i];
+}
+
 var container = document.getElementsByClassName('portfolio-container')[0];
 if (container != undefined) {
   for (var i in products) {
     container.innerHTML += `<div class="col-lg-4 col-md-6 portfolio-item ${products[i].category}">
-  <div class="portfolio-wrap">
-    <img src=${images[i]} class="img-fluid" alt="">
+  <div onclick="productDetails(event, ${products[i].id})" class="portfolio-wrap">
+    <img src=${products[i].image} class="img-fluid" alt="">
     <div class="portfolio-info">
       <h4>${products[i].name}</h4>
-      <p>${products[i].category}</p>
-      <div class="portfolio-links">
-        <a href=${images[i]} data-gall="portfolioGallery" class="venobox" title="Card 2"><i class="bx bx-plus"></i></a>
-        <a title="More Details"><i class="bx bx-link details" onclick="productDetails(event, ${products[i].id})"></i></a>
-        <a title="Add to cart"><i class="bx bxs-cart" onclick="addToCart(event, ${products[i].id})"></i></a>
-      </div>
+      <p class="productCategory">${products[i].category}</p>
+      <p>${products[i].description}</p>
     </div>
+  </div>
+  <div class="addCart">
+    <button onclick="addToCart(event, ${products[i].id})" class="btn btn-warning"><strong>ADD TO CART</strong>&nbsp; <i class="fas fa-shopping-cart"></i></button>
   </div>
   </div>`
   }
@@ -402,7 +440,7 @@ if (container != undefined) {
 var cart = document.getElementById('cart');
 if (cart != null) {
   cart.addEventListener('click', () => {
-    var queryString = "?cartList=" + cartList;
+    var queryString = "?cartList=" + JSON.parse(localStorage.getItem('cartList')) + "&products=" + JSON.stringify(products);
     window.location.href = "checkout.html" + queryString;
   })
 }
@@ -432,6 +470,7 @@ var category_description = document.getElementById('category_description');
 var price = document.getElementById('price');
 var description = document.getElementById('description');
 var category1 = document.getElementById('category1');
+var productPic = document.getElementsByClassName('portfolio-details-carousel')[0];
 
 if (namee != null) {
   namee.innerHTML = product.name + " [" + product.bottle_type + "]";
@@ -450,4 +489,11 @@ if (price != null) {
 }
 if (category1 != null) {
   category1.innerHTML = categories[product.category]
+}
+if (productPic != null) {
+  //productPic.setAttribute('src', product.image);
+  var img = document.createElement('img');
+  img.setAttribute('src', product.image);
+  img.setAttribute('class', 'img-fluid');
+  productPic.appendChild(img);
 }
