@@ -11,7 +11,6 @@ urlpatterns = [
     path("shop/",views.getShop,name= "shop"),
     path("mycart/",views.getCart,name= "cart"),
     path("myprofile/",views.getProfile,name= "user"),
-    
     path("user/",views.getUser,name= "user1"),
     path("checkout/",views.getCheckout,name= "checkout"),
     path("productdet/",views.getProductDet,name= "productdet"),

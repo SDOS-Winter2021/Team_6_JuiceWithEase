@@ -32,7 +32,7 @@ def getContactUs(request):
 def getSubscribe(request):
     context = {}
     return render(request,'base/subscribe.html',context)
- 
+
 def getShop(request):
     context = {}
     return render(request,'base/shop.html',context)
