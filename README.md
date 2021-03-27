@@ -94,8 +94,8 @@ Low Priority Features
   - Subscription can be cancelled at least 2 days in advance
   - After cancellation, a refund is initiated if the order was already paid for.
 
-### <span style="color: grey"> Store Admin Features </span>
 
+### <span style="color: grey"> Super Admin Features </span>
 Medium Priority Features
 
 - View orders (to-be-served)
@@ -111,12 +111,8 @@ Medium Priority Features
 - View Customer feedback
   - The admin can see the list of user feedbacks that were submitted corresponding to the orders served by that store.
 
-### <span style="color: grey"> Super Admin Features </span>
-
 Low Priority Features
 
-- View Orders of all stores
-  - The super admin should see the order details corresponding to the store that order has to be served by.
 - View all user information
   - The super admin should see the user Ids and their order histories.
 - Adding of new pincodes and stores
