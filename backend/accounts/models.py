@@ -54,5 +54,5 @@ class UserAccount(AbstractBaseUser,PermissionsMixin):
     def __str__(self):
         return self.email
 
-class Store_Admin(UserAccount):
-    Store_id = models.ForeignKey(Store,on_delete=models.CASCADE)
+# class Store_Admin(UserAccount):
+#     Store_id = models.ForeignKey(Store,on_delete=models.CASCADE)
