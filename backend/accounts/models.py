@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser,PermissionsMixin,BaseUserManager
-#from stores.models import *
-# Create your models here.
+#from stores.models import *# Create your models here.
 
 class UserAccountManager(BaseUserManager):
     def create_user(self,email,password=None,**other_fields):
@@ -53,6 +52,3 @@ class UserAccount(AbstractBaseUser,PermissionsMixin):
 
     def __str__(self):
         return self.email
-
-# class Store_Admin(UserAccount):
-#     Store_id = models.ForeignKey(Store,on_delete=models.CASCADE)
