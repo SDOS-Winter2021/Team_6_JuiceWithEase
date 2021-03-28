@@ -1,7 +1,9 @@
-console.log(localStorage.getItem('cartList'));
+if (!localStorage.getItem('cartList')) {
+  console.log(localStorage.getItem('cartList'));
+  console.log(JSON.parse(localStorage.getItem('cartList')));
+  var c = JSON.parse(localStorage.getItem('cartList')).length;
+}
 var count = document.getElementById('count');
-console.log(JSON.parse(localStorage.getItem('cartList')));
-var c = JSON.parse(localStorage.getItem('cartList')).length;
 if (count != null) {
   count.innerHTML = c;
 }
