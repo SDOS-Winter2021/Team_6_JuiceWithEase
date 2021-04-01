@@ -14,7 +14,10 @@ class Order(models.Model):
     deliveredAt = models.DateTimeField(
         auto_now_add=False, null=True, blank=True)
     createdAt = models.DateTimeField(auto_now_add=True)
+    # timeSlot = models.TimeField()
+    # deliveryDate = models.DateTimeField()
     _id = models.AutoField(primary_key=True, editable=False)
+
 
     def __str__(self):
         return str(self.createdAt)
@@ -26,7 +29,6 @@ class OrderItem(models.Model):
     qty = models.IntegerField(null=True, blank=True, default=0)
     price = models.DecimalField(
         max_digits=7, decimal_places=2, null=True, blank=True)
-    image = models.CharField(max_length=200, null=True, blank=True)
     _id = models.AutoField(primary_key=True, editable=False)
 
     def __str__(self):
