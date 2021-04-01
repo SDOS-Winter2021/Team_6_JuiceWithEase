@@ -1,7 +1,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
-  background-color: #f9ca47;
+  background-color: white;
 }
 
 a {
@@ -722,7 +722,7 @@ section {
 
 .portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active {
   color: #151515;
-  background: red;
+  background: #f8be45;
 }
 
 .portfolio #portfolio-flters li:last-child {
@@ -1538,4 +1538,34 @@ section {
 
 .bxs-cart:hover {
   cursor: pointer;
+}
+
+.portfolio-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color:white !important;
+  cursor: pointer;
+}
+
+.addCart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.productCategory {
+  margin-bottom: 10px !important;
+}
+
+.portfolio-details-carousel {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.similar {
 }

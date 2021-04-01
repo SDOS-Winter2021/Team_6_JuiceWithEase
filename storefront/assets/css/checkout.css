@@ -12,3 +12,24 @@ body {
 .minus:hover {
   cursor: pointer;
 }
+
+.productPic {
+  max-height: 100px;
+  width: auto;
+}
+
+textarea {
+  margin-bottom: 20px !important;
+}
+
+#datetimeline {
+  margin-top: -40px;
+}
+
+#datetime {
+  width: 100%;
+  border: 1px solid lightgray;
+  padding: 7px;
+  border-radius: 5px;
+  color: grey;
+}

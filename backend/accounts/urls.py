@@ -1,7 +1,6 @@
 from django.urls import path
-from accounts.views import *
+from . import views 
 
 urlpatterns = [
-#     path('register/',UserRegistrationView,name="register"),
-#     path('login/',UserLoginView,name="login"),
+    path('activate/<str:uid>/<str:token>',views.getActivation)
 ]
