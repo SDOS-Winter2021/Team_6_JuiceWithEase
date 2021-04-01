@@ -2,7 +2,14 @@ var c = 0;
 var subtotal = document.getElementById('subtotal');
 var total = document.getElementById('total');
 
-subtract = (e) => {
+var city = document.getElementById('city');
+var pincode = document.getElementById('pincode');
+var address = document.getElementById('address');
+
+var datetime = document.getElementById('datetime');
+var warning = document.getElementById('warning');
+
+subtract = (e, id) => {
     var minus = e.target;
     var number = minus.parentElement.nextElementSibling;
     number = number.childNodes[0].innerHTML;
@@ -10,11 +17,19 @@ subtract = (e) => {
     if (number > 1) {
         minus.parentElement.nextElementSibling.childNodes[0].innerHTML = number-1;
         var price = minus.parentElement.parentElement.previousElementSibling.childNodes[0].innerHTML;
-    minus.parentElement.parentElement.previousElementSibling.childNodes[0].innerHTML = parseFloat(price)-parseFloat(price)/x;
+        minus.parentElement.parentElement.previousElementSibling.childNodes[0].innerHTML = parseFloat(price)-parseFloat(price)/x;
+        for (var i in cartProducts) {
+            if (cartProducts[i]['id'] == id) {
+                cartProducts[i]['quantity'] = parseInt(cartProducts[i]['quantity']) - 1;
+            }
+        }
+        c = parseFloat(c) - parseFloat(price)/x;
+        total.innerHTML = c;
+        subtotal.innerHTML = c;
     }
 }
 
-add = (e) => {
+add = (e, id) => {
     var add = e.target;
     var number = add.parentElement.previousElementSibling;
     number = parseInt(number.childNodes[0].innerHTML);
@@ -22,6 +37,14 @@ add = (e) => {
     add.parentElement.previousElementSibling.childNodes[0].innerHTML = number+1;
     var price = add.parentElement.parentElement.previousElementSibling.childNodes[0].innerHTML;
     add.parentElement.parentElement.previousElementSibling.childNodes[0].innerHTML = parseFloat(price) + parseFloat(price)/x;
+    for (var i in cartProducts) {
+        if (cartProducts[i]['id'] == id) {
+            cartProducts[i]['quantity'] = parseInt(cartProducts[i]['quantity']) + 1;
+        }
+    }
+    c = parseFloat(c) + parseFloat(price)/x;
+    total.innerHTML = c;
+    subtotal.innerHTML = c;
 }
 
 del = (e, id) => {
@@ -142,7 +165,15 @@ for (var i in cartList) {
         }
     }
 }
+for (var i in cartProducts) {
+    cartProducts[i]['quantity'] = 1;
+}
 console.log(cartProducts);
+for (var i in cartProducts) {
+    c = c + parseFloat(cartProducts[i]['price']);
+}
+total.innerHTML = c;
+subtotal.innerHTML = c;
 
 var table = document.getElementsByClassName('list_of_products')[0];
 for (var i in cartProducts) {
@@ -159,12 +190,46 @@ for (var i in cartProducts) {
             </div>
         </div>
         </th>
-        <td class="border-0 align-middle"><strong>${cartProducts[i].price}</strong></td>
+        <td class="border-0 align-middle"><strong class="itemCost">${cartProducts[i].price}</strong></td>
         <td class="border-0 align-middle">
-        <span class="minus" onclick="subtract(event)"><strong>- &nbsp;&nbsp;</strong></span>
+        <span class="minus" onclick="subtract(event, ${cartProducts[i].id})"><strong>- &nbsp;&nbsp;</strong></span>
         <span><strong> 1 </strong></span>
-        <span class="plus" onclick="add(event)"><strong>&nbsp;&nbsp; +</strong></span>
+        <span class="plus" onclick="add(event, ${cartProducts[i].id})"><strong>&nbsp;&nbsp; +</strong></span>
         </td>
         <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash" onclick="del(event, ${cartProducts[i].id})"></i></a></td>
     </tr>`
+}
+
+function checkoutButton() {
+    checkoutObject = {};
+    checkoutObject.shippingAddress = {}
+    checkoutObject.shippingAddress.address = address.value;
+    checkoutObject.shippingAddress.city = city.value;
+    checkoutObject.shippingAddress.pincode = pincode.value;
+    checkoutObject.order = {};
+    checkoutObject.order.paymentMethod = 'COD';
+    checkoutObject.order.datetime = datetime.value;
+    checkoutObject.orderItems = [];
+    for (var i in cartProducts) {
+        temp = [];
+        temp.push(cartProducts[i]['id']);
+        temp.push(cartProducts[i]['quantity']);
+        checkoutObject.orderItems.push(temp);
+    }
+    console.log(checkoutObject);
+    fetch('http://localhost:8000/orders/checkout/', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(checkoutObject),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        window.location.href = "";
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 }
