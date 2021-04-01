@@ -1778,3 +1778,7 @@ a.article:hover {
   cursor: pointer;
   color: #f8c450;
 }
+
+#userPage {
+  cursor: pointer;
+}
