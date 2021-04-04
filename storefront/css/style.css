@@ -1743,7 +1743,7 @@ a.article:hover {
   font-weight: 500;
 }
 .yellow_bg {
-  background-color: #e3d105;
+  background-color: #f8c450;
   padding: 40px 0px;
   margin-top: 90px;
 }
@@ -1763,11 +1763,6 @@ a.article:hover {
 }
 .blog_page .blog span {
   padding-top: 15px;
-}
-.yellow_bg .title h2 {
-  font-weight: bold;
-  color: #fff;
-  font-weight: 500;
 }
 
 #productPage {
