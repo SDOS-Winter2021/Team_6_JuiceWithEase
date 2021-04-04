@@ -9,12 +9,12 @@ getProducts().then(data => {
     productTable = data;
     console.log(productTable);
     productTable = JSON.stringify(productTable);
+    localStorage.setItem('productTable', productTable);
 })
 
 var productPage = document.getElementById('productPage');
 productPage.addEventListener('click', () => {
-    var queryString = "?productTable=" + productTable;
-    window.location.href = "products.html" + queryString;
+    window.location.href = "products.html";
 });
 
 var userPage = document.getElementById('userPage');
