@@ -1,3 +1,4 @@
+var c = 0;
 if (localStorage.getItem('cartList')) {
   console.log(localStorage.getItem('cartList'));
   console.log(JSON.parse(localStorage.getItem('cartList')));
@@ -9,7 +10,6 @@ if (count != null) {
 }
 !(function($) {
   "use strict";
-  // Preloader
   $(window).on('load', function() {
     if ($('#preloader').length) {
       $('#preloader').delay(100).fadeOut('slow', function() {
@@ -259,10 +259,12 @@ console.log(queryString);
 if (queryString.substring(0, 12) == 'productTable') {
   var productTable = JSON.parse(queryString.substring(13));
   console.log(productTable);
-} else {
+} else if (queryString.substring(0, 8) == 'products'){
   console.log(queryString);
   var product = JSON.parse(queryString.substring(8,));
   console.log(product);
+} else {
+
 }
 
 var categories = {
@@ -442,8 +444,37 @@ if (container != undefined) {
 var cart = document.getElementById('cart');
 if (cart != null) {
   cart.addEventListener('click', () => {
-    var queryString = "?cartList=" + JSON.parse(localStorage.getItem('cartList')) + "&products=" + JSON.stringify(products);
-    window.location.href = "checkout.html" + queryString;
+    if (localStorage.getItem('cartProducts')) {
+      var cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
+    } else {
+      var cartProducts = []
+    }
+    cartList = localStorage.getItem('cartList');
+    var x = 0;
+    for (var i in cartList) {
+      var a = JSON.parse(localStorage.getItem('cartProducts'));
+      for (var k in a) {
+        if (a[k]['id'] == cartList[i]) {
+          x = 1;
+        }
+      }
+      if (x==1) {
+        continue;
+      }
+      for (var j in products) {
+          if (products[j].id == cartList[i]) {
+              cartProducts.push(products[j]);
+          }
+      }
+    }
+    for (var i in cartProducts) {
+        if (!cartProducts[i].quantity) {
+          cartProducts[i]['quantity'] = 1;
+        }
+    }
+    localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+    localStorage.setItem('products', JSON.stringify(products));
+    window.location.href = "checkout.html";
   })
 }
 

@@ -1,4 +1,3 @@
-var c = 0;
 var subtotal = document.getElementById('subtotal');
 var total = document.getElementById('total');
 
@@ -8,6 +7,16 @@ var address = document.getElementById('address');
 
 var datetime = document.getElementById('datetime');
 var warning = document.getElementById('warning');
+
+function calculatePrice() {
+    var c = 0;
+    var arr = JSON.parse(localStorage.getItem('cartProducts'));
+    for (var i in arr) {
+        c = c + arr[i].quantity*arr[i].price;
+    }
+    return c;
+}
+var c = calculatePrice();
 
 subtract = (e, id) => {
     var minus = e.target;
@@ -21,6 +30,7 @@ subtract = (e, id) => {
         for (var i in cartProducts) {
             if (cartProducts[i]['id'] == id) {
                 cartProducts[i]['quantity'] = parseInt(cartProducts[i]['quantity']) - 1;
+                localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
             }
         }
         c = parseFloat(c) - parseFloat(price)/x;
@@ -40,6 +50,7 @@ add = (e, id) => {
     for (var i in cartProducts) {
         if (cartProducts[i]['id'] == id) {
             cartProducts[i]['quantity'] = parseInt(cartProducts[i]['quantity']) + 1;
+            localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
         }
     }
     c = parseFloat(c) + parseFloat(price)/x;
@@ -57,88 +68,17 @@ del = (e, id) => {
     }
     localStorage.setItem('cartList', JSON.stringify(temp));
     var row = e.target.parentElement.parentElement.parentElement;
+    for (var i in cartProducts) {
+        if (cartProducts[i]['id'] == id) {
+            cartProducts.splice(i, 1);
+            localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+        }
+    }
     row.remove();
+    c = calculatePrice();
+    total.innerHTML = c;
+    subtotal.innerHTML = c;
 }
-
-// var products = [{
-//     id : '1',
-//     name : 'Orange Juice',
-//     category : 'pulpyPure',
-//     price : '97',
-//     bottle_type : '300ml',
-//     description : ''
-//   }, {
-//     id : '2',
-//     name : 'Red Juice',
-//     category : 'dailyDetox',
-//     price : '217',
-//     bottle_type : '500ml',
-//     description : 'Beet root + Carrot + Ginger + Lemon + Apple + Chia Seeds + Flax Seeds'
-//   }, {
-//     id : '3',
-//     name : 'Ginger Mint Lemon(From East)',
-//     category : 'desiSplash',
-//     price : '67',
-//     bottle_type : '300ml',
-//     description : ''
-//   }, {
-//     id : '4',
-//     name : 'Beet Root',
-//     category : 'pulpyPure',
-//     price : '97',
-//     bottle_type : '300ml',
-//     description : ''
-//   }, {
-//     id : '5',
-//     name : 'Red Juice',
-//     category : 'dailyDetox',
-//     price : '217',
-//     bottle_type : '300ml',
-//     description : 'Beet root + Carrot + Ginger + Lemon + Apple + Chia Seeds + Flax Seeds'
-//   }, {
-//     id : '6',
-//     name : 'Ginger Mint Lemon(From East)',
-//     category : 'pulpyPure',
-//     price : '67',
-//     bottle_type : '300ml',
-//     description : ''
-//   }, {
-//     id : '7',
-//     name : 'Blueberry',
-//     category : 'exoticDelight',
-//     price : '97',
-//     bottle_type : '300ml',
-//     description : ''
-//   }, {
-//     id : '8',
-//     name : 'Red Juice',
-//     category : 'dailyDetox',
-//     price : '217',
-//     bottle_type : '300ml',
-//     description : 'Beet root + Carrot + Ginger + Lemon + Apple + Chia Seeds + Flax Seeds'
-//   }, {
-//     id : '9',
-//     name : 'Ginger Mint Lemon(From East)',
-//     category : 'desiSplash',
-//     price : '67',
-//     bottle_type : '300ml',
-//     description : ''
-//   }, {
-//     id : '10',
-//     name : 'Ginger Mint Lemon(From East)',
-//     category : 'desiSplash',
-//     price : '97',
-//     bottle_type : '300ml',
-//     description : ''
-//   }, {
-//     id : '11',
-//     name : 'Blueberry',
-//     category : 'exoticDelight',
-//     price : '217',
-//     bottle_type : '300ml',
-//     description : 'Beet root + Carrot + Ginger + Lemon + Apple + Chia Seeds + Flax Seeds'
-//   }
-//   ]
   
   var product_categories = [{
     PulpyPure : 'Get the real pulp extracted from your favourite fruits. We ensure that the nutrient value of the juice is kept intact, so that you consume the best for your health. With no sugar, water, preservative or chemical in your juice, “Juice with ease” offers you the pure and pulpy juices.',
@@ -147,31 +87,10 @@ del = (e, id) => {
     ExoticDelight : 'There is a lot more to explore in healthy beverages, hence we offer you a selected range of juices made from “Exotic” fruits.  Enjoy the real taste of the fruit in its juicy form. Get health benefits from their nutrient contents (include antioxidant properties, have phytonutrients and others)'
   }]
 
-var queryString = decodeURIComponent(window.location.search);
-queryString = queryString.substring(1);
-var queries = queryString.split("&");
-//var cartList = queries[0].substring(9,).split(',');
-var products = JSON.parse(queries[1].substring(9,));
-//var cartList = queryString.substring(9,).split(',');
 var cartList = JSON.parse(localStorage.getItem('cartList'));
-console.log(cartList);
-console.log(products);
+var products = JSON.parse(localStorage.getItem('products'));
+var cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
 
-cartProducts = []
-for (var i in cartList) {
-    for (var j in products) {
-        if (products[j].id == cartList[i]) {
-            cartProducts.push(products[j]);
-        }
-    }
-}
-for (var i in cartProducts) {
-    cartProducts[i]['quantity'] = 1;
-}
-console.log(cartProducts);
-for (var i in cartProducts) {
-    c = c + parseFloat(cartProducts[i]['price']);
-}
 total.innerHTML = c;
 subtotal.innerHTML = c;
 
@@ -190,10 +109,10 @@ for (var i in cartProducts) {
             </div>
         </div>
         </th>
-        <td class="border-0 align-middle"><strong class="itemCost">${cartProducts[i].price}</strong></td>
+        <td class="border-0 align-middle"><strong class="itemCost">${cartProducts[i].price * cartProducts[i].quantity}</strong></td>
         <td class="border-0 align-middle">
         <span class="minus" onclick="subtract(event, ${cartProducts[i].id})"><strong>- &nbsp;&nbsp;</strong></span>
-        <span><strong> 1 </strong></span>
+        <span><strong> ${cartProducts[i].quantity} </strong></span>
         <span class="plus" onclick="add(event, ${cartProducts[i].id})"><strong>&nbsp;&nbsp; +</strong></span>
         </td>
         <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash" onclick="del(event, ${cartProducts[i].id})"></i></a></td>
