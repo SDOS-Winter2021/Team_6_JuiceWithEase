@@ -11,7 +11,7 @@ They can then proceed to checkout and pay using multiple payment options. The we
 
 ## <span style="color:darkgrey">Entity Relationship Diagram </span>
 
-![alt text](Technical Documents/ERD.png "ERD")
+![alt text](Technical&#32Documents/ERD.png "ERD")
 [ERD Diagram](https://app.moqups.com/e8iFpgsYVG/view/page/a9222f231)
 
 ## <span style="color:darkgrey">User Journey </span>
