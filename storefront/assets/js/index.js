@@ -87,10 +87,18 @@ $(document).ready(function () {
     setWithExpiry('Pincode_Popup', 'true', 360000000);
 });
 
+document.querySelector('.carousal-pincode').addEventListener("click", function() {
+    popup_model.style.display = "flex";
+    main_layout.style.overflow = 'hidden';
+});
+
 //Popup close
-document.querySelector('.popup-close').addEventListener("click", function() {
-    popup_model.style.display = "none";
-    main_layout.style.overflow = 'visible';
+document.querySelector('.popup-close').addEventListener("click", function () {
+    document.getElementById("pincode").value = "";
+        popup_error.style.display = "none";
+        popup_tick.style.display = "none";
+        popup_model.style.display = "none";
+        main_layout.style.overflow = 'visible';
 
 });
 
@@ -113,5 +121,4 @@ form.addEventListener('submit', event => {
 
     }, 1200)
     event.preventDefault();
-    
 })
