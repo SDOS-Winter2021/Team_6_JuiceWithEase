@@ -11,12 +11,12 @@ They can then proceed to checkout and pay using multiple payment options. The we
 
 ## <span style="color:darkgrey">Entity Relationship Diagram </span>
 
-![alt text](Technical-Documents/ERD.png "ERD")
+![alt text](Technical%20Documents/ERD.png "ERD")
 [ERD Diagram](https://app.moqups.com/e8iFpgsYVG/view/page/a9222f231)
 
 ## <span style="color:darkgrey">User Journey </span>
 
-![alt text](Technical-Documents/user_journey.png "User_Journey")
+![alt text](Technical%20Documents/user_journey.png "User_Journey")
 [User Journey](https://lucid.app/lucidchart/8c403b1a-4229-4709-ba27-fa7b3375018c/view?page=bH3tPkT6qkiv#?folder_id=home&browser=icon)
 
 ## <span style="color:darkgrey"> Feature Requirements </span>
@@ -146,7 +146,7 @@ Low Priority Features
 - A third party service would be used for processing payments.
   Google Account Authentication is used for sign-up/sign-in.
 
-![alt text](Technical-Documents/architecture.png "Arch")
+![alt text](Technical%20Documents/architecture.png "Arch")
 
 ## <span style="color:grey"> Architecture Attributes </span>
 
