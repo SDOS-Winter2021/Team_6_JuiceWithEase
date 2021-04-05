@@ -4,17 +4,20 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 
-from base.models import Product, Order, OrderItem, ShippingAddress
-from base.serializers import ProductSerializer, OrderSerializer
+from base.models import Product
+from .models import Order, OrderItem, ShippingAddress
+from base.serializer import ProductSerializer
+from .serializers import  OrderSerializer
 
 from rest_framework import status
 from datetime import datetime
 
 @api_view(['POST'])
+# @permission_classes([IsAuthenticated])
 def addOrderItems(request):
     user = request.user
     data = request.data
-
+    
     orderItems = data['orderItems']
 
     if orderItems and len(orderItems) == 0:
@@ -25,8 +28,8 @@ def addOrderItems(request):
 
         order = Order.objects.create(
             user=user,
-            paymentMethod=data['paymentMethod'],
-            totalPrice=data['totalPrice']
+            paymentMethod=data['order']['paymentMethod'],
+            totalPrice=0
         )
 
         # (2) Create shipping address
@@ -35,27 +38,26 @@ def addOrderItems(request):
             order=order,
             address=data['shippingAddress']['address'],
             city=data['shippingAddress']['city'],
-            pinCode=data['shippingAddress']['pinCode'],
-            country=data['shippingAddress']['country'],
+            pinCode=data['shippingAddress']['pincode'],
         )
 
-        # (3) Create order items adn set order to orderItem relationship
-        for i in orderItems:
-            product = Product.objects.get(_id=i['product'])
+        # (3) Create order items and set order to orderItem relationship
 
+        total_price = 0    
+        for i in orderItems:
+            product = Product.objects.get(_id=int(i[0]))
+            price = i[1]*product.price
             item = OrderItem.objects.create(
                 product=product,
                 order=order,
-                name=product.name,
-                qty=i['qty'],
-                price=i['price'],
-                image=product.image.url,
+                # name=product.name,
+                qty=i[1],
+                price=price,
             )
-
-            # (4) Update stock
-
-            product.countInStock -= item.qty
-            product.save()
+            total_price+=price
+        # Updating the total_price
+        order.totalPrice = total_price
+        order.save(update_fields=['totalPrice'])
 
         serializer = OrderSerializer(order, many=False)
         return Response(serializer.data)

@@ -7,7 +7,7 @@ User = get_user_model()
 class UserCreateSerializer(UserCreateSerializer):
     class Meta(UserCreateSerializer.Meta):
         model = User
-        fields = ('id','email','first_name','last_name','phone','password')
+        fields = ('_id','email','first_name','last_name','phone','password')
 
 class UserSerializer(serializers.ModelSerializer):
     name = serializers.SerializerMethodField(read_only=True)
@@ -16,7 +16,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['id', 'email', 'name','phone', 'isAdmin']
+        fields = ['_id', 'email', 'name','phone', 'isAdmin']
 
     def get__id(self, obj):
         return obj.id

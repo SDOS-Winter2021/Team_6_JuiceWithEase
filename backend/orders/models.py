@@ -32,7 +32,7 @@ class OrderItem(models.Model):
     _id = models.AutoField(primary_key=True, editable=False)
 
     def __str__(self):
-        return str(self.name)
+        return str(self.product.name)
 
 class ShippingAddress(models.Model):
     order = models.OneToOneField(
