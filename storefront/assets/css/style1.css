@@ -13,7 +13,12 @@ a:hover {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Raleway", sans-serif;
 }
 
@@ -92,14 +97,15 @@ h1, h2, h3, h4, h5, h6 {
     transition-delay: 0 !important;
   }
 }
-
+/* 
 #header {
   transition: all 0.5s;
   z-index: 997;
   padding: 15px 0;
 }
 
-#header.header-scrolled, #header.header-inner-pages {
+#header.header-scrolled,
+#header.header-inner-pages {
   background: rgba(0, 0, 0, 0.8);
 }
 
@@ -123,8 +129,8 @@ h1, h2, h3, h4, h5, h6 {
 
 #header .logo img {
   max-height: 40px;
-}
-
+} */
+/* 
 .nav-menu ul {
   margin: 0;
   padding: 0;
@@ -151,7 +157,9 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
-.nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+.nav-menu a:hover,
+.nav-menu .active > a,
+.nav-menu li:hover > a {
   color: #ffc451;
 }
 
@@ -188,7 +196,9 @@ h1, h2, h3, h4, h5, h6 {
   color: #151515;
 }
 
-.nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
+.nav-menu .drop-down ul a:hover,
+.nav-menu .drop-down ul .active > a,
+.nav-menu .drop-down ul li:hover > a {
   color: #151515;
   background: #ffc451;
 }
@@ -230,30 +240,6 @@ h1, h2, h3, h4, h5, h6 {
   }
   .nav-menu .drop-down .drop-down > a:after {
     content: "\ea9d";
-  }
-}
-
-/* Get Startet Button */
-.get-started-btn {
-  color: #fff;
-  border-radius: 4px;
-  padding: 7px 25px 8px 25px;
-  white-space: nowrap;
-  transition: 0.3s;
-  font-size: 14px;
-  display: inline-block;
-  border: 2px solid #ffc451;
-}
-
-.get-started-btn:hover {
-  background: #ffbb38;
-  color: #343a40;
-}
-
-@media (max-width: 768px) {
-  .get-started-btn {
-    margin: 0 48px 0 0;
-    padding: 7px 20px 8px 20px;
   }
 }
 
@@ -307,7 +293,9 @@ h1, h2, h3, h4, h5, h6 {
   outline: none;
 }
 
-.mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {
+.mobile-nav a:hover,
+.mobile-nav .active > a,
+.mobile-nav li:hover > a {
   color: #151515;
   text-decoration: none;
   background: #ffc451;
@@ -363,6 +351,7 @@ h1, h2, h3, h4, h5, h6 {
 .mobile-nav-active .mobile-nav-toggle i {
   color: #fff;
 }
+*/
 
 #hero {
   width: 100%;
@@ -554,7 +543,8 @@ section {
   opacity: 1;
 }
 
-.clients .owl-nav, .clients .owl-dots {
+.clients .owl-nav,
+.clients .owl-dots {
   margin-top: 5px;
   text-align: center;
 }
@@ -660,7 +650,8 @@ section {
 }
 
 .cta {
-  background: linear-gradient(rgba(2, 2, 2, 0.5), rgba(0, 0, 0, 0.5)), url("../img/cta-bg.jpg") fixed center center;
+  background: linear-gradient(rgba(2, 2, 2, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../img/cta-bg.jpg") fixed center center;
   background-size: cover;
   padding: 60px 0;
 }
@@ -720,7 +711,8 @@ section {
   border-radius: 3px;
 }
 
-.portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active {
+.portfolio #portfolio-flters li:hover,
+.portfolio #portfolio-flters li.filter-active {
   color: #151515;
   background: #f8be45;
 }
@@ -939,7 +931,8 @@ section {
   margin: 0 0 15px 0;
 }
 
-.testimonials .testimonial-item .quote-icon-left, .testimonials .testimonial-item .quote-icon-right {
+.testimonials .testimonial-item .quote-icon-left,
+.testimonials .testimonial-item .quote-icon-right {
   color: rgba(255, 255, 255, 0.6);
   font-size: 26px;
 }
@@ -963,7 +956,8 @@ section {
   color: #eee;
 }
 
-.testimonials .owl-nav, .testimonials .owl-dots {
+.testimonials .owl-nav,
+.testimonials .owl-dots {
   margin-top: 5px;
   text-align: center;
 }
@@ -1114,7 +1108,8 @@ section {
   color: #484848;
 }
 
-.contact .info .email, .contact .info .phone {
+.contact .info .email,
+.contact .info .phone {
   margin-top: 40px;
 }
 
@@ -1177,14 +1172,16 @@ section {
   animation: animate-loading 1s linear infinite;
 }
 
-.contact .php-email-form input, .contact .php-email-form textarea {
+.contact .php-email-form input,
+.contact .php-email-form textarea {
   border-radius: 0;
   box-shadow: none;
   font-size: 14px;
   border-radius: 4px;
 }
 
-.contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
+.contact .php-email-form input:focus,
+.contact .php-email-form textarea:focus {
   border-color: #ffc451;
 }
 
@@ -1292,7 +1289,8 @@ section {
   z-index: 1;
 }
 
-.portfolio-details .portfolio-details-carousel .owl-nav, .portfolio-details .portfolio-details-carousel .owl-dots {
+.portfolio-details .portfolio-details-carousel .owl-nav,
+.portfolio-details .portfolio-details-carousel .owl-dots {
   margin-top: 5px;
   text-align: left;
 }
@@ -1362,11 +1360,11 @@ section {
     margin-top: 30px;
   }
 }
-
+/* 
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
-#footer {
+/* #footer {
   background: black;
   padding: 0 0 30px 0;
   color: #fff;
@@ -1514,7 +1512,7 @@ section {
   text-align: center;
   font-size: 13px;
   color: #fff;
-}
+}  */
 
 .portfolio {
   margin-top: 25px;
@@ -1545,7 +1543,7 @@ section {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color:white !important;
+  background-color: white !important;
   cursor: pointer;
 }
 
