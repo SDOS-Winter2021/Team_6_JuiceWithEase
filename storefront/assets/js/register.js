@@ -14,7 +14,7 @@ signup = (e) => {
         'password' : password.value,
         're_password' : confirm_password.value
     }
-    console.log(data);w
+    console.log(data);
     fetch('http://localhost:8000/auth/users/', {
         method: 'POST',
         headers: {
