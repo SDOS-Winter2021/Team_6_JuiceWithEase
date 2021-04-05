@@ -1518,14 +1518,6 @@ section {
   margin-top: 25px;
 }
 
-#cart {
-  color: black;
-  font-size: 40px;
-  position: fixed;
-  right: 10px;
-  top: 20px;
-}
-
 #count {
   color: red;
   font-size: 20px;
@@ -1565,5 +1557,6 @@ section {
   align-items: center;
 }
 
-.similar {
+.cart {
+  cursor: pointer;
 }

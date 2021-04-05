@@ -87,6 +87,12 @@ $(document).ready(function () {
     setWithExpiry('Pincode_Popup', 'true', 360000000);
 });
 
+// <<<<<<< soumyadeep1
+// //Popup close
+// document.querySelector('.popup-close').addEventListener("click", function() {
+//     popup_model.style.display = "none";
+//     main_layout.style.overflow = 'visible';
+// =======
 document.querySelector('.carousal-pincode').addEventListener("click", function() {
     popup_model.style.display = "flex";
     main_layout.style.overflow = 'hidden';
@@ -99,6 +105,7 @@ document.querySelector('.popup-close').addEventListener("click", function () {
         popup_tick.style.display = "none";
         popup_model.style.display = "none";
         main_layout.style.overflow = 'visible';
+// >>>>>>> main
 
 });
 
