@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
 @import url("https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
 /*--------------------------------------------------------------------- basic ---------------------------------------------------------------------*/
+
 body {
   color: #666666;
   font-size: 14px;
@@ -170,36 +171,6 @@ button {
   margin: 0;
   padding: 0;
 }
-
-/*--------------------------------------------------------------
-# Back to top button
---------------------------------------------------------------*/
-/* .back-to-top {
-  position: fixed;
-  display: none;
-  right: 15px;
-  bottom: 15px;
-  z-index: 99999;
-}
-
-.back-to-top i {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 50px;
-  width: auto; 
-  height: 40px;
-  border-radius: 4px;
-   background: url(../images/orderOnWhatsapp.png)
-  color: #151515;
-  transition: all 0.4s;
-}
-
-.back-to-top i:hover {
-  background: #151515;
-  color: #ffc451;
-  zoom: 1;
-} */
 
 /*--------------------------------------------------------------
 # Header
@@ -598,6 +569,109 @@ a.readmore_bt {
 .loader img {
   width: 280px;
 }
+/*--------------------------------------------------------------------- Popup ---------------------------------------------------------------------*/
+
+.popup-modal {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  overflow-y: hidden;
+}
+.popup-contents {
+  height: 295px;
+  width: 325px;
+
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  text-align: center;
+  padding: 40px;
+  position: relative;
+  border-radius: 20px;
+  border: 2px solid rgb(51, 51, 51);
+}
+
+.popup-input {
+  margin: 10px auto;
+  display: block;
+  width: 55%;
+  padding: 7px;
+  border-radius: 20px;
+  border-color: rgb(100, 90, 90);
+}
+.popup-result-tick {
+  display: none;
+  padding-left: 30px;
+}
+.popup-result-error {
+  display: none;
+  padding-left: 15px;
+}
+
+.popup-icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -17px;
+  transform: scale(1.3);
+}
+.popup-close {
+  position: absolute;
+  top: -13px;
+  right: 10px;
+  font-size: 42px;
+  color: rgb(51, 50, 50);
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+.popup-close span:hover,
+.popup-close span:focus,
+.popup-close span.active {
+  color: rgb(107, 139, 245);
+  transform: scale(1.8);
+}
+
+.btn-hover {
+  width: 150px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 10px;
+  background-size: 300% 100%;
+
+  border-radius: 50px;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.btn-hover:hover {
+  background-position: 100% 0;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.btn-hover:focus {
+  outline: none;
+}
+
+.btn-hover.color-1 {
+  background-image: linear-gradient(
+    to right,
+    #ed6ea0,
+    #ec8c69,
+    #f7186a,
+    #fbb03b
+  );
+  box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+}
+
 /*--------------------------------------------------------------------- header ---------------------------------------------------------------------*/
 header {
   min-height: 90px;
@@ -1505,7 +1579,7 @@ ul.lik li.active a {
 #footer .footer-top .footer-links ul .back-to-top {
   right: 15px;
   bottom: 15px;
-  z-index: 99999;
+  z-index: 99998;
 }
 
 #footer .footer-top .footer-links ul .back-to-top i {
@@ -1598,7 +1672,7 @@ ul.lik li.active a {
   display: none;
   right: 15px;
   bottom: 15px;
-  z-index: 99999;
+  z-index: 99998;
 }
 
 .back-to-top i {
@@ -1743,7 +1817,7 @@ a.article:hover {
   font-weight: 500;
 }
 .yellow_bg {
-  background-color: #e3d105;
+  background-color: #f8c450;
   padding: 40px 0px;
   margin-top: 90px;
 }
@@ -1763,11 +1837,6 @@ a.article:hover {
 }
 .blog_page .blog span {
   padding-top: 15px;
-}
-.yellow_bg .title h2 {
-  font-weight: bold;
-  color: #fff;
-  font-weight: 500;
 }
 
 #productPage {

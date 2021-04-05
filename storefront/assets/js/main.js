@@ -263,8 +263,11 @@ if (queryString.substring(0, 12) == 'productTable') {
   console.log(queryString);
   var product = JSON.parse(queryString.substring(8,));
   console.log(product);
+} else if (queryString.substring(0, 7) == 'product'){
+  var product = JSON.parse(queryString.substring(8,));
+  console.log(product);
 } else {
-
+  
 }
 
 var categories = {
@@ -291,7 +294,6 @@ for (var i in productTable) {
   });
   //console.log(productTable[i]);
 }
-console.log(products);
 
 var products = [{
   id : '1',
@@ -380,31 +382,7 @@ var product_categories = {
   exoticDelight : 'There is a lot more to explore in healthy beverages, hence we offer you a selected range of juices made from “Exotic” fruits.  Enjoy the real taste of the fruit in its juicy form. Get health benefits from their nutrient contents (include antioxidant properties, have phytonutrients and others)'
 }
 
-var images = ['assets/img/portfolio/portfolio-1.jpg', 
-'assets/img/portfolio/portfolio-2.jpg',
-'assets/img/portfolio/portfolio-3.jpg',
-'assets/img/portfolio/portfolio-4.jpg',
-'assets/img/portfolio/portfolio-5.jpg',
-'assets/img/portfolio/portfolio-6.jpg',
-'assets/img/portfolio/portfolio-7.jpg',
-'assets/img/portfolio/portfolio-8.jpg',
-'assets/img/portfolio/portfolio-9.jpg',
-'assets/img/portfolio/portfolio-3.jpg',
-'assets/img/portfolio/portfolio-4.jpg',
-'assets/img/portfolio/portfolio-2.jpg',
-'assets/img/portfolio/portfolio-3.jpg',
-'assets/img/portfolio/portfolio-4.jpg',
-'assets/img/portfolio/portfolio-5.jpg',
-'assets/img/portfolio/portfolio-6.jpg',
-'assets/img/portfolio/portfolio-7.jpg',
-'assets/img/portfolio/portfolio-8.jpg',
-'assets/img/portfolio/portfolio-9.jpg',
-'assets/img/portfolio/portfolio-3.jpg',
-'assets/img/portfolio/portfolio-4.jpg',
-'assets/img/portfolio/portfolio-3.jpg',
-'assets/img/portfolio/portfolio-4.jpg']
-
-images = [
+var images = [
   'https://letsimagine.in/wp-content/uploads/2017/10/24-carrots-6.png',
   'https://letsimagine.in/wp-content/uploads/2017/10/berry-go-round-3.png',
   'https://letsimagine.in/wp-content/uploads/2017/10/citrus_burst-3.png',
@@ -440,8 +418,9 @@ if (container != undefined) {
   </div>`
   }
 }
-
-var cart = document.getElementById('cart');
+console.log(products);
+console.log(JSON.parse(localStorage.getItem('cartList')));
+var cart = document.getElementsByClassName('cart')[0];
 if (cart != null) {
   cart.addEventListener('click', () => {
     if (localStorage.getItem('cartProducts')) {
@@ -449,7 +428,7 @@ if (cart != null) {
     } else {
       var cartProducts = []
     }
-    cartList = localStorage.getItem('cartList');
+    cartList = JSON.parse(localStorage.getItem('cartList'));
     var x = 0;
     for (var i in cartList) {
       var a = JSON.parse(localStorage.getItem('cartProducts'));
@@ -474,6 +453,7 @@ if (cart != null) {
     }
     localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
     localStorage.setItem('products', JSON.stringify(products));
+    console.log(JSON.parse(localStorage.getItem('cartProducts')));
     window.location.href = "checkout.html";
   })
 }

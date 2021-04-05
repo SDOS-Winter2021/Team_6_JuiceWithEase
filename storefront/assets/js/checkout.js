@@ -90,6 +90,7 @@ del = (e, id) => {
 var cartList = JSON.parse(localStorage.getItem('cartList'));
 var products = JSON.parse(localStorage.getItem('products'));
 var cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
+console.log(cartProducts);
 
 total.innerHTML = c;
 subtotal.innerHTML = c;

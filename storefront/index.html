@@ -31,12 +31,36 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
 <!-- body -->
+<!-- Popup Section -->
+<div class="popup-modal">
+    <div class="popup-contents">
+
+        <div class="popup-close"><span>+</span></div>
+        <img class="popup-icon" src="images/home-pincode.png" alt="">
+        <span><h4>Check if we deliver to your location:</h4></span>
+        <form class="pincode-form" action="">
+            <input id="pincode" type="number" autocomplete="postal-code" required class="popup-input" placeholder="Pincode">
+            <button type="submit" accesskey="" class="btn-hover color-1">Check</button>
+        </form>
+        <div class="popup-result-tick">
+            <img style=" height:35px; " src="images/tick.svg" />
+            <span style="margin-top: 4px;"><h4>Delivery Possible!</h4></span>
+        </div>
+        <div class="popup-result-error">
+            <img style=" height:35px; " src="images/error.svg" />
+            <span style="margin-top: 4px;"><h4>Delivery not possible!</h4>
+            </span>
+            </span>
+        </div>
+    </div>
+</div>
+<!--End Popup -->
 
 <body class="main-layout">
     <!-- loader  -->
-    <div class="loader_bg">
+    <!-- <div class="loader_bg">
         <div class="loader"><img src="images/loading.gif" alt="" /></div>
-    </div>
+    </div> -->
 
     <div class="wrapper">
     <!-- end loader -->
@@ -48,9 +72,8 @@
         <div class="container d-flex align-items-center justify-content-between">
     
             <!-- Uncomment below if you prefer to use an image logo -->
-            <a href="index.html" class="logo"><img src="images/bottle.png" alt="" class="img-fluid"><span>  Juice With Ease!</span></a>
+            <a href="index.html" id="popup" class="logo"><img src="images/bottle.png" alt="" class="img-fluid"><span>  Juice With Ease!</span></a>
                 <!-- <h1 class="logo"><a href="index.html"><span>JuiceWithEase</span></a></h1> -->
-
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
                 <li class="active"><a href="index.html">Home</a></li>
@@ -69,7 +92,8 @@
         </div>
     </header><!-- End Header -->
 
-    <!-- end header -->
+
+    
     <!-- start slider section -->
     <div class="slider_section">
         <div class="container">
@@ -175,7 +199,7 @@
             <div class="row">
          <div class="col-md-12">
        <div class="ourheading">
-    <h2>Our Best Sellers</h2>
+        <h2>Our Best Sellers</h2>
   </div>
 </div>    
 <div class="container">
@@ -472,13 +496,13 @@
                         <div class="email">
                         <i><img src="images/mail_icon.png" alt="#" /></i>
                             <h4>Email:</h4>
-                            <p> reachjuicewithease@gmail.com</p>
+                            <p><a href="mailto:reachjuicewithease@gmail.com" target="_blank">reachjuicewithease@gmail.com</a></p>
                         </div>
     
                         <div class="phone">
                         <i><img src="images/phone_icon.png" alt="#" /></i>
                             <h4>Call/ Text:</h4>
-                            <p>+91-8800699360</p>
+                            <p><a href="tel:+91-8800699360">+91-8800699360</a></p>
                         </div>
     
                     </div>
@@ -548,8 +572,9 @@
                         <div class="footer-info">
                             <p>
 
-                                <strong>Phone:</strong>  +91-8800699360<br>
-                                 <strong>Email:</strong>  reachjuicewithease@gmail.com<br> 
+                                <strong>Phone:</strong><a style="color:white", href="tel:+91-8800699360"> +91-8800699360</a><br>
+                                <strong>Email:</strong><a style="color:white" , href="mailto:reachjuicewithease@gmail.com"
+                                    target="_blank">  reachjuicewithease@gmail.com</a><br>
                             </p> 
                             <div class="social-links mt-3">
                                 <a href="#" class="twitter"><i><img src="images/twitter_icon.png" alt="#"/></i></a>
