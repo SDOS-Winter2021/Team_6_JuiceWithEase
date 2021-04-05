@@ -757,6 +757,7 @@ header .container-fluid {
 #main_slider {
   /* margin-top: 10px; */
   /* padding: 70px 0 30px; */
+  position: relative;
 }
 .slider_section .container {
   width: 100%;
@@ -766,6 +767,16 @@ header .container-fluid {
 .vert .carousel-item-prev.carousel-item-right {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
+}
+.carousal-pincode {
+  cursor: pointer;
+  position: absolute;
+  left: 30px;
+  top: 107%;
+  color: #050400;
+}
+.carousal-pincode h4:hover {
+  color: white;
 }
 .vert .carousel-item-next,
 .vert .active.carousel-item-right {
