@@ -216,10 +216,14 @@ function checkoutButton() {
         temp.push(cartProducts[i]['quantity']);
         checkoutObject.orderItems.push(temp);
     }
+    checkoutObject.user = {}
+    checkoutObject.user.access = window.localStorage.getItem('access');
+    checkoutObject.user.refresh = window.localStorage.getItem('refresh');
     console.log(checkoutObject);
     fetch('http://localhost:8000/orders/checkout/', {
     method: 'POST',
     headers: {
+        'Authorization': `Bearer ${window.localStorage.getItem('access')}`,
         'Content-Type': 'application/json',
     },
     body: JSON.stringify(checkoutObject),
