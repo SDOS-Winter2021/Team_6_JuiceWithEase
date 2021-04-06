@@ -770,14 +770,31 @@ header .container-fluid {
 }
 .carousal-pincode {
   cursor: pointer;
-  position: absolute;
-  left: 30px;
-  top: 107%;
+  /* position: absolute; */
   color: #050400;
+  font-style: italic;
+  display: inline-block;
 }
-.carousal-pincode h4:hover {
-  color: white;
+.carousal-pincode img {
+  position: absolute;
+  float: left;
+  height: 19px;
+  left: 28px;
+  top: 103.5%;
 }
+
+.carousal-pincode h4 {
+  position: absolute;
+  left: 55px;
+  top: 103%;
+}
+
+.carousal-pincode:hover h4,
+.carousal-pincode:hover img {
+  transform: scale(1.01);
+  filter: invert(100%);
+}
+
 .vert .carousel-item-next,
 .vert .active.carousel-item-right {
   -webkit-transform: translate3d(0, 100%, 0);

@@ -78,7 +78,7 @@ var popup_error = document.querySelector('.popup-result-error');
 var main_layout = document.querySelector('.main-layout');
 pincode_list = ["11096", "201010"];
 
-//Show Popup on first visit to the page, expiry every 5 days
+//Show Popup on first visit to the page, expiry every 100 hours
 $(document).ready(function () {
     if (getWithExpiry('Pincode_Popup') !== 'true') {
         popup_model.style.display = "flex";
@@ -87,12 +87,6 @@ $(document).ready(function () {
     setWithExpiry('Pincode_Popup', 'true', 360000000);
 });
 
-// <<<<<<< soumyadeep1
-// //Popup close
-// document.querySelector('.popup-close').addEventListener("click", function() {
-//     popup_model.style.display = "none";
-//     main_layout.style.overflow = 'visible';
-// =======
 document.querySelector('.carousal-pincode').addEventListener("click", function() {
     popup_model.style.display = "flex";
     main_layout.style.overflow = 'hidden';
@@ -101,11 +95,11 @@ document.querySelector('.carousal-pincode').addEventListener("click", function()
 //Popup close
 document.querySelector('.popup-close').addEventListener("click", function () {
     document.getElementById("pincode").value = "";
-        popup_error.style.display = "none";
-        popup_tick.style.display = "none";
-        popup_model.style.display = "none";
-        main_layout.style.overflow = 'visible';
-// >>>>>>> main
+    popup_error.style.display = "none";
+    popup_tick.style.display = "none";
+    popup_model.style.display = "none";
+    main_layout.style.overflow = 'visible';
+
 
 });
 
@@ -121,11 +115,11 @@ form.addEventListener('submit', event => {
         popup_tick.style.display = "none";
     }
     setTimeout(function () {
+        document.getElementById("pincode").value = "";
         popup_error.style.display = "none";
         popup_tick.style.display = "none";
         popup_model.style.display = "none";
         main_layout.style.overflow = 'visible';
-
     }, 1200)
     event.preventDefault();
 })
