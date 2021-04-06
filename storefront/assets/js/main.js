@@ -151,6 +151,8 @@ if (count != null) {
     return false;
   });
 
+
+ 
   // Clients carousel (uses the Owl Carousel library)
   $(".clients-carousel").owlCarousel({
     autoplay: true,

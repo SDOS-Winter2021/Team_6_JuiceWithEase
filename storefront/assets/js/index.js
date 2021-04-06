@@ -88,6 +88,11 @@ $(document).ready(function () {
 });
 
 document.querySelector('.carousal-pincode').addEventListener("click", function() {
+    window.scroll({
+        top: 0, 
+        left: 0, 
+        behavior: 'smooth'
+      });
     popup_model.style.display = "flex";
     main_layout.style.overflow = 'hidden';
 });
@@ -123,3 +128,4 @@ form.addEventListener('submit', event => {
     }, 1200)
     event.preventDefault();
 })
+
