@@ -17,57 +17,6 @@ def getRoutes(request):
     ]
     return Response(routes)
 
-def getHome(request):
-    context = {}
-    return render(request,'base/index.html',context)
-
-def getAboutUs(request):
-    context = {}
-    return render(request,'base/about.html',context)
-
-def getContactUs(request):
-    context = {}
-    return render(request,'base/contact.html',context)
-
-def getSubscribe(request):
-    context = {}
-    return render(request,'base/subscribe.html',context)
-def getShop(request):
-    context = {}
-    return render(request,'base/shop.html',context)
-
-def getCart(request):
-    context = {}
-    return render(request,'base/cart.html',context)
-
-def getProfile(request):
-    context = {}
-    return render(request,'base/user.html',context)
-
-
-def getBlog(request):
-    context = {}
-    return render(request,'base/blog.html',context)
-
-def getUser(request):
-    context = {}
-    return render(request,'base/user.html',context)
-
-def getCheckout(request):
-    context = {}
-    return render(request,'base/checkout.html',context)
-
-def getProductDet(request):
-    context = {}
-    return render(request,'base/product-details.html',context)
-
-def getAllProducts(request):
-    context = {}
-    return render(request,'base/products.html',context)
-
-
-
-
 
 @api_view(["GET"])
 def getProducts(request):
