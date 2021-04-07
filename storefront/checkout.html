@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Checkout Page</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/checkout.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    </head>
+    <body>
+        <div class="px-4 px-lg-0">
+            <div class="container text-white py-5 text-center">
+              <h1 class="display-4">Your Shopping Cart!</h1>
+              <p class="lead mb-0">Have a final look at you cart items. </p>
+              <p class="lead"> <a href="" class="text-white font-italic">
+                      <u></u></a>
+              </p>
+            </div>          
+            <div class="pb-5">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+          
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col" class="border-0 bg-light">
+                              <div class="p-2 px-3 text-uppercase">Product</div>
+                            </th>
+                            <th scope="col" class="border-0 bg-light">
+                              <div class="py-2 text-uppercase">Price(&#8377;)</div>
+                            </th>
+                            <th scope="col" class="border-0 bg-light">
+                              <div class="py-2 text-uppercase">Quantity</div>
+                            </th>
+                            <th scope="col" class="border-0 bg-light">
+                              <div class="py-2 text-uppercase">Remove</div>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody class="list_of_products">
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+          
+                <div class="row py-5 p-4 bg-white rounded shadow-sm">
+                  <div class="col-lg-6">
+                    <!-- <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Coupon code</div> -->
+                    <!-- <div class="p-4">
+                      <p class="font-italic mb-4">If you have a coupon code, please enter it in the box below</p>
+                      <div class="input-group mb-4 border rounded-pill p-2">
+                        <input type="text" placeholder="Apply coupon" aria-describedby="button-addon3" class="form-control border-0">
+                        <div class="input-group-append border-0">
+                          <button id="button-addon3" type="button" class="btn btn-dark px-4 rounded-pill"><i class="fa fa-gift mr-2"></i>Apply coupon</button>
+                        </div>
+                      </div>
+                    </div> -->
+                    <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Confirm or Edit your address</div>
+                    <div class="p-4">
+                      <p class="font-italic mb-4">This is your default address. Edit it to enter the address where you want us to deliver the product.</p>
+                      <textarea id="city" placeholder="Enter your city" name="" cols="10" rows="1" class="form-control"></textarea>
+                      <textarea id="pincode" placeholder="Enter your pin-code" name="" cols="10" rows="1" class="form-control"></textarea>
+                      <textarea id="address" placeholder="Enter your street address" name="" cols="30" rows="2" class="form-control"></textarea>
+                    </div>
+                    <div class="p-4">
+                      <p id="datetimeline" class="font-italic mb-4">Choose the date and time of delivery.</p>
+                      <input id="datetime" type="datetime-local" id="birthdaytime" name="datetime">
+                      <p id="warning"></p>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
+                    <div class="p-4">
+                      <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
+                      <ul class="list-unstyled mb-4">
+                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>&#x20B9; <span id="subtotal">400</span></strong></li>
+                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>&#x20B9; <span>0</span></strong></li>
+                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>&#x20B9; <span>0</span></strong></li>
+                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
+                          <h5 class="font-weight-bold">&#x20B9; <span id="total">400</span></h5>
+                        </li>
+                      </ul><button onclick="checkoutButton()" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</button>
+                    </div>
+                  </div>
+                </div>
+          
+              </div>
+            </div>
+          </div> 
+          <script src="./assets/js/checkout.js"></script>         
+    </body>
+</html>

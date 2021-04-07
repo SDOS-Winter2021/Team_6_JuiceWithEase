@@ -32,7 +32,6 @@ def getContactUs(request):
 def getSubscribe(request):
     context = {}
     return render(request,'base/subscribe.html',context)
- 
 def getShop(request):
     context = {}
     return render(request,'base/shop.html',context)
@@ -43,7 +42,7 @@ def getCart(request):
 
 def getProfile(request):
     context = {}
-    return render(request,'base/index.html',context)
+    return render(request,'base/user.html',context)
 
 
 def getBlog(request):
@@ -52,7 +51,7 @@ def getBlog(request):
 
 def getUser(request):
     context = {}
-    return render(request,'base/user1.html',context)
+    return render(request,'base/user.html',context)
 
 def getCheckout(request):
     context = {}

@@ -22,7 +22,10 @@ urlpatterns = [
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
     path('',include("base.urls")),
-    
+    path('',include("accounts.urls")),
+    path('orders/',include("orders.urls"))
+#     path('accounts/',include("accounts.urls")),
+#     path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 # For React URLS. Modify if needed.
