@@ -24,14 +24,15 @@ class Product(models.Model):
     image = models.ImageField(null=True,blank=True)
     category_Id = models.ForeignKey(ProductCategory, on_delete=models.CASCADE,null=True,blank=False)
     description = models.TextField(null=True,blank = True)
-    price = models.DecimalField(max_digits=7,decimal_places=2,blank=False)
-    bottle_id = models.ForeignKey(Bottletype,on_delete=models.CASCADE,null=True,blank=False)
-    availability = models.BooleanField(null=False,blank=False,default=True,editable=True) 
+    bottle_300_available = models.BooleanField(null=False,blank=False,default=True,editable=True)
+    price_300ml = models.DecimalField(max_digits=7,decimal_places=2,blank=False,default=0)
+    bottle_500_available = models.BooleanField(null=False,blank=False,default=True,editable=True)
+    price_500ml = models.DecimalField(max_digits=7,decimal_places=2,blank=False,default=0)
+    #bottle_id = models.ForeignKey(Bottletype,on_delete=models.CASCADE,null=True,blank=False)
+    # availability = models.BooleanField(null=False,blank=False,default=True,editable=True) 
     createdAt = models.DateTimeField(auto_now_add=True)
     _id = models.AutoField(primary_key =True, editable=False,blank=False)
     
-
-
     def __str__(self):
         return self.name
 
