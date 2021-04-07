@@ -7,6 +7,7 @@ loginButton = (e) => {
     console.log(email.value);
     console.log(password.value);
     var data = {email : email.value, password : password.value};
+    var e = email.value
     fetch('http://localhost:8000/auth/jwt/create/', {
     method: 'POST',
     headers: {
@@ -20,6 +21,7 @@ loginButton = (e) => {
         if (data['refresh'] && data['access']) {
             window.localStorage.setItem('refresh', data['refresh']);
             window.localStorage.setItem('access', data['access']);
+            window.localStorage.setItem('email', e);
             window.location.href = "user.html";
         } else {
             window.location.href = "register.html";

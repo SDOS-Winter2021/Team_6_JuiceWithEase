@@ -4,6 +4,12 @@ from base.models import Product
 User = get_user_model()
 
 class Order(models.Model):
+    payment_status_choices = (
+        (1, 'SUCCESS'),
+        (2, 'FAILURE' ),
+        (3, 'PENDING'),
+    )
+    #status = models.IntegerField(choices = status_choices, default=1)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     paymentMethod = models.CharField(max_length=200, null=True, blank=True)
     totalPrice = models.DecimalField(
@@ -13,7 +19,12 @@ class Order(models.Model):
     isDelivered = models.BooleanField(default=False)
     deliveredAt = models.DateTimeField(
         auto_now_add=False, null=True, blank=True)
+    payment_status = models.IntegerField(choices = payment_status_choices, default=3)
     createdAt = models.DateTimeField(auto_now_add=True)
+    razorpay_orderID = models.CharField(max_length=500, null=True, blank=True)
+    razorpay_paymentID = models.CharField(max_length=500, null=True, blank=True)
+    razorpay_signature = models.CharField(max_length=500, null=True, blank=True)
+
     # timeSlot = models.TimeField()
     # deliveryDate = models.DateTimeField()
     _id = models.AutoField(primary_key=True, editable=False)

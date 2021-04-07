@@ -150,8 +150,17 @@ function checkoutButton() {
     })
     .then(response => response.json())
     .then(data => {
+        // localStorage.setItem('cartList', JSON.stringify(temp));
+        console.log(data['razorpay_orderID'])
+        
         console.log('Success:', data);
-        window.location.href = "";
+        localStorage.setItem('rorder_id', data['razorpay_orderID']);
+        localStorage.setItem('totalPrice', data['totalPrice']);
+        console.log("IN Local Storage: ");
+        console.log(localStorage.getItem('rorder_id'));
+        console.log(localStorage.getItem('totalPrice'));
+        localStorage['rorder_id'] = data['razorpay_orderID'];
+        window.location.href = "http://localhost:8080/payment.html";
     })
     .catch((error) => {
         console.error('Error:', error);
