@@ -8,6 +8,37 @@ var count = document.getElementById('count');
 if (count != null) {
   count.innerHTML = c;
 }
+
+var userPage = document.getElementById('userPage');
+if (userPage != null) {
+  userPage.addEventListener('click', () => {
+    if (localStorage.getItem('access')) {
+        fetch('http://localhost:8000/auth/jwt/verify/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({token : localStorage.getItem('access')}),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                if (data['code'] == "token_not_valid") {
+                    window.location.href = "login.html";
+                } else {
+                    window.location.href = "user.html";
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                window.location.href = "login.html";
+            });
+    } else {
+        window.location.href = "login.html";
+    }
+  });
+}
+
 !(function($) {
   "use strict";
   $(window).on('load', function() {
@@ -238,6 +269,8 @@ console.log(localStorage);
 console.log(JSON.parse(localStorage.getItem('cartList')));
 
 addToCart = (e, id) => {
+  var emptyCartWarning = document.getElementById('emptyCartWarning');
+  emptyCartWarning.innerHTML = '';
   if (JSON.parse(localStorage.getItem('cartList')).includes(id)) {
     return;
   }
@@ -425,12 +458,20 @@ console.log(JSON.parse(localStorage.getItem('cartList')));
 var cart = document.getElementsByClassName('cart')[0];
 if (cart != null) {
   cart.addEventListener('click', () => {
+    cartList = JSON.parse(localStorage.getItem('cartList'));
+    if (cartList == undefined || cartList == null) {
+      window.location.href = 'products.html';
+    }
+    if (cartList.length == 0) {
+      var emptyCartWarning = document.getElementById('emptyCartWarning');
+      emptyCartWarning.innerHTML = '* Cart has no products!';
+      return;
+    }
     if (localStorage.getItem('cartProducts')) {
       var cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
     } else {
       var cartProducts = []
     }
-    cartList = JSON.parse(localStorage.getItem('cartList'));
     var x = 0;
     for (var i in cartList) {
       var a = JSON.parse(localStorage.getItem('cartProducts'));
@@ -511,4 +552,42 @@ if (productPic != null) {
   img.setAttribute('src', product.image);
   img.setAttribute('class', 'img-fluid');
   productPic.appendChild(img);
+}
+
+var logout = document.getElementById('logout');
+if (logout != null) {
+  if (localStorage.getItem('access')) {
+    fetch('http://localhost:8000/auth/jwt/verify/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({token : localStorage.getItem('access')}),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+        if (data['code'] == "token_not_valid") {
+          logout.innerHTML = 'Sign In';
+        } else {
+          logout.innerHTML = 'Logout';
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        logout.innerHTML = 'Sign In';
+      });
+  } else {
+    logout.innerHTML = 'Sign In';
+  }
+  
+  logout.addEventListener('click', () => {
+    if (logout.innerHTML == 'Logout') {
+      localStorage.removeItem('access');
+      localStorage.removeItem('refresh');
+      window.location.href = 'index.html';
+    } else {
+      window.location.href = 'login.html';
+    }
+  });
 }

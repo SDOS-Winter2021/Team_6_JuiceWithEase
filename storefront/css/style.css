@@ -1880,3 +1880,17 @@ a.article:hover {
 #userPage {
   cursor: pointer;
 }
+
+#logout:hover {
+  cursor: pointer;
+  color: #f8c450;
+}
+
+#logout {
+  color: white;
+}
+
+#emptyCartWarning {
+  color: red;
+  font-weight: bold;
+}
