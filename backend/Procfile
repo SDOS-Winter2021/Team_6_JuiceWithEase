@@ -1,1 +1,1 @@
-web: gunicorn jwe.wsgi --log-file -
+web: gunicorn jwe.wsgi --log-file -p
