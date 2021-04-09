@@ -55,7 +55,7 @@ var options = {
             // alert("Your Payment was Successfull. You'll be redirected to the homepage now!");
             console.log('Success:', data);
             // localStorage.setItem('order_id', data['razorpay_orderID']);
-            window.location.href = "http://localhost:8080/";
+            window.location.href = "http://localhost:8000/";
         })
         .catch((error) => {
             console.error("Error Occured",error);
