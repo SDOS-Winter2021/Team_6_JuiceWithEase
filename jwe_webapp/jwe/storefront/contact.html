@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>JuiceWithEase</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicons -->
+    <link href="images/orange-juice.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- owl css -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- awesome fontfamily -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Vendor stylesheet-->
+        <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <style>
+            #logout:hover {
+            cursor: pointer;
+            color: #f8c450;
+            }
+    
+            #logout {
+            color: white;
+            }
+    
+            #emptyCartWarning {
+            color: red;
+            font-weight: bold;
+            }
+        </style>
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<!-- body -->
+
+<body class="main-layout Contact_page">
+    <!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="images/loading.gif" alt="" /></div>
+    </div>
+
+    <div class="wrapper">
+    <!-- end loader -->
+
+     
+
+    <div id="content">
+    <!-- header -->
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-between">
+    
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <a href="index.html" class="logo"><img src="images/bottle.png" alt="" class="img-fluid"><span> Juice With
+                    Ease!</span></a>
+            <!-- <h1 class="logo"><a href="index.html"><span>JuiceWithEase</span></a></h1> -->
+    
+            <nav class="nav-menu d-none d-lg-block">
+                <ul>
+                    <li ><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="subscribe.html">Subscribe</a></li>
+                    <li><a href="products.html" id="productPage">Products</a></li>
+    
+                    <li><a href="blog.html">Blog</a></li>
+                    <li class="active"><a style="cursor: pointer" onclick="scrolltoTop()">Contact Us</a></li>
+                    <li><a id="logout">Logout</a></li>
+                    <li><a href="products.html"><i><img class="basket-icon"; src="images/basket.png" alt="Cart" /></i></i></a></li>
+                    <li><a id="userPage"><i><img src="images/login-icon.png" alt="Profile" /></i></i></a></li>
+
+    
+    
+    
+                </ul>
+            </nav><!-- .nav-menu -->
+    
+        </div>
+    </header><!-- End Header -->
+
+    <!-- Contact US -->
+    <div id="contact">
+        <section class="contact">
+            <div class="container" data-aos="fade-up">
+    
+                <div class="section-title">
+                    <h2>Contact Us</h2>
+                </div>
+    
+                <div>
+                    <iframe style="border:0; width: 100%; height: 270px;"
+                            src="https://maps.google.com/maps?q=KM%2029,%20J%20P%20Kosmos%20Sector%20134,%20Noida%20201304&t=k&z=15&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0" allowfullscreen></iframe>
+                </div>
+
+    
+                <div class="row mt-5">
+    
+                    <div class="col-lg-4">
+                        <div class="info">
+                            <div class="address">
+                                <i><img src="images/location_icon.png" alt="#" /></i>
+                                <h4>Location:</h4>
+                                <p>KM 29, J P Kosmos
+                                    Sector 134, Noida 201304</p>
+                            </div>
+    
+                            <div class="email">
+                                <i><img src="images/mail_icon.png" alt="#" /></i>
+                                <h4>Email:</h4>
+
+
+                            <p><a href="mailto:reachjuicewithease@gmail.com" target="_blank">reachjuicewithease@gmail.com</a></p>
+                            </div>
+    
+                            <div class="phone">
+                                <i><img src="images/phone_icon.png" alt="#" /></i>
+                                <h4>Call/ Text:</h4>
+                                <p><a href="tel:+91-8800699360">+91-8800699360</a></p>
+                            </div>
+    
+                        </div>
+    
+                    </div>
+    
+                    <div class="col-lg-8 mt-5 mt-lg-0">
+    
+                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                            <div class="form-row">
+                                <div class="col-md-6 form-group">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                                        data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <div class="validate"></div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <input type="email" class="form-control" name="email" id="email"
+                                        placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                                    <div class="validate"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
+                                    data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                <div class="validate"></div>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="message" rows="5" data-rule="required"
+                                    data-msg="Please write something for us" placeholder="Message"></textarea>
+                                <div class="validate"></div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                            </div>
+                            <div class="text-center"><button type="submit">Send Message</button></div>
+                        </form>
+    
+                    </div>
+    
+                </div>
+    
+            </div>
+        </section>
+    </div><!-- End Contact Section -->
+
+
+    <!--footer-->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-info">
+                            <div style="display: inline-flex;">
+                                <h3><img style="height: 60px; width:auto; display: inline; margin-right: 10px;"
+                                        src="images/bottle.png">
+                                    <span style="display: inline-block;">JuiceWithEase.</span>
+                                </h3>
+                            </div>
+                            <p>KM 29, J P Kosmos<br>
+                                Sector 134, Noida 201304
+                            </p>
+    
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-info">
+                            <p>
+                                <strong>Phone:</strong><a style="color:white" , href="tel:+91-8800699360"> +91-8800699360</a><br>
+                                                                <strong>Email:</strong><a style="color:white" , href="mailto:reachjuicewithease@gmail.com" target="_blank"> reachjuicewithease@gmail.com</a><br>
+
+
+                            </p>
+                            <div class="social-links mt-3">
+                                <a href="#" class="twitter"><i><img src="images/twitter_icon.png" alt="#" /></i></a>
+                                <a href="#" class="facebook"><i><img src="images/facebook_icon.png" alt="#" /></i></i></a>
+                                <a href="#" class="instagram"><i><img src="images/instagram_icon.png" alt="#" /></i></a>
+                                <a href="#" class="linkedin"><i><img src="images/linkedin_icon.png" alt="#" /></i></a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col-lg-2 col-md-6 footer-links">
+                        <h4 style="color:#ffc451">Useful Links</h4><br>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="about.html">About us</a></li>
+                            </ul>
+                            </div>
+                            <div class="col-lg-2 col-md-6 footer-links">
+                                <ul>
+                                    <li><i class="bx bx-chevron-right"></i> <a href="subscribe.html">Subscribe</a></li>
+                                    <li><i class="bx bx-chevron-right"></i> <a href="products.html">Products</a></li>
+                                    <li><i class="bx bx-chevron-right"></i> <a href="terms.html">Terms of service</a></li>
+                                    <li><i class="bx bx-chevron-right"></i> <a href="refund.html">Refund policy</a></li>
+                            <a href="https://wa.me/919999595263?text=Hi there, Here is my order!%0aDrink:%0aQuantity:%0aAddress:%0aCash on Delivery: (Yes/No):%0a" ; target="_blank"; class="back-to-top"><i><img src="images/orderOnWhatsapp.png" /></i></a>
+                        </ul>
+                    </div>
+    
+    
+                </div>
+            </div>
+        </div>
+    
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong><span>JuiceWithEase</span></strong>. All Rights Reserved
+            </div>
+    
+        </div>
+    </footer><!-- End Footer -->
+
+    </div>
+    </div>
+    <div class="overlay"></div>
+    <!-- Javascript files-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/custom.js"></script>
+     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    
+     <script src="js/jquery-3.0.0.min.js"></script>
+   <script type="text/javascript">
+        $(document).ready(function() {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#dismiss, .overlay').on('click', function() {
+                $('#sidebar').removeClass('active');
+                $('.overlay').removeClass('active');
+            });
+
+            $('#sidebarCollapse').on('click', function() {
+                $('#sidebar').addClass('active');
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+
+    <script src="assets/js/common.js"></script>
+    <script>
+        var logout = document.getElementById('logout');
+        if (localStorage.getItem('access')) {
+            fetch('http://localhost:8000/auth/jwt/verify/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({token : localStorage.getItem('access')}),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    if (data['code'] == "token_not_valid") {
+                        logout.innerHTML = 'Sign In';
+                    } else {
+                        logout.innerHTML = 'Logout';
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    logout.innerHTML = 'Sign In';
+                });
+        } else {
+            logout.innerHTML = 'Sign In';
+        }
+
+        logout.addEventListener('click', () => {
+            if (logout.innerHTML == 'Logout') {
+                localStorage.removeItem('access');
+                localStorage.removeItem('refresh');
+                window.location.href = 'index.html';
+            } else {
+                window.location.href = 'login.html';
+            }
+        })
+    </script>
+</body>
+
+</html>

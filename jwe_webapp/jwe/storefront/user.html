@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Profile Page</title>
+        <link href="images/orange-juice.png" rel="icon">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" type="text/css" href="./assets/css/user.css"/>
+    </head>
+    <body>
+        <div class="container">
+           <div class="page-header">
+              <ul class="nav">
+                 <li class="settings-title">
+                    <h1>Hello Soumyadeep</h1
+                 </li>    
+              </ul> 
+           </div>
+           <div class="row">
+              <div class="col-md-11">
+                 <div class="panel with-nav-tabs panel-default">
+                    <div class="panel-heading single-project-nav">
+                       <ul class="nav nav-tabs"> 
+                        <li class="active">
+                           <a href="#user-profile-info" data-toggle="tab">Account Details</a>
+                        </li>
+                        <li>
+                           <a href="#user-profile-payments" data-toggle="tab">Address</a>
+                        </li>
+                        <li>
+                           <a href="#user-profile-examples" data-toggle="tab">Orders</a>
+                        </li>
+                    </ul>
+                 </div>
+                    <div class="panel-body">
+                      <div class="tab-content">
+                       <div class="tab-pane fade in active" id="user-profile-info">
+                          <div class="row">
+                             <div class="col-sm-4">
+                                <label>Name</label>
+                                <input id="namee" type="text" class="input-md form-control name">
+                             </div>
+                             <div class="col-sm-4">
+                                <label>Email</label>
+                                <input id="email" type="text" class="input-md form-control">
+                             </div>
+                             <div class="col-sm-4">
+                                <label>Contact Number</label>
+                                <input id="number" type="text" class="input-md form-control">
+                             </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-4">
+                                <label>Address</label>
+                                <textarea id="address" type="text" row="10" class="input-md form-control"></textarea>
+                             </div>
+                             <div class="col-sm-4">
+                                <label>Pin code</label>
+                                <input id="pincode" type="text" class="input-md form-control">
+                             </div>
+                          </div>
+                          <div class="actions">
+                            <a class="btn flat btn-create" id="edit">Edit</a>
+                            <a class="btn flat btn-create" id="save">Save</a>
+                         </div>
+                       </div>
+                       <div class="tab-pane fade" id="user-profile-payments">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label>Address</label>
+                                <textarea type="text" row="10" class="input-md form-control"></textarea>
+                             </div>
+                        </div>
+                        <div class="actions">
+                            <a class="btn flat btn-create">Add Address</a>
+                         </div>     
+                       </div>
+                       <div class="tab-pane fade" id="user-profile-examples">
+                       </div>
+                   </div>
+              </div>
+              </div>
+              </div>
+           </div>
+        </div>
+     <!-- modal -->
+     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.4.2/Sortable.min.js"></script>
+     <script src="./assets/js/user.js"></script> 
+     </body>     
+</html>
