@@ -28,6 +28,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Vendor stylesheet-->
     <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        #logout:hover {
+        cursor: pointer;
+        color: #f8c450;
+        }
+
+        #logout {
+        color: white;
+        }
+
+        #emptyCartWarning {
+        color: red;
+        font-weight: bold;
+        }
+    </style>
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -60,9 +75,9 @@
 
 <body class="main-layout">
     <!-- loader  -->
-    <!-- <div class="loader_bg">
+    <div class="loader_bg">
         <div class="loader"><img src="images/loading.gif" alt="" /></div>
-    </div> -->
+    </div>
 
     <div class="wrapper">
 
@@ -410,7 +425,7 @@
         <div class="title">
           <i><img src="images/title.png" alt="#"/></i>
           <h2>Our Blog</h2>
-          <span>when looking at its layout. The point of using Lorem</span>
+          <span>Checkout the recent blogs</span>
         </div>
       </div>
     </div>
@@ -422,8 +437,10 @@
              <span>02 FEB 2019</span>
             </figure>
           </div>
-          <h3>Spicy Barger</h3>
-          <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the </p>
+          <h3>Desi Splash</h3>
+          <p>We bring the real Indian-ness in our brand by offering our customers a range of regional
+            drinks famous in different parts of India. Enjoy these healthy beverages made from real
+            fruit(s)/ or ingredients. No concentrates or artificial flavours are used. </p>
         </div>
       </div>
        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mar_bottom">
@@ -433,8 +450,10 @@
              <span>02 FEB 2019</span>
             </figure>
           </div>
-          <h3>Egg & Tosh</h3>
-          <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the </p>
+          <h3>Pulpy Drinks</h3>
+          <p>We understand what is best for your health because we care for you. Detoxifying your
+            body helps in many ways, and at “Juice with ease” we have made it easy for you. Choose
+            from wide range of our Daily Detoxifiers, and keep your mind, soul, and heart health. </p>
         </div>
       </div>
        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
@@ -444,8 +463,10 @@
              <span>02 FEB 2019</span>
             </figure>
           </div>
-          <h3>Pizza</h3>
-          <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the </p>
+          <h3>Delightful Drinks</h3>
+          <p>There is a lot more to explore in healthy beverages, hence we offer you a selected range
+            of juices made from “Exotic” fruits. Enjoy the real taste of the fruit in its juicy form. Get
+            health benefits from their nutrient contents (include antioxidant properties)</p>
         </div>
       </div>
     </div>
@@ -719,6 +740,43 @@
          })
       </script>
     <script src="assets/js/common.js"></script>
+    <script>
+        var logout = document.getElementById('logout');
+        if (localStorage.getItem('access')) {
+            fetch('http://localhost:8000/auth/jwt/verify/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({token : localStorage.getItem('access')}),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    if (data['code'] == "token_not_valid") {
+                        logout.innerHTML = 'Sign In';
+                    } else {
+                        logout.innerHTML = 'Logout';
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    logout.innerHTML = 'Sign In';
+                });
+        } else {
+            logout.innerHTML = 'Sign In';
+        }
+
+        logout.addEventListener('click', () => {
+            if (logout.innerHTML == 'Logout') {
+                localStorage.removeItem('access');
+                localStorage.removeItem('refresh');
+                window.location.href = 'index.html';
+            } else {
+                window.location.href = 'login.html';
+            }
+        })
+    </script>
 </body>
 
 </html>

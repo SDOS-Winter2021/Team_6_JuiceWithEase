@@ -24,6 +24,21 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- responsive-->
     <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        #logout:hover {
+        cursor: pointer;
+        color: #f8c450;
+        }
+
+        #logout {
+        color: white;
+        }
+
+        #emptyCartWarning {
+        color: red;
+        font-weight: bold;
+        }
+    </style>
     <!-- awesome fontfamily -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Vendor stylesheet-->
@@ -64,6 +79,7 @@
 
                             <li><a href="blog.html">Blog</a></li>
                             <li><a href="contact.html">Contact Us</a></li>
+                            <li><a id="logout">Logout</a></li>
                             <li><a href="products.html"><i><img class="basket-icon" ; src="images/basket.png"
                                             alt="Cart" /></i></i></a></li>
                             <li><a href="user.html"><i><img src="images/login-icon.png" alt="Profile" /></i></i></a>
@@ -252,6 +268,43 @@
     </script>
 
     <script src="assets/js/common.js"></script>
+    <script>
+        var logout = document.getElementById('logout');
+        if (localStorage.getItem('access')) {
+            fetch('http://localhost:8000/auth/jwt/verify/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({token : localStorage.getItem('access')}),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    if (data['code'] == "token_not_valid") {
+                        logout.innerHTML = 'Sign In';
+                    } else {
+                        logout.innerHTML = 'Logout';
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    logout.innerHTML = 'Sign In';
+                });
+        } else {
+            logout.innerHTML = 'Sign In';
+        }
+
+        logout.addEventListener('click', () => {
+            if (logout.innerHTML == 'Logout') {
+                localStorage.removeItem('access');
+                localStorage.removeItem('refresh');
+                window.location.href = 'index.html';
+            } else {
+                window.location.href = 'login.html';
+            }
+        })
+    </script>
 </body>
 
 </html>

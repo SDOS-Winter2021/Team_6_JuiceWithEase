@@ -28,6 +28,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Vendor stylesheet-->
     <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        #logout:hover {
+        cursor: pointer;
+        color: #f8c450;
+        }
+
+        #logout {
+        color: white;
+        }
+
+        #emptyCartWarning {
+        color: red;
+        font-weight: bold;
+        }
+    </style>
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -219,6 +234,43 @@
     </script>
 
     <script src="assets/js/common.js"></script>
+    <script>
+        var logout = document.getElementById('logout');
+        if (localStorage.getItem('access')) {
+            fetch('http://localhost:8000/auth/jwt/verify/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({token : localStorage.getItem('access')}),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    if (data['code'] == "token_not_valid") {
+                        logout.innerHTML = 'Sign In';
+                    } else {
+                        logout.innerHTML = 'Logout';
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    logout.innerHTML = 'Sign In';
+                });
+        } else {
+            logout.innerHTML = 'Sign In';
+        }
+
+        logout.addEventListener('click', () => {
+            if (logout.innerHTML == 'Logout') {
+                localStorage.removeItem('access');
+                localStorage.removeItem('refresh');
+                window.location.href = 'index.html';
+            } else {
+                window.location.href = 'login.html';
+            }
+        })
+    </script>
 </body>
 
 </html>
