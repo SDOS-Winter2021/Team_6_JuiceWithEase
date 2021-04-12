@@ -95,16 +95,16 @@ WSGI_APPLICATION = 'jwe.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
-    'default' : dj_database_url.config()
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+# DATABASES = {
+#     'default' : dj_database_url.config()
+# }
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -149,11 +149,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+django_on_heroku.settings(locals())
+
 STATIC_URL = 'shop/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'.','storefront'),
     os.path.join(BASE_DIR,'..','storefront'),
+    os.path.join(BASE_DIR,'storefront'),
 )
+STATIC_ROOT = os.path.join(BASE_DIR,"static")
 
 STATIC_ROOT = os.path.join(BASE_DIR,'.','storefront')
 django_on_heroku.settings(locals())
