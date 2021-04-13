@@ -1,6 +1,11 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from base.models import Product
+# Setting the Timezone
+import pytz
+from jwe.settings import TIME_ZONE
+tz = pytz.timezone(TIME_ZONE)
+
 User = get_user_model()
 
 class Order(models.Model):
@@ -31,7 +36,7 @@ class Order(models.Model):
 
 
     def __str__(self):
-        return str(self.createdAt)
+        return self.createdAt.astimezone(tz).strftime('%B %d, %Y, %I:%M %p')
 
 class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
