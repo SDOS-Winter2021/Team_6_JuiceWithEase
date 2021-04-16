@@ -32,7 +32,6 @@ class UserAccount(AbstractBaseUser,PermissionsMixin):
     phone = models.CharField(max_length=15)
     access_levels = [
         (2,"NORMAL"),
-        (1,"STORE ADMIN"),
         (0,"SUPERUSER"),
     ]
     access = models.PositiveSmallIntegerField(choices=access_levels,default=2)
