@@ -554,40 +554,90 @@ if (productPic != null) {
   productPic.appendChild(img);
 }
 
+function scrolltoTop(){
+  window.scroll({
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth'
+    });
+};
+
 var logout = document.getElementById('logout');
+var userPage = document.getElementById('userPage');
+
 if (logout != null) {
-  if (localStorage.getItem('access')) {
-    fetch('http://localhost:8000/auth/jwt/verify/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({token : localStorage.getItem('access')}),
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-        if (data['code'] == "token_not_valid") {
-          logout.innerHTML = 'Sign In';
-        } else {
-          logout.innerHTML = 'Logout';
-        }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
+if (localStorage.getItem('access')) {
+  fetch('http://localhost:8000/auth/jwt/verify/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({token : localStorage.getItem('access')}),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+      if (data['code'] == "token_not_valid") {
         logout.innerHTML = 'Sign In';
-      });
-  } else {
-    logout.innerHTML = 'Sign In';
-  }
-  
-  logout.addEventListener('click', () => {
-    if (logout.innerHTML == 'Logout') {
-      localStorage.removeItem('access');
-      localStorage.removeItem('refresh');
-      window.location.href = 'index.html';
-    } else {
-      window.location.href = 'login.html';
-    }
-  });
+        userPage.style.display = "none";
+
+      } else {
+        logout.innerHTML = 'Logout';
+        userPage.style.display = "flex";
+
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      logout.innerHTML = 'Sign In';
+      userPage.style.display = "none";
+
+    });
+} else {
+  logout.innerHTML = 'Sign In';
+  userPage.style.display = "none";
+
 }
+
+logout.addEventListener('click', () => {
+  if (logout.innerHTML == 'Logout') {
+    localStorage.removeItem('access');
+    localStorage.removeItem('refresh');
+    window.location.href = 'index.html';
+  } else {
+    window.location.href = 'login.html';
+  }
+});
+}
+
+
+$(function(){
+  var current = location.pathname;
+  $('.nav-menu li a').each(function(){
+      var $this = $(this);
+      // if the current path is like this link, make it active and enable scrollTotop
+      if($this.attr('href') == current){
+          $this.parents('li').addClass('active');
+          $this.on("click", function() {
+            $("html").animate({ scrollTop: 0}, 600 );
+          });
+      }else{
+        $this.parents('li').removeClass('active');
+
+      }
+  })
+})
+
+$(function(){
+  var current = location.pathname;
+  $('.footer-links li a').each(function(){
+      var $this = $(this);
+      // if the current path is like this link, enable scrollTotop
+      if($this.attr('href') == current){
+          $this.on("click", function() {
+            $("html").animate({ scrollTop: 0}, 600 );
+            return false;
+          });
+      }
+  })
+})

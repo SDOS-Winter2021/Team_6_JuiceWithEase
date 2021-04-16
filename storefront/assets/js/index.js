@@ -12,11 +12,6 @@ getProducts().then(data => {
     localStorage.setItem('productTable', productTable);
 })
 
-var productPage = document.getElementById('productPage');
-productPage.addEventListener('click', () => {
-    window.location.href = "products.html";
-});
-
 var userPage = document.getElementById('userPage');
 userPage.addEventListener('click', () => {
     if (localStorage.getItem('access')) {
@@ -76,7 +71,7 @@ var popup_model = document.querySelector('.popup-modal');
 var popup_tick = document.querySelector('.popup-result-tick');
 var popup_error = document.querySelector('.popup-result-error');
 var main_layout = document.querySelector('.main-layout');
-pincode_list = ["11096", "201010"];
+pincode_list = ["201303", "201304", "201305"];
 
 //Show Popup on first visit to the page, expiry every 100 hours
 $(document).ready(function () {

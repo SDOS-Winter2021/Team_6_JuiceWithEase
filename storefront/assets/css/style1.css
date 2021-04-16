@@ -54,7 +54,7 @@ h6 {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 9999;
+  z-index: 9999999;
   overflow: hidden;
   background: #151515;
 }
@@ -1151,15 +1151,6 @@ section {
 
 .cart {
   cursor: pointer;
-}
-
-#logout:hover {
-  cursor: pointer;
-  color: #f8c450;
-}
-
-#logout {
-  color: white;
 }
 
 #emptyCartWarning {
