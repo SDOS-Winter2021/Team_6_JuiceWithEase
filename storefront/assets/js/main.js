@@ -612,11 +612,13 @@ logout.addEventListener('click', () => {
 
 
 $(function(){
-  var current = location.pathname;
+  var current_path = location.pathname;
+  current_path = current_path[0] == '/' ? current_path.substr(1) : current_path;
+
   $('.nav-menu li a').each(function(){
       var $this = $(this);
       // if the current path is like this link, make it active and enable scrollTotop
-      if($this.attr('href') == current){
+      if($this.attr('href') == current_path){
           $this.parents('li').addClass('active');
           $this.on("click", function() {
             $("html").animate({ scrollTop: 0}, 600 );
@@ -629,11 +631,12 @@ $(function(){
 })
 
 $(function(){
-  var current = location.pathname;
+  var current_path = location.pathname;
+  current_path = current_path[0] == '/' ? current_path.substr(1) : current_path;
   $('.footer-links li a').each(function(){
       var $this = $(this);
       // if the current path is like this link, enable scrollTotop
-      if($this.attr('href') == current){
+      if($this.attr('href') == current_path){
           $this.on("click", function() {
             $("html").animate({ scrollTop: 0}, 600 );
             return false;
