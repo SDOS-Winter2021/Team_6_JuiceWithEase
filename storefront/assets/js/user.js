@@ -1,5 +1,9 @@
 console.log(localStorage.getItem('access'));
 console.log(localStorage.getItem('token'));
+var count = document.getElementById('count');
+if (count != null) {
+    count.innerHTML = JSON.parse(localStorage.getItem('cartList')).length;
+}
 var numbernamee = document.getElementById('namee');
 var email = document.getElementById('email');
 var number = document.getElementById('number');

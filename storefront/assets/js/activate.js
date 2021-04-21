@@ -10,7 +10,7 @@ activate = (e) => {
         'uid' : uid,
         'token' : token
     }
-    fetch('http://localhost:8000/auth/users/activation/', {
+    fetch('/auth/users/activation/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

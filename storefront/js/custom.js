@@ -325,7 +325,7 @@ $(function () {
 var userPage = document.getElementById('userPage');
 userPage.addEventListener('click', () => {
     if (localStorage.getItem('access')) {
-        fetch('http://localhost:8000/auth/jwt/verify/', {
+        fetch('/auth/jwt/verify/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -352,7 +352,7 @@ userPage.addEventListener('click', () => {
 
 var logout = document.getElementById('logout');
 if (localStorage.getItem('access')) {
-	fetch('http://localhost:8000/auth/jwt/verify/', {
+	fetch('/auth/jwt/verify/', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
