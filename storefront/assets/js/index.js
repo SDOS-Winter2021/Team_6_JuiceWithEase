@@ -16,7 +16,7 @@ getProducts().then(data => {
     localStorage.setItem('productTable', productTable);
 })
 
-var userPage = document.getElementById('userPage');
+var userPage_ = document.getElementById('userPage');
 userPage.addEventListener('click', () => {
     if (localStorage.getItem('access')) {
         fetch('/auth/jwt/verify/', {

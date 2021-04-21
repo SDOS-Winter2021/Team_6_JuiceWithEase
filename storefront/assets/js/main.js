@@ -102,7 +102,7 @@ if (userPage != null) {
       class: 'mobile-nav d-lg-none'
     });
     $('body').append($mobile_nav);
-    $('body').prepend('<button type="button" class="mobile-nav-toggle d-lg-none"><i class="icofont-navigation-menu"></i></button>');
+    $('body').prepend('<button aria-label="Navigate" type="button" class="mobile-nav-toggle d-lg-none"><i class="icofont-navigation-menu"></i></button>');
     $('body').append('<div class="mobile-nav-overly"></div>');
 
     $(document).on('click', '.mobile-nav-toggle', function(e) {
@@ -441,7 +441,7 @@ if (container != undefined) {
   for (var i in products) {
     container.innerHTML += `<div class="col-lg-4 col-md-6 portfolio-item ${products[i].category}">
   <div onclick="productDetails(event, ${products[i].id})" class="portfolio-wrap">
-    <img src=${products[i].image} class="img-fluid" alt="">
+    <img aria-label="logo-img" src=${products[i].image} class="img-fluid" alt="">
     <div class="portfolio-info">
       <h4>${products[i].name}</h4>
       <p class="productCategory">${products[i].category}</p>

@@ -105,7 +105,7 @@ for (var i in cartProducts) {
     table.innerHTML += `<tr>
         <th scope="row" class="border-0">
         <div class="p-2">
-            <img src="${cartProducts[i].image}" alt="" width="70" class="img-fluid rounded shadow-sm productPic">
+            <img aria-label="product-img" src="${cartProducts[i].image}" alt="" width="70" class="img-fluid rounded shadow-sm productPic">
             <div class="ml-3 d-inline-block align-middle">
             <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">${cartProducts[i].name}</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: ${cartProducts[i].category}</span>
             <select name="volume" id="volume">
