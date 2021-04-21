@@ -1,4 +1,5 @@
 var c = 0;
+console.log('hello world');
 if (localStorage.getItem('cartList')) {
   console.log(localStorage.getItem('cartList'));
   console.log(JSON.parse(localStorage.getItem('cartList')));
@@ -13,7 +14,7 @@ var userPage = document.getElementById('userPage');
 if (userPage != null) {
   userPage.addEventListener('click', () => {
     if (localStorage.getItem('access')) {
-        fetch('http://localhost:8000/auth/jwt/verify/', {
+        fetch('/auth/jwt/verify/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -269,8 +270,8 @@ console.log(localStorage);
 console.log(JSON.parse(localStorage.getItem('cartList')));
 
 addToCart = (e, id) => {
-  var emptyCartWarning = document.getElementById('emptyCartWarning');
-  emptyCartWarning.innerHTML = '';
+  // var emptyCartWarning = document.getElementById('emptyCartWarning');
+  // emptyCartWarning.innerHTML = '';
   if (JSON.parse(localStorage.getItem('cartList')).includes(id)) {
     return;
   }
@@ -462,11 +463,11 @@ if (cart != null) {
     if (cartList == undefined || cartList == null) {
       window.location.href = 'products.html';
     }
-    if (cartList.length == 0) {
-      var emptyCartWarning = document.getElementById('emptyCartWarning');
-      emptyCartWarning.innerHTML = '* Cart has no products!';
-      return;
-    }
+    // if (cartList.length == 0) {
+    //   var emptyCartWarning = document.getElementById('emptyCartWarning');
+    //   emptyCartWarning.innerHTML = '* Cart has no products!';
+    //   return;
+    // }
     if (localStorage.getItem('cartProducts')) {
       var cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
     } else {
@@ -567,7 +568,7 @@ var userPage = document.getElementById('userPage');
 
 if (logout != null) {
 if (localStorage.getItem('access')) {
-  fetch('http://localhost:8000/auth/jwt/verify/', {
+  fetch('/auth/jwt/verify/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -612,11 +613,13 @@ logout.addEventListener('click', () => {
 
 
 $(function(){
-  var current = location.pathname;
+  var current_path = location.pathname;
+  current_path = current_path[0] == '/' ? current_path.substr(1) : current_path;
+
   $('.nav-menu li a').each(function(){
       var $this = $(this);
       // if the current path is like this link, make it active and enable scrollTotop
-      if($this.attr('href') == current){
+      if($this.attr('href') == current_path){
           $this.parents('li').addClass('active');
           $this.on("click", function() {
             $("html").animate({ scrollTop: 0}, 600 );
@@ -629,11 +632,12 @@ $(function(){
 })
 
 $(function(){
-  var current = location.pathname;
+  var current_path = location.pathname;
+  current_path = current_path[0] == '/' ? current_path.substr(1) : current_path;
   $('.footer-links li a').each(function(){
       var $this = $(this);
       // if the current path is like this link, enable scrollTotop
-      if($this.attr('href') == current){
+      if($this.attr('href') == current_path){
           $this.on("click", function() {
             $("html").animate({ scrollTop: 0}, 600 );
             return false;

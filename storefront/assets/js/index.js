@@ -1,8 +1,12 @@
 async function getProducts() {
-    let response = await fetch('http://localhost:8000/products/');
+    let response = await fetch('/products/');
     let data = await response.json();
     console.log(data);
     return data;
+}
+var count = document.getElementById('count');
+if (count != null) {
+    count.innerHTML = JSON.parse(localStorage.getItem('cartList')).length;
 }
 var productTable;
 getProducts().then(data => {
@@ -15,7 +19,7 @@ getProducts().then(data => {
 var userPage = document.getElementById('userPage');
 userPage.addEventListener('click', () => {
     if (localStorage.getItem('access')) {
-        fetch('http://localhost:8000/auth/jwt/verify/', {
+        fetch('/auth/jwt/verify/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
