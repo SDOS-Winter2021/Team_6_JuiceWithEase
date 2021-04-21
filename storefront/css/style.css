@@ -789,13 +789,13 @@ header .container-fluid {
   top: 103.5%;
 }
 
-.carousal-pincode h4 {
+.carousal-pincode h6 {
   position: absolute;
   left: 55px;
-  top: 103%;
+  top: 103.5%;
 }
 
-.carousal-pincode:hover h4,
+.carousal-pincode:hover h6,
 .carousal-pincode:hover img {
   transform: scale(1.01);
   filter: invert(100%);
