@@ -3,7 +3,8 @@ html,body {
 }
 
 body.my-login-page {
-	background-color: #ffffff;
+	background: fixed;
+	background-image: url("../images/banner-bg3.jpg");
 	font-size: 14px;
 }
 
