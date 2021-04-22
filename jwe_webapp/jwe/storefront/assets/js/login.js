@@ -8,7 +8,7 @@ loginButton = (e) => {
     console.log(password.value);
     var data = {email : email.value, password : password.value};
     var e = email.value
-    fetch('http://localhost:8000/auth/jwt/create/', {
+    fetch('/auth/jwt/create/', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',

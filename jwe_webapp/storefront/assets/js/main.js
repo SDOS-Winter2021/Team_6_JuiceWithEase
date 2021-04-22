@@ -1,4 +1,5 @@
 var c = 0;
+console.log('hello world');
 if (localStorage.getItem('cartList')) {
   console.log(localStorage.getItem('cartList'));
   console.log(JSON.parse(localStorage.getItem('cartList')));
@@ -13,7 +14,7 @@ var userPage = document.getElementById('userPage');
 if (userPage != null) {
   userPage.addEventListener('click', () => {
     if (localStorage.getItem('access')) {
-        fetch('http://localhost:8000/auth/jwt/verify/', {
+        fetch('/auth/jwt/verify/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -101,7 +102,7 @@ if (userPage != null) {
       class: 'mobile-nav d-lg-none'
     });
     $('body').append($mobile_nav);
-    $('body').prepend('<button type="button" class="mobile-nav-toggle d-lg-none"><i class="icofont-navigation-menu"></i></button>');
+    $('body').prepend('<button aria-label="Navigate" type="button" class="mobile-nav-toggle d-lg-none"><i class="icofont-navigation-menu"></i></button>');
     $('body').append('<div class="mobile-nav-overly"></div>');
 
     $(document).on('click', '.mobile-nav-toggle', function(e) {
@@ -269,8 +270,8 @@ console.log(localStorage);
 console.log(JSON.parse(localStorage.getItem('cartList')));
 
 addToCart = (e, id) => {
-  var emptyCartWarning = document.getElementById('emptyCartWarning');
-  emptyCartWarning.innerHTML = '';
+  // var emptyCartWarning = document.getElementById('emptyCartWarning');
+  // emptyCartWarning.innerHTML = '';
   if (JSON.parse(localStorage.getItem('cartList')).includes(id)) {
     return;
   }
@@ -440,7 +441,7 @@ if (container != undefined) {
   for (var i in products) {
     container.innerHTML += `<div class="col-lg-4 col-md-6 portfolio-item ${products[i].category}">
   <div onclick="productDetails(event, ${products[i].id})" class="portfolio-wrap">
-    <img src=${products[i].image} class="img-fluid" alt="">
+    <img aria-label="logo-img" src=${products[i].image} class="img-fluid" alt="">
     <div class="portfolio-info">
       <h4>${products[i].name}</h4>
       <p class="productCategory">${products[i].category}</p>
@@ -462,11 +463,11 @@ if (cart != null) {
     if (cartList == undefined || cartList == null) {
       window.location.href = 'products.html';
     }
-    if (cartList.length == 0) {
-      var emptyCartWarning = document.getElementById('emptyCartWarning');
-      emptyCartWarning.innerHTML = '* Cart has no products!';
-      return;
-    }
+    // if (cartList.length == 0) {
+    //   var emptyCartWarning = document.getElementById('emptyCartWarning');
+    //   emptyCartWarning.innerHTML = '* Cart has no products!';
+    //   return;
+    // }
     if (localStorage.getItem('cartProducts')) {
       var cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
     } else {
@@ -554,40 +555,93 @@ if (productPic != null) {
   productPic.appendChild(img);
 }
 
+function scrolltoTop(){
+  window.scroll({
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth'
+    });
+};
+
 var logout = document.getElementById('logout');
+var userPage = document.getElementById('userPage');
+
 if (logout != null) {
-  if (localStorage.getItem('access')) {
-    fetch('http://localhost:8000/auth/jwt/verify/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({token : localStorage.getItem('access')}),
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-        if (data['code'] == "token_not_valid") {
-          logout.innerHTML = 'Sign In';
-        } else {
-          logout.innerHTML = 'Logout';
-        }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
+if (localStorage.getItem('access')) {
+  fetch('/auth/jwt/verify/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({token : localStorage.getItem('access')}),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+      if (data['code'] == "token_not_valid") {
         logout.innerHTML = 'Sign In';
-      });
-  } else {
-    logout.innerHTML = 'Sign In';
-  }
-  
-  logout.addEventListener('click', () => {
-    if (logout.innerHTML == 'Logout') {
-      localStorage.removeItem('access');
-      localStorage.removeItem('refresh');
-      window.location.href = 'index.html';
-    } else {
-      window.location.href = 'login.html';
-    }
-  });
+        userPage.style.display = "none";
+
+      } else {
+        logout.innerHTML = 'Logout';
+        userPage.style.display = "flex";
+
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      logout.innerHTML = 'Sign In';
+      userPage.style.display = "none";
+
+    });
+} else {
+  logout.innerHTML = 'Sign In';
+  userPage.style.display = "none";
+
 }
+
+logout.addEventListener('click', () => {
+  if (logout.innerHTML == 'Logout') {
+    localStorage.removeItem('access');
+    localStorage.removeItem('refresh');
+    window.location.href = 'index.html';
+  } else {
+    window.location.href = 'login.html';
+  }
+});
+}
+
+
+$(function(){
+  var current_path = location.pathname;
+  current_path = current_path[0] == '/' ? current_path.substr(1) : current_path;
+
+  $('.nav-menu li a').each(function(){
+      var $this = $(this);
+      // if the current path is like this link, make it active and enable scrollTotop
+      if($this.attr('href') == current_path){
+          $this.parents('li').addClass('active');
+          $this.on("click", function() {
+            $("html").animate({ scrollTop: 0}, 600 );
+          });
+      }else{
+        $this.parents('li').removeClass('active');
+
+      }
+  })
+})
+
+$(function(){
+  var current_path = location.pathname;
+  current_path = current_path[0] == '/' ? current_path.substr(1) : current_path;
+  $('.footer-links li a').each(function(){
+      var $this = $(this);
+      // if the current path is like this link, enable scrollTotop
+      if($this.attr('href') == current_path){
+          $this.on("click", function() {
+            $("html").animate({ scrollTop: 0}, 600 );
+            return false;
+          });
+      }
+  })
+})

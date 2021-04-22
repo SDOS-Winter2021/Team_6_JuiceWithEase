@@ -1,8 +1,12 @@
 async function getProducts() {
-    let response = await fetch('http://localhost:8000/products/');
+    let response = await fetch('/products/');
     let data = await response.json();
     console.log(data);
     return data;
+}
+var count = document.getElementById('count');
+if (count != null) {
+    count.innerHTML = JSON.parse(localStorage.getItem('cartList')).length;
 }
 var productTable;
 getProducts().then(data => {
@@ -12,15 +16,10 @@ getProducts().then(data => {
     localStorage.setItem('productTable', productTable);
 })
 
-var productPage = document.getElementById('productPage');
-productPage.addEventListener('click', () => {
-    window.location.href = "products.html";
-});
-
-var userPage = document.getElementById('userPage');
+var userPage_ = document.getElementById('userPage');
 userPage.addEventListener('click', () => {
     if (localStorage.getItem('access')) {
-        fetch('http://localhost:8000/auth/jwt/verify/', {
+        fetch('/auth/jwt/verify/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -76,7 +75,7 @@ var popup_model = document.querySelector('.popup-modal');
 var popup_tick = document.querySelector('.popup-result-tick');
 var popup_error = document.querySelector('.popup-result-error');
 var main_layout = document.querySelector('.main-layout');
-pincode_list = ["11096", "201010"];
+pincode_list = ["201303", "201304", "201305"];
 
 //Show Popup on first visit to the page, expiry every 100 hours
 $(document).ready(function () {

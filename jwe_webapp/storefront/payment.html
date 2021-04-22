@@ -37,7 +37,7 @@ var options = {
         payment_obj.rpay_signature = rpay_signature;
         payment_obj.Order_ID = localStorage.getItem('rorder_id');
 
-        fetch('http://localhost:8000/orders/payment_verify/', {
+        fetch('/orders/payment_verify/', {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${window.localStorage.getItem('access')}`,
@@ -55,7 +55,7 @@ var options = {
             // alert("Your Payment was Successfull. You'll be redirected to the homepage now!");
             console.log('Success:', data);
             // localStorage.setItem('order_id', data['razorpay_orderID']);
-            window.location.href = "http://localhost:8000/";
+            window.location.href = "/shop/index.html";
         })
         .catch((error) => {
             console.error("Error Occured",error);

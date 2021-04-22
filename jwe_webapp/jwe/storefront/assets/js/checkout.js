@@ -1,6 +1,11 @@
 var subtotal = document.getElementById('subtotal');
 var total = document.getElementById('total');
 
+var count = document.getElementById('count');
+if (count != null) {
+    count.innerHTML = JSON.parse(localStorage.getItem('cartList')).length;
+}
+
 var city = document.getElementById('city');
 var pincode = document.getElementById('pincode');
 var address = document.getElementById('address');
@@ -100,7 +105,7 @@ for (var i in cartProducts) {
     table.innerHTML += `<tr>
         <th scope="row" class="border-0">
         <div class="p-2">
-            <img src="${cartProducts[i].image}" alt="" width="70" class="img-fluid rounded shadow-sm productPic">
+            <img aria-label="product-img" src="${cartProducts[i].image}" alt="" width="70" class="img-fluid rounded shadow-sm productPic">
             <div class="ml-3 d-inline-block align-middle">
             <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">${cartProducts[i].name}</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: ${cartProducts[i].category}</span>
             <select name="volume" id="volume">
@@ -129,7 +134,7 @@ function checkoutButton() {
         return;
     }
     if (localStorage.getItem('access')) {
-        fetch('http://localhost:8000/auth/jwt/verify/', {
+        fetch('/auth/jwt/verify/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -162,7 +167,7 @@ function checkoutButton() {
                     checkoutObject.user.access = window.localStorage.getItem('access');
                     checkoutObject.user.refresh = window.localStorage.getItem('refresh');
                     console.log(checkoutObject);
-                    fetch('http://localhost:8000/orders/checkout/', {
+                    fetch('/orders/checkout/', {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${window.localStorage.getItem('access')}`,
@@ -182,7 +187,7 @@ function checkoutButton() {
                         console.log(localStorage.getItem('rorder_id'));
                         console.log(localStorage.getItem('totalPrice'));
                         localStorage['rorder_id'] = data['razorpay_orderID'];
-                        window.location.href = "http://localhost:8080/payment.html";
+                        window.location.href = "payment.html";
                     })
                     .catch((error) => {
                         console.error('Error:', error);
@@ -200,7 +205,7 @@ function checkoutButton() {
     checkoutObject.user.access = window.localStorage.getItem('access');
     checkoutObject.user.refresh = window.localStorage.getItem('refresh');
     console.log(checkoutObject);
-    fetch('http://localhost:8000/orders/checkout/', {
+    fetch('/orders/checkout/', {
     method: 'POST',
     headers: {
         'Authorization': `Bearer ${window.localStorage.getItem('access')}`,
@@ -220,7 +225,7 @@ function checkoutButton() {
         console.log(localStorage.getItem('rorder_id'));
         console.log(localStorage.getItem('totalPrice'));
         localStorage['rorder_id'] = data['razorpay_orderID'];
-        window.location.href = "http://localhost:8000/shop/payment.html";
+        window.location.href = "/shop/payment.html";
     })
     .catch((error) => {
         console.error('Error:', error);

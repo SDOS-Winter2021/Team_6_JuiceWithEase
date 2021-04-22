@@ -2,7 +2,7 @@ var email = document.getElementById('email');
 
 sendMail = (e) => {
     e.preventDefault();
-    fetch('http://localhost:8000/auth/users/reset_password/', {
+    fetch('/auth/users/reset_password/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
