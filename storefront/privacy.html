@@ -145,6 +145,54 @@ you, register a complaint, or simply want more information, contact us at
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 
     <script src="js/jquery-3.0.0.min.js"></script>
+    <script>
+        var cart = document.getElementsByClassName('cart')[0];
+         console.log(cart);
+         if (cart != null || cart != undefined) {
+         cart.addEventListener('click', () => {
+            cartList = JSON.parse(localStorage.getItem('cartList'));
+            if (cartList == undefined || cartList == null) {
+               window.location.href = 'products.html';
+            }
+            // if (cartList.length == 0) {
+            //   var emptyCartWarning = document.getElementById('emptyCartWarning');
+            //   emptyCartWarning.innerHTML = '* Cart has no products!';
+            //   return;
+            // }
+            if (localStorage.getItem('cartProducts') && JSON.parse(localStorage.getItem('cartProducts')).length==JSON.parse(localStorage.getItem('cartList')).length) {
+               var cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
+            } else {
+               var cartProducts = []
+            }
+            var x = 0;
+            for (var i in cartList) {
+               var a = JSON.parse(localStorage.getItem('cartProducts'));
+               for (var k in a) {
+               if (a[k]['id'] == cartList[i]) {
+                  x = 1;
+               }
+               }
+               if (x==1) {
+               continue;
+               }
+               for (var j in products) {
+                  if (products[j].id == cartList[i]) {
+                     cartProducts.push(products[j]);
+                  }
+               }
+            }
+            for (var i in cartProducts) {
+               if (!cartProducts[i].quantity) {
+                  cartProducts[i]['quantity'] = 1;
+               }
+            }
+            localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+            localStorage.setItem('products', JSON.stringify(products));
+            console.log(JSON.parse(localStorage.getItem('cartProducts')));
+            window.location.href = "checkout.html";
+         })
+         }
+     </script>
     
 </body>
 

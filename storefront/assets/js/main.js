@@ -1,8 +1,5 @@
 var c = 0;
-console.log('hello world');
 if (localStorage.getItem('cartList')) {
-  console.log(localStorage.getItem('cartList'));
-  console.log(JSON.parse(localStorage.getItem('cartList')));
   var c = JSON.parse(localStorage.getItem('cartList')).length;
 }
 var count = document.getElementById('count');
@@ -266,8 +263,6 @@ if (!localStorage.getItem('cartList')) {
   var cartList = [];
   localStorage.setItem('cartList', JSON.stringify(cartList));
 }
-console.log(localStorage);
-console.log(JSON.parse(localStorage.getItem('cartList')));
 
 addToCart = (e, id) => {
   // var emptyCartWarning = document.getElementById('emptyCartWarning');
@@ -276,32 +271,23 @@ addToCart = (e, id) => {
     return;
   }
   var count = document.getElementById('count');
-  console.log(JSON.parse(localStorage.getItem('cartList')));
   var c = JSON.parse(localStorage.getItem('cartList')).length;
-  console.log(c);
   count.innerHTML = c+1;
-  console.log(c);
   var temp = JSON.parse(localStorage.getItem('cartList'));
   temp.push(id);
-  console.log(temp);
   localStorage.setItem('cartList', JSON.stringify(temp));
-  console.log(localStorage.getItem('cartList'));
 }
 
 var queryString = decodeURIComponent(window.location.search);
-console.log(queryString);
 queryString = queryString.substring(1);
-console.log(queryString);
 if (queryString.substring(0, 12) == 'productTable') {
   var productTable = JSON.parse(queryString.substring(13));
-  console.log(productTable);
 } else if (queryString.substring(0, 8) == 'products'){
   console.log(queryString);
   var product = JSON.parse(queryString.substring(8,));
   console.log(product);
 } else if (queryString.substring(0, 7) == 'product'){
   var product = JSON.parse(queryString.substring(8,));
-  console.log(product);
 } else {
   
 }
@@ -457,7 +443,8 @@ if (container != undefined) {
 console.log(products);
 console.log(JSON.parse(localStorage.getItem('cartList')));
 var cart = document.getElementsByClassName('cart')[0];
-if (cart != null) {
+console.log(cart);
+if (cart != null || cart != undefined) {
   cart.addEventListener('click', () => {
     cartList = JSON.parse(localStorage.getItem('cartList'));
     if (cartList == undefined || cartList == null) {
@@ -468,7 +455,7 @@ if (cart != null) {
     //   emptyCartWarning.innerHTML = '* Cart has no products!';
     //   return;
     // }
-    if (localStorage.getItem('cartProducts')) {
+    if (localStorage.getItem('cartProducts') && JSON.parse(localStorage.getItem('cartProducts')).length==JSON.parse(localStorage.getItem('cartList')).length) {
       var cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
     } else {
       var cartProducts = []

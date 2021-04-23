@@ -71,6 +71,7 @@ del = (e, id) => {
     if (index > -1) {
         temp.splice(index, 1);
     }
+    console.log(temp);
     localStorage.setItem('cartList', JSON.stringify(temp));
     var row = e.target.parentElement.parentElement.parentElement;
     for (var i in cartProducts) {
@@ -78,6 +79,10 @@ del = (e, id) => {
             cartProducts.splice(i, 1);
             localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
         }
+    }
+    var count = document.getElementById('count');
+    if (count != null) {
+        count.innerHTML = JSON.parse(localStorage.getItem('cartList')).length;
     }
     row.remove();
     c = calculatePrice();
