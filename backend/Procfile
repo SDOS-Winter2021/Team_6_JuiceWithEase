@@ -1,1 +1,0 @@
-web: gunicorn jwe.wsgi --log-file -p
