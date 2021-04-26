@@ -4,10 +4,12 @@ from rest_framework import serializers
 
 User = get_user_model()
 
+
 class UserCreateSerializer(UserCreateSerializer):
     class Meta(UserCreateSerializer.Meta):
         model = User
-        fields = ('_id','email','first_name','last_name','phone','password')
+        fields = ("_id", "email", "first_name", "last_name", "phone", "password")
+
 
 class UserSerializer(serializers.ModelSerializer):
     name = serializers.SerializerMethodField(read_only=True)
@@ -16,7 +18,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['_id', 'email', 'name','phone', 'isAdmin']
+        fields = ["_id", "email", "name", "phone", "isAdmin"]
 
     def get__id(self, obj):
         return obj.id
@@ -26,7 +28,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     def get_name(self, obj):
         name = obj.first_name
-        if name == '':
+        if name == "":
             name = obj.email
 
         return name

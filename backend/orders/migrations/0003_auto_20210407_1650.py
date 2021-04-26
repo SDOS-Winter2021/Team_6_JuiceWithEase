@@ -6,28 +6,30 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('orders', '0002_auto_20210407_1649'),
+        ("orders", "0002_auto_20210407_1649"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='order',
-            name='payment_status',
-            field=models.IntegerField(choices=[(1, 'SUCCESS'), (2, 'FAILURE'), (3, 'PENDING')], default=3),
+            model_name="order",
+            name="payment_status",
+            field=models.IntegerField(
+                choices=[(1, "SUCCESS"), (2, "FAILURE"), (3, "PENDING")], default=3
+            ),
         ),
         migrations.AddField(
-            model_name='order',
-            name='razorpay_orderID',
+            model_name="order",
+            name="razorpay_orderID",
             field=models.CharField(blank=True, max_length=500, null=True),
         ),
         migrations.AddField(
-            model_name='order',
-            name='razorpay_paymentID',
+            model_name="order",
+            name="razorpay_paymentID",
             field=models.CharField(blank=True, max_length=500, null=True),
         ),
         migrations.AddField(
-            model_name='order',
-            name='razorpay_signature',
+            model_name="order",
+            name="razorpay_signature",
             field=models.CharField(blank=True, max_length=500, null=True),
         ),
     ]

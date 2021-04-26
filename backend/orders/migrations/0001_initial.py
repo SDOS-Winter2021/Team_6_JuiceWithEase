@@ -10,47 +10,113 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('base', '0001_initial'),
+        ("base", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Order',
+            name="Order",
             fields=[
-                ('paymentMethod', models.CharField(blank=True, max_length=200, null=True)),
-                ('totalPrice', models.DecimalField(blank=True, decimal_places=2, max_digits=7, null=True)),
-                ('isPaid', models.BooleanField(default=False)),
-                ('paidAt', models.DateTimeField(blank=True, null=True)),
-                ('isDelivered', models.BooleanField(default=False)),
-                ('deliveredAt', models.DateTimeField(blank=True, null=True)),
-                ('payment_status', models.IntegerField(choices=[(1, 'SUCCESS'), (2, 'FAILURE'), (3, 'PENDING')], default=3)),
-                ('createdAt', models.DateTimeField(auto_now_add=True)),
-                ('razorpay_orderID', models.CharField(blank=True, max_length=500, null=True)),
-                ('razorpay_paymentID', models.CharField(blank=True, max_length=500, null=True)),
-                ('razorpay_signature', models.CharField(blank=True, max_length=500, null=True)),
-                ('_id', models.AutoField(editable=False, primary_key=True, serialize=False)),
-                ('user', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL)),
+                (
+                    "paymentMethod",
+                    models.CharField(blank=True, max_length=200, null=True),
+                ),
+                (
+                    "totalPrice",
+                    models.DecimalField(
+                        blank=True, decimal_places=2, max_digits=7, null=True
+                    ),
+                ),
+                ("isPaid", models.BooleanField(default=False)),
+                ("paidAt", models.DateTimeField(blank=True, null=True)),
+                ("isDelivered", models.BooleanField(default=False)),
+                ("deliveredAt", models.DateTimeField(blank=True, null=True)),
+                (
+                    "payment_status",
+                    models.IntegerField(
+                        choices=[(1, "SUCCESS"), (2, "FAILURE"), (3, "PENDING")],
+                        default=3,
+                    ),
+                ),
+                ("createdAt", models.DateTimeField(auto_now_add=True)),
+                (
+                    "razorpay_orderID",
+                    models.CharField(blank=True, max_length=500, null=True),
+                ),
+                (
+                    "razorpay_paymentID",
+                    models.CharField(blank=True, max_length=500, null=True),
+                ),
+                (
+                    "razorpay_signature",
+                    models.CharField(blank=True, max_length=500, null=True),
+                ),
+                (
+                    "_id",
+                    models.AutoField(editable=False, primary_key=True, serialize=False),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='ShippingAddress',
+            name="ShippingAddress",
             fields=[
-                ('address', models.CharField(blank=True, max_length=200, null=True)),
-                ('city', models.CharField(blank=True, max_length=200, null=True)),
-                ('pinCode', models.CharField(blank=True, max_length=200, null=True)),
-                ('_id', models.AutoField(editable=False, primary_key=True, serialize=False)),
-                ('order', models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='orders.order')),
+                ("address", models.CharField(blank=True, max_length=200, null=True)),
+                ("city", models.CharField(blank=True, max_length=200, null=True)),
+                ("pinCode", models.CharField(blank=True, max_length=200, null=True)),
+                (
+                    "_id",
+                    models.AutoField(editable=False, primary_key=True, serialize=False),
+                ),
+                (
+                    "order",
+                    models.OneToOneField(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="orders.order",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='OrderItem',
+            name="OrderItem",
             fields=[
-                ('qty', models.IntegerField(blank=True, default=0, null=True)),
-                ('price', models.DecimalField(blank=True, decimal_places=2, max_digits=7, null=True)),
-                ('_id', models.AutoField(editable=False, primary_key=True, serialize=False)),
-                ('order', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='orders.order')),
-                ('product', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='base.product')),
+                ("qty", models.IntegerField(blank=True, default=0, null=True)),
+                (
+                    "price",
+                    models.DecimalField(
+                        blank=True, decimal_places=2, max_digits=7, null=True
+                    ),
+                ),
+                (
+                    "_id",
+                    models.AutoField(editable=False, primary_key=True, serialize=False),
+                ),
+                (
+                    "order",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to="orders.order",
+                    ),
+                ),
+                (
+                    "product",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to="base.product",
+                    ),
+                ),
             ],
         ),
     ]

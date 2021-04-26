@@ -6,18 +6,22 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('orders', '0003_auto_20210407_1650'),
+        ("orders", "0003_auto_20210407_1650"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='order',
-            name='razorpay_paymentID',
-            field=models.CharField(blank=True, editable=False, max_length=500, null=True),
+            model_name="order",
+            name="razorpay_paymentID",
+            field=models.CharField(
+                blank=True, editable=False, max_length=500, null=True
+            ),
         ),
         migrations.AlterField(
-            model_name='order',
-            name='razorpay_signature',
-            field=models.CharField(blank=True, editable=False, max_length=500, null=True),
+            model_name="order",
+            name="razorpay_signature",
+            field=models.CharField(
+                blank=True, editable=False, max_length=500, null=True
+            ),
         ),
     ]
