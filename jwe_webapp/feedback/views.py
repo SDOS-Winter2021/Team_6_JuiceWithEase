@@ -7,10 +7,6 @@ from .serializers import FeedbackSerializer
 
 @api_view(["POST"])
 def addfeedback(request):
-    # print(request.data['username'])
-    # print(request.data['useremail'])
-    # print(request.data['subject'])
-    # print(request.data['message'])
     fb = Feedback.objects.create(
             username=request.data['username'], 
             useremail=request.data['useremail'], 

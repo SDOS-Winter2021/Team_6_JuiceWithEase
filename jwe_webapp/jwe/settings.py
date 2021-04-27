@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "base.apps.BaseConfig",
     "orders",
     "feedback",
+    "pincode",
 ]
 
 MIDDLEWARE = [
