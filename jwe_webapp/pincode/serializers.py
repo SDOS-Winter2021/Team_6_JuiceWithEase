@@ -6,4 +6,4 @@ from .models import Pincode
 class PincodeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pincode
-        fields = ['pincode']
+        fields = ["pincode"]
