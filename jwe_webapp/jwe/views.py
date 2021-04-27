@@ -3,4 +3,4 @@ from .settings import STATIC_URL
 
 
 def getHome(request):
-    return HttpResponseRedirect(f"http://localhost:8000/{STATIC_URL}index.html")
+    return HttpResponseRedirect(f"{STATIC_URL}index.html")
