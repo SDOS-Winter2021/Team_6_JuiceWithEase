@@ -6,13 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('orders', '0004_auto_20210407_1719'),
+        ("orders", "0004_auto_20210407_1719"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='order',
-            name='razorpay_orderID',
-            field=models.CharField(blank=True, editable=False, max_length=500, null=True),
+            model_name="order",
+            name="razorpay_orderID",
+            field=models.CharField(
+                blank=True, editable=False, max_length=500, null=True
+            ),
         ),
     ]

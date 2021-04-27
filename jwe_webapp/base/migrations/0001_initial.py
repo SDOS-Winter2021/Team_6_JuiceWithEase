@@ -8,38 +8,60 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Bottletype',
+            name="Bottletype",
             fields=[
-                ('_id', models.AutoField(editable=False, primary_key=True, serialize=False)),
-                ('volume', models.IntegerField(null=True)),
+                (
+                    "_id",
+                    models.AutoField(editable=False, primary_key=True, serialize=False),
+                ),
+                ("volume", models.IntegerField(null=True)),
             ],
         ),
         migrations.CreateModel(
-            name='ProductCategory',
+            name="ProductCategory",
             fields=[
-                ('name', models.CharField(max_length=200, null=True)),
-                ('description', models.TextField(null=True)),
-                ('createdAt', models.DateTimeField(auto_now_add=True)),
-                ('_id', models.AutoField(editable=False, primary_key=True, serialize=False)),
+                ("name", models.CharField(max_length=200, null=True)),
+                ("description", models.TextField(null=True)),
+                ("createdAt", models.DateTimeField(auto_now_add=True)),
+                (
+                    "_id",
+                    models.AutoField(editable=False, primary_key=True, serialize=False),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Product',
+            name="Product",
             fields=[
-                ('name', models.CharField(max_length=200, null=True)),
-                ('image', models.ImageField(blank=True, null=True, upload_to='')),
-                ('description', models.TextField(blank=True, null=True)),
-                ('price', models.DecimalField(decimal_places=2, max_digits=7)),
-                ('availability', models.BooleanField(default=True)),
-                ('createdAt', models.DateTimeField(auto_now_add=True)),
-                ('_id', models.AutoField(editable=False, primary_key=True, serialize=False)),
-                ('bottle_id', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='base.bottletype')),
-                ('category_Id', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='base.productcategory')),
+                ("name", models.CharField(max_length=200, null=True)),
+                ("image", models.ImageField(blank=True, null=True, upload_to="")),
+                ("description", models.TextField(blank=True, null=True)),
+                ("price", models.DecimalField(decimal_places=2, max_digits=7)),
+                ("availability", models.BooleanField(default=True)),
+                ("createdAt", models.DateTimeField(auto_now_add=True)),
+                (
+                    "_id",
+                    models.AutoField(editable=False, primary_key=True, serialize=False),
+                ),
+                (
+                    "bottle_id",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="base.bottletype",
+                    ),
+                ),
+                (
+                    "category_Id",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="base.productcategory",
+                    ),
+                ),
             ],
         ),
     ]
