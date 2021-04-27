@@ -38,3 +38,8 @@ save.addEventListener('click', () => {
     address.setAttribute('readonly', 'True');
     pincode.setAttribute('readonly', 'True');
 });
+
+var homeButton = document.getElementById('home');
+homeButton.addEventListener('click', () => {
+    window.location.href = "index.html";
+});

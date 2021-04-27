@@ -23,6 +23,7 @@ signup = (e) => {
         body: JSON.stringify(data),
         })
         .then(response => response.json())
+        .then(alert("An activation mail has been sent to your email Id. Please Activate your account."))
         .then(data => {
             console.log('Success:', data);
             window.location.href = "login.html";
