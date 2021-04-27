@@ -26,6 +26,7 @@ urlpatterns = [
     path("", include("base.urls")),
     path("", include("accounts.urls")),
     path("orders/", include("orders.urls")),
+    path("feedback/", include("feedback.urls")),
 ]
 
 # For React URLS. Modify if needed.
