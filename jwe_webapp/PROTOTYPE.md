@@ -11,9 +11,9 @@ Install Dependencies
 `pip install -r requirements.txt`
 
 Run Server  
-`pip manage.py runserver`
+`python3 manage.py runserver`
 
-Finally, go to the Team_6_JuiceWithEase/storefront directory and open index.html file on your web browser 
+Finally, go to the Team_6_JuiceWithEase/storefront directory and run `http-server` to start the front-end server. 
 
 To access the admin functionality, go to the link `127.0.0.0.8000/admin` and login using the credentials:  
 Email : admin@example.com  
