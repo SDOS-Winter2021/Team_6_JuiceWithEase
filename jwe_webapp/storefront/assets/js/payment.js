@@ -51,7 +51,7 @@ var options = {
         // alert("Your Payment was Successfull. You'll be redirected to the homepage now!");
         console.log('Success:', data);
         // localStorage.setItem('order_id', data['razorpay_orderID']);
-        window.location.href = "/";
+        window.location.href = "index.html";
     })
     .catch((error) => {
         console.error("Error Occured",error);
