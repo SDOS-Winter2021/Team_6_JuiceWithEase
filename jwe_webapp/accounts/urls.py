@@ -1,4 +1,6 @@
 from django.urls import path
 from . import views
 
-urlpatterns = [path("activate/<str:uid>/<str:token>", views.getActivation)]
+urlpatterns = [path("activate/<str:uid>/<str:token>", views.getActivation),
+path("password/reset/confirm/<str:uid>/<str:token>", views.resetPassword)
+]

@@ -28,6 +28,7 @@ urlpatterns = [
     path("orders/", include("orders.urls")),
     path("feedback/", include("feedback.urls")),
     path("pincode/", include("pincode.urls")),
+    path("accounts/", include("accounts.urls")),
 ]
 
 # For React URLS. Modify if needed.

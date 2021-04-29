@@ -8,3 +8,8 @@ def getActivation(req, uid, token):
     return HttpResponseRedirect(
         f"{SITE_URL}{STATIC_URL}activate.html?uid={uid}&token={token}"
     )
+
+def resetPassword(req, uid, token):
+    return HttpResponseRedirect(
+        f"{SITE_URL}{STATIC_URL}reset.html?uid={uid}&token={token}"
+    )

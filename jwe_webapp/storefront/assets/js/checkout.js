@@ -130,7 +130,9 @@ for (var i in cartProducts) {
     </tr>`
 }
 
-function checkoutButton() {
+var checkoutbtn = document.getElementsByClassName('checkoutbtn')[0];
+console.log(checkoutbtn);
+checkoutbtn.addEventListener('click', () => {
     if (c == 0) {
         window.location.href = 'products.html';
     }
@@ -171,7 +173,7 @@ function checkoutButton() {
                     checkoutObject.user = {}
                     checkoutObject.user.access = window.localStorage.getItem('access');
                     checkoutObject.user.refresh = window.localStorage.getItem('refresh');
-                    console.log(checkoutObject);
+                    console.log(JSON.stringify(checkoutObject));
                     fetch('/orders/checkout/', {
                     method: 'POST',
                     headers: {
@@ -206,33 +208,4 @@ function checkoutButton() {
     } else {
         window.location.href = "login.html";
     }
-    checkoutObject.user = {}
-    checkoutObject.user.access = window.localStorage.getItem('access');
-    checkoutObject.user.refresh = window.localStorage.getItem('refresh');
-    console.log(checkoutObject);
-    fetch('/orders/checkout/', {
-    method: 'POST',
-    headers: {
-        'Authorization': `Bearer ${window.localStorage.getItem('access')}`,
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(checkoutObject),
-    })
-    .then(response => response.json())
-    .then(data => {
-        // localStorage.setItem('cartList', JSON.stringify(temp));
-        console.log(data['razorpay_orderID'])
-        
-        console.log('Success:', data);
-        localStorage.setItem('rorder_id', data['razorpay_orderID']);
-        localStorage.setItem('totalPrice', data['totalPrice']);
-        console.log("IN Local Storage: ");
-        console.log(localStorage.getItem('rorder_id'));
-        console.log(localStorage.getItem('totalPrice'));
-        localStorage['rorder_id'] = data['razorpay_orderID'];
-        window.location.href = "/shop/payment.html";
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
-}
+});
