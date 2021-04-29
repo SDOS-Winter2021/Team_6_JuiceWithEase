@@ -60,7 +60,9 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
 
 
 class UserAddress(models.Model):
-    user = models.ForeignKey(UserAccount, on_delete=models.CASCADE,null=True, blank=True)
+    user = models.ForeignKey(
+        UserAccount, on_delete=models.CASCADE, null=True, blank=True
+    )
     address = models.CharField(max_length=200, null=True, blank=True)
     city = models.CharField(max_length=200, null=True, blank=True)
     pinCode = models.CharField(max_length=200, null=True, blank=True)
