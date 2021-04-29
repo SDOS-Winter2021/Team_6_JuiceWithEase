@@ -24,7 +24,7 @@ loginButton = (e) => {
             window.localStorage.setItem('email', e);
             window.location.href = "user.html";
         } else {
-            window.location.href = "register.html";
+            alert("Incorrect login details");
         }
     })
     .catch((error) => {
