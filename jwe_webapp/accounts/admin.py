@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UserAccount
+from .models import UserAccount, UserAddress
 
 # Register your models here.
 from .forms import *
@@ -50,3 +50,5 @@ class CustomUserAdmin(UserAdmin):
 
 
 admin.site.register(UserAccount, CustomUserAdmin)
+
+admin.site.register(UserAddress)

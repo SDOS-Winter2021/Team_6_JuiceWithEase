@@ -1,0 +1,10 @@
+*.log
+*.pot
+*.pyc
+__pycache__/
+*/venv
+*/sdos
+*/.vscode
+*/migrations/*
+.DS_Store
+env
