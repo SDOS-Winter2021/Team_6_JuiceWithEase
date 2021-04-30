@@ -5,6 +5,7 @@ __pycache__/
 */venv
 */sdos
 */.vscode
-*/migrations/*
+*/db.sqlite3
+jwe_webapp/*/migrations/*
 .DS_Store
 env

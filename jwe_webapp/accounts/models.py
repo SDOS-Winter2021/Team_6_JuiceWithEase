@@ -18,6 +18,17 @@ class UserAccountManager(BaseUserManager):
         user.set_password(password)
         user.save()
 
+        try:
+            user_add = UserAddress.objects.create(
+                user=user,
+                address="",
+                pinCode="",
+                city="",
+            )
+            user_add.save()
+        except Exception as e:
+            print(e)
+
         return user
 
     def create_superuser(self, email, password, **other_fields):
@@ -34,7 +45,7 @@ class UserAccountManager(BaseUserManager):
 class UserAccount(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True)
     first_name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255, null=True, blank=True)
     phone = models.CharField(max_length=15)
     access_levels = [
         (2, "NORMAL"),
