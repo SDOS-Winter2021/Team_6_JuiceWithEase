@@ -9,3 +9,4 @@ __pycache__/
 jwe_webapp/*/migrations/*
 .DS_Store
 env
+Python-3.7.4

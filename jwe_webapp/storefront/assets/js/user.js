@@ -4,7 +4,7 @@ var count = document.getElementById('count');
 if (count != null) {
     count.innerHTML = JSON.parse(localStorage.getItem('cartList')).length;
 }
-var numbernamee = document.getElementById('namee');
+var namee = document.getElementById('namee');
 var email = document.getElementById('email');
 var number = document.getElementById('number');
 var address = document.getElementById('address');
@@ -76,9 +76,15 @@ if (localStorage.getItem('access')) {
                     userDetails = data;
                     namee.setAttribute('value', `${userDetails.first_name} ${userDetails.last_name}`);
                     email.setAttribute('value', userDetails.email);
+<<<<<<< HEAD
                     number.setAttribute('value', userDetails.phone); 
                     var welcome = document.getElementById('welcome');
                     welcome.innerHTML = "Hello " + userDetails.first_name;            
+=======
+                    number.setAttribute('value', userDetails.phone);
+                    var welcome = document.getElementById('welcome');
+                    welcome.innerHTML = userDetails.first_name;
+>>>>>>> 5037840a358a57a3fdbbcfe39ef2cc79b03cbfb2
                 })
                 .catch((error) => {
                     console.error('Error:', error);
