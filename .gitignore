@@ -2,9 +2,9 @@
 *.pot
 *.pyc
 __pycache__/
-backend/venv
+*/venv
+*/sdos
 */.vscode
-backend/sdos
 */migrations/*
 .DS_Store
 env

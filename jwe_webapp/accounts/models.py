@@ -5,7 +5,7 @@ from django.contrib.auth.models import (
     BaseUserManager,
 )
 
-# from stores.models import *# Create your models here.
+# Create your models here.
 
 
 class UserAccountManager(BaseUserManager):
@@ -57,3 +57,16 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+
+
+class UserAddress(models.Model):
+    user = models.ForeignKey(
+        UserAccount, on_delete=models.CASCADE, null=True, blank=True
+    )
+    address = models.CharField(max_length=200, null=True, blank=True)
+    city = models.CharField(max_length=200, null=True, blank=True)
+    pinCode = models.CharField(max_length=200, null=True, blank=True)
+    _id = models.AutoField(primary_key=True, editable=False)
+
+    def __str__(self):
+        return str(self.address)
