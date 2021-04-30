@@ -6,13 +6,28 @@ var confirm_password = document.getElementById('confirm_password');
 
 signup = (e) => {
     e.preventDefault();
-    var data = {
-        'first_name' : namee.value.split(" ")[0],
-        'last_name' : namee.value.split(" ")[1],
-        'email' : email.value,
-        'phone' : mobile.value,
-        'password' : password.value,
-        're_password' : confirm_password.value
+    if (namee.contains(" ")) {
+        var temp = namee.split(" ");
+        var first_name = temp[0];
+        temp.shift();
+        var last_name = temp.join().replace(',', " ");
+        var data = {
+            'first_name' : first_name,
+            'last_name' : last_name,
+            'email' : email.value,
+            'phone' : mobile.value,
+            'password' : password.value,
+            're_password' : confirm_password.value
+        };
+    } else {
+        var data = {
+            'first_name' : namee.value,
+            'last_name' : "",
+            'email' : email.value,
+            'phone' : mobile.value,
+            'password' : password.value,
+            're_password' : confirm_password.value
+        };
     }
     console.log(data);
     fetch('/auth/users/', {

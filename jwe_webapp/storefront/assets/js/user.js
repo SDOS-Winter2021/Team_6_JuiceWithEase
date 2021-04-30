@@ -76,7 +76,9 @@ if (localStorage.getItem('access')) {
                     userDetails = data;
                     namee.setAttribute('value', `${userDetails.first_name} ${userDetails.last_name}`);
                     email.setAttribute('value', userDetails.email);
-                    number.setAttribute('value', userDetails.phone);             
+                    number.setAttribute('value', userDetails.phone); 
+                    var welcome = document.getElementById('welcome');
+                    welcome.innerHTML = "Hello " + userDetails.first_name;            
                 })
                 .catch((error) => {
                     console.error('Error:', error);

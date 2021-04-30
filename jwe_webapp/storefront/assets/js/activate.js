@@ -8,7 +8,7 @@ activate = (e) => {
     e.preventDefault();
     var data = {
         'uid' : uid,
-        'token' : token
+        'token' : token,
     }
     fetch('/auth/users/activation/', {
         method: 'POST',
