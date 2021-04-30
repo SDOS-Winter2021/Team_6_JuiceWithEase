@@ -2,35 +2,39 @@ import { check_pincode } from './exportfunctions.js';
 
 const checkoutButton = document.getElementById('checkoutButton');
 checkoutButton.addEventListener('click', checkoutButton_fnc);
-
 function checkoutButton_fnc() {
+    var checkoutObject;
+    var temp;
 
     if (c == 0) {
         window.location.href = 'products.html';
-    }
-    
-    // Todo: Using the helper function instead of hardcoding pincode check
-    
-    var boo = false;
-    check_pincode(pincode.value).then(function(result){
-        console.log(result);
-        if(!result){
-            pincodeWarning.innerHTML = '*Delivery is not possible at your area!';
-            boo = true;
-            return;
-        }
-       
-    });
-    console.log(boo);
-    if(boo){
-        return;
-    }
+    };
 
-    // if (pincode.value!='201303' && pincode.value!='201304' && pincode.value!='201305') {
-    //     pincodeWarning.innerHTML = '* Delivery is not possible at your area!';
+    //Uncomment this code for using the helper function
+
+    // window.sessionStorage.removeItem('foo');
+    // check_pincode(pincode.value).then( function(result){
+    //     if(!result){
+    //         window.sessionStorage.setItem('foo', "1");
+    //         pincodeWarning.innerHTML = '*Delivery is not possible at your area!'; 
+    //     }
+    // })
+    // .catch((error) => {
+    //     console.error('Error:', error);
+    //     pincodeWarning.innerHTML = '*Delivery is not possible at your area!';
+    //     window.sessionStorage.setItem('foo', "1");
+
+    // });
+    // if(window.sessionStorage.getItem('foo') == "1" ){
+    //     window.sessionStorage.removeItem('foo');
     //     return;
     // }
 
+
+    if (pincode.value!='201303' && pincode.value!='201304' && pincode.value!='201305') {
+        pincodeWarning.innerHTML = '* Delivery is not possible at your area!';
+        return;
+    }
     if (localStorage.getItem('access')) {
         fetch('/auth/jwt/verify/', {
             method: 'POST',
@@ -87,9 +91,9 @@ function checkoutButton_fnc() {
                         localStorage['rorder_id'] = data['razorpay_orderID'];
                         window.location.href = "payment.html";
                     })
-                    .catch((error) => {
-                        console.error('Error:', error);
-                    });
+                    // .catch((error) => {
+                    //     console.error('Error:', error);
+                    // });
                 }
             })
             .catch((error) => {
@@ -99,6 +103,7 @@ function checkoutButton_fnc() {
     } else {
         window.location.href = "login.html";
     }
+    
     checkoutObject.user = {}
     checkoutObject.user.access = window.localStorage.getItem('access');
     checkoutObject.user.refresh = window.localStorage.getItem('refresh');

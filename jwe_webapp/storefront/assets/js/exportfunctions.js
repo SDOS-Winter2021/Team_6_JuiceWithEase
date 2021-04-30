@@ -1,6 +1,6 @@
 import {pincode_api} from "./constants.js";
 
-console.log(pincode_api);
+/*This function take a pincode as the argument and return Promise<boolean> indicating whether that pincode is serviceable or not */
 export async function check_pincode(user_pincode="") {
     try {
         let response = await fetch(pincode_api);
