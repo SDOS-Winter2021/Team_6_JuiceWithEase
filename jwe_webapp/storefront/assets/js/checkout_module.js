@@ -10,31 +10,24 @@ function checkoutButton_fnc() {
         window.location.href = 'products.html';
     };
 
-    //Uncomment this code for using the helper function
+    window.sessionStorage.removeItem('foo');
+    check_pincode(pincode.value).then( function(result){
+        if(!result){
+            window.sessionStorage.setItem('foo', "1");
+            pincodeWarning.innerHTML = '*Delivery is not possible at your area!'; 
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        pincodeWarning.innerHTML = '*Delivery is not possible at your area!';
+        window.sessionStorage.setItem('foo', "1");
 
-    // window.sessionStorage.removeItem('foo');
-    // check_pincode(pincode.value).then( function(result){
-    //     if(!result){
-    //         window.sessionStorage.setItem('foo', "1");
-    //         pincodeWarning.innerHTML = '*Delivery is not possible at your area!'; 
-    //     }
-    // })
-    // .catch((error) => {
-    //     console.error('Error:', error);
-    //     pincodeWarning.innerHTML = '*Delivery is not possible at your area!';
-    //     window.sessionStorage.setItem('foo', "1");
-
-    // });
-    // if(window.sessionStorage.getItem('foo') == "1" ){
-    //     window.sessionStorage.removeItem('foo');
-    //     return;
-    // }
-
-
-    if (pincode.value!='201303' && pincode.value!='201304' && pincode.value!='201305') {
-        pincodeWarning.innerHTML = '* Delivery is not possible at your area!';
+    });
+    if(window.sessionStorage.getItem('foo') == "1" ){
+        window.sessionStorage.removeItem('foo');
         return;
     }
+    
     if (localStorage.getItem('access')) {
         fetch('/auth/jwt/verify/', {
             method: 'POST',
