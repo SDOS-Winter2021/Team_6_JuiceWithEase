@@ -1,6 +1,7 @@
 from djoser.serializers import UserCreateSerializer
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
+from .models import UserAddress
 
 User = get_user_model()
 
@@ -32,3 +33,9 @@ class UserSerializer(serializers.ModelSerializer):
             name = obj.email
 
         return name
+
+
+class UserAddressSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserAddress
+        fields = ["address", "city", "pinCode"]
