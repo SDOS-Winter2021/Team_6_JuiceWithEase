@@ -27,6 +27,7 @@ class UserAddressAPI(APIView):
     def get(self, request, *args, **kwargs):
         print("Request", request)
         user = request.user
+        print(user)
         # user_id = user.id if user.id else 7
         # user = User.objects.get(pk=user_id)
         user_address = get_object_or_404(UserAddress, user=user)
