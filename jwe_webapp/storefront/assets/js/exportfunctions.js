@@ -15,4 +15,4 @@ export async function check_pincode(user_pincode="") {
     } catch (error) {
         console.log(error);
     }
-}
+} 

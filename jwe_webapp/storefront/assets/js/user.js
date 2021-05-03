@@ -78,7 +78,8 @@ if (localStorage.getItem('access')) {
                     email.setAttribute('value', userDetails.email);
                     number.setAttribute('value', userDetails.phone);
                     var welcome = document.getElementById('welcome');
-                    welcome.innerHTML = userDetails.first_name;                })
+                    welcome.innerHTML = userDetails.first_name;
+                })
                 .catch((error) => {
                     console.error('Error:', error);
                 });
