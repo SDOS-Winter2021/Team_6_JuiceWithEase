@@ -1,3 +1,5 @@
+import { check_pincode } from './exportfunctions.js';
+
 async function getProducts() {
     let response = await fetch('/products/');
     let data = await response.json();
@@ -75,7 +77,6 @@ var popup_model = document.querySelector('.popup-modal');
 var popup_tick = document.querySelector('.popup-result-tick');
 var popup_error = document.querySelector('.popup-result-error');
 var main_layout = document.querySelector('.main-layout');
-pincode_list = ["201303", "201304", "201305"];
 
 //Show Popup on first visit to the page, expiry every 100 hours
 $(document).ready(function () {
@@ -111,13 +112,14 @@ document.querySelector('.popup-close').addEventListener("click", function () {
 const form = document.querySelector('.pincode-form')
 form.addEventListener('submit', event => {
     var pincode = document.getElementById("pincode").value;
-    if (pincode_list.includes(pincode)) {
-        popup_error.style.display = "none";
-        popup_tick.style.display = "flex";
-} else {
-        popup_error.style.display = "flex";
-        popup_tick.style.display = "none";
-    }
+    check_pincode(pincode).then(function(result){
+        if(result){
+            popup_error.style.display = "none";
+            popup_tick.style.display = "flex";
+        }else{
+            popup_error.style.display = "flex";
+            popup_tick.style.display = "none";        }
+    });
     setTimeout(function () {
         document.getElementById("pincode").value = "";
         popup_error.style.display = "none";
