@@ -6,7 +6,6 @@ __pycache__/
 */sdos
 */.vscode
 */db.sqlite3
-jwe_webapp/*/migrations/*
 .DS_Store
 env
 Python-3.7.4

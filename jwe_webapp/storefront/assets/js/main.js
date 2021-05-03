@@ -405,7 +405,7 @@ var product_categories = {
 }
 
 var images = [
-  'https://letsimagine.in/wp-content/uploads/2017/10/24-carrots-6.png',
+  'files/24-carrots-6.png',
   'https://letsimagine.in/wp-content/uploads/2017/10/berry-go-round-3.png',
   'https://letsimagine.in/wp-content/uploads/2017/10/citrus_burst-3.png',
   'https://letsimagine.in/wp-content/uploads/2017/10/green-day-3.png',

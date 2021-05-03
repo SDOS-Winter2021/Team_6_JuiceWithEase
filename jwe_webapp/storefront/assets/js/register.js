@@ -6,8 +6,8 @@ var confirm_password = document.getElementById('confirm_password');
 
 signup = (e) => {
     e.preventDefault();
-    if (namee.contains(" ")) {
-        var temp = namee.split(" ");
+    if (namee.value.includes(" ")) {
+        var temp = namee.value.split(" ");
         var first_name = temp[0];
         temp.shift();
         var last_name = temp.join().replace(',', " ");
