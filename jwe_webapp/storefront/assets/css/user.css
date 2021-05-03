@@ -361,3 +361,25 @@ body {
   .btn:hover {
       background-color: #333 !important;
   }
+
+  .productPic {
+    max-height: 100px;
+    width: auto;
+  }
+
+  td {
+    text-align: center;
+  }
+
+  th {
+    text-align: center;
+  }
+
+  table {
+    min-width: 80%;
+    margin-bottom: 40px;
+  }
+
+  tr {
+    margin-bottom: 10px;
+  }
