@@ -4,15 +4,23 @@ from .models import Product, ProductCategory
 
 
 class ProductSerializer(serializers.ModelSerializer):
-    category = serializers.StringRelatedField(source="category_Id",read_only=True)
-    
+    category = serializers.StringRelatedField(source="category_Id", read_only=True)
+
     class Meta:
         model = Product
-        
-        fields = ["name","image","category","category_Id","description","price","bottle_id","availability","createdAt","id"]
 
-
-
+        fields = [
+            "name",
+            "image",
+            "category",
+            "category_Id",
+            "description",
+            "price",
+            "bottle_id",
+            "availability",
+            "createdAt",
+            "id",
+        ]
 
     def create(self, validated_data):
         category = validate_data.pop("category_Id")
@@ -22,8 +30,6 @@ class ProductSerializer(serializers.ModelSerializer):
         product.category_Id.add(cat)
         print(product)
         return product
-
-
 
 
 class ProductCategorySerializer(serializers.ModelSerializer):
