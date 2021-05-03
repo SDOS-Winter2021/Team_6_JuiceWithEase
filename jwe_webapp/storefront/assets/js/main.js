@@ -441,6 +441,7 @@ if (container != undefined) {
   }
 }
 console.log(products);
+localStorage.setItem('allProducts', JSON.stringify(products));
 console.log(JSON.parse(localStorage.getItem('cartList')));
 var cart = document.getElementsByClassName('cart')[0];
 console.log(cart);

@@ -13,7 +13,7 @@
            <div class="page-header">
               <ul class="nav">
                  <li class="settings-title">
-                    <h1>Hello Soumyadeep</h1>
+                    <h1 id="welcome">Hello Soumyadeep</h1>
                  </li>
                  <li>
                   <a id="home" class="btn flat btn-create" id="save">HOME</a>
@@ -28,9 +28,9 @@
                         <li class="active">
                            <a href="#user-profile-info" data-toggle="tab">Account Details</a>
                         </li>
-                        <li>
+                        <!-- <li>
                            <a href="#user-profile-payments" data-toggle="tab">Address</a>
-                        </li>
+                        </li> -->
                         <li>
                            <a href="#user-profile-examples" data-toggle="tab">Orders</a>
                         </li>
@@ -59,6 +59,10 @@
                                 <textarea id="address" type="text" row="10" class="input-md form-control"></textarea>
                              </div>
                              <div class="col-sm-4">
+                              <label>City</label>
+                              <input id="city" type="text" class="input-md form-control">
+                             </div>
+                             <div class="col-sm-4">
                                 <label>Pin code</label>
                                 <input id="pincode" type="text" class="input-md form-control">
                              </div>
@@ -68,7 +72,7 @@
                             <a class="btn flat btn-create" id="save">Save</a>
                          </div>
                        </div>
-                       <div class="tab-pane fade" id="user-profile-payments">
+                       <!-- <div class="tab-pane fade" id="user-profile-payments">
                         <div class="row">
                             <div class="col-sm-4">
                                 <label>Address</label>
@@ -78,8 +82,23 @@
                         <div class="actions">
                             <a class="btn flat btn-create">Add Address</a>
                          </div>     
-                       </div>
+                       </div> -->
                        <div class="tab-pane fade" id="user-profile-examples">
+                        <!-- <table>
+                           <caption>2021-05-02</caption>
+                           <tr>
+                              <th>Product</th>
+                              <th>Item name</th>
+                              <th>Quantity</th>
+                              <th>Price</th>
+                           </tr>
+                           <tr>
+                              <td><img class="productPic" src="https://letsimagine.in/wp-content/uploads/2017/10/what-a-melon-1.png"/></td>
+                              <td>Melon Juice</td>
+                              <td>2</td>
+                              <td>180</td>
+                           </tr>
+                        </table> -->
                        </div>
                    </div>
               </div>
