@@ -107,27 +107,27 @@ subtotal.innerHTML = c;
 
 var table = document.getElementsByClassName('list_of_products')[0];
 for (var i in cartProducts) {
-    // table.innerHTML += `<tr>
-    //     <th scope="row" class="border-0">
-    //     <div class="p-2">
-    //         <img aria-label="product-img" src="${cartProducts[i].image}" alt="" width="70" class="img-fluid rounded shadow-sm productPic">
-    //         <div class="ml-3 d-inline-block align-middle">
-    //         <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">${cartProducts[i].name}</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: ${cartProducts[i].category}</span>
-    //         <select name="volume" id="volume">
-    //         <option value="300ml"><strong>300ml</strong></option>
-    //         <option value="500ml"><strong>500ml</strong></option>
-    //         </select>
-    //         </div>
-    //     </div>
-    //     </th>
-    //     <td class="border-0 align-middle"><strong class="itemCost">${cartProducts[i].price * cartProducts[i].quantity}</strong></td>
-    //     <td class="border-0 align-middle">
-    //     <span class="minus" onclick="subtract(event, ${cartProducts[i].id})"><strong>- &nbsp;&nbsp;</strong></span>
-    //     <span><strong> ${cartProducts[i].quantity} </strong></span>
-    //     <span class="plus" onclick="add(event, ${cartProducts[i].id})"><strong>&nbsp;&nbsp; +</strong></span>
-    //     </td>
-    //     <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash" onclick="del(event, ${cartProducts[i].id})"></i></a></td>
-    // </tr>`
+    table.innerHTML += `<tr>
+        <th scope="row" class="border-0">
+        <div class="p-2">
+            <img aria-label="product-img" src="${cartProducts[i].image}" alt="" width="70" class="img-fluid rounded shadow-sm productPic">
+            <div class="ml-3 d-inline-block align-middle">
+            <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">${cartProducts[i].name}</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: ${cartProducts[i].category}</span>
+            <select name="volume" id="volume">
+            <option value="300ml"><strong>300ml</strong></option>
+            <option value="500ml"><strong>500ml</strong></option>
+            </select>
+            </div>
+        </div>
+        </th>
+        <td class="border-0 align-middle"><strong class="itemCost">${cartProducts[i].price * cartProducts[i].quantity}</strong></td>
+        <td class="border-0 align-middle">
+        <span class="minus" onclick="subtract(event, ${cartProducts[i].id})"><strong>- &nbsp;&nbsp;</strong></span>
+        <span><strong> ${cartProducts[i].quantity} </strong></span>
+        <span class="plus" onclick="add(event, ${cartProducts[i].id})"><strong>&nbsp;&nbsp; +</strong></span>
+        </td>
+        <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash" onclick="del(event, ${cartProducts[i].id})"></i></a></td>
+    </tr>`
 }
 
 var checkoutbtn = document.getElementsByClassName('checkoutbtn')[0];
