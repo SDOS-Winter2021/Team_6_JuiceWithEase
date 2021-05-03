@@ -5,9 +5,10 @@ var password = document.getElementById('password');
 var confirm_password = document.getElementById('confirm_password');
 
 signup = (e) => {
+    console.log(namee);
     e.preventDefault();
-    if (namee.contains(" ")) {
-        var temp = namee.split(" ");
+    if (namee.value.includes(" ")) {
+        var temp = namee.value.split(" ");
         var first_name = temp[0];
         temp.shift();
         var last_name = temp.join().replace(',', " ");
@@ -17,7 +18,7 @@ signup = (e) => {
             'email' : email.value,
             'phone' : mobile.value,
             'password' : password.value,
-            're_password' : confirm_password.value
+            're_password' : confirm_password.value,
         };
     } else {
         var data = {

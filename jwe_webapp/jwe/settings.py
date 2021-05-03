@@ -174,3 +174,6 @@ DJOSER = {
 }
 
 AUTH_USER_MODEL = "accounts.UserAccount"
+
+MEDIA_ROOT = 'storefront/files/'
+MEDIA_URL = "files/"
