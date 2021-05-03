@@ -4,7 +4,7 @@ var count = document.getElementById('count');
 if (count != null) {
     count.innerHTML = JSON.parse(localStorage.getItem('cartList')).length;
 }
-var numbernamee = document.getElementById('namee');
+var namee = document.getElementById('namee');
 var email = document.getElementById('email');
 var number = document.getElementById('number');
 var address = document.getElementById('address');
@@ -76,8 +76,9 @@ if (localStorage.getItem('access')) {
                     userDetails = data;
                     namee.setAttribute('value', `${userDetails.first_name} ${userDetails.last_name}`);
                     email.setAttribute('value', userDetails.email);
-                    number.setAttribute('value', userDetails.phone);             
-                })
+                    number.setAttribute('value', userDetails.phone);
+                    var welcome = document.getElementById('welcome');
+                    welcome.innerHTML = userDetails.first_name;                })
                 .catch((error) => {
                     console.error('Error:', error);
                 });
