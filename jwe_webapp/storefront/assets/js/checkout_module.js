@@ -1,4 +1,5 @@
 import { check_pincode } from './exportfunctions.js';
+var pincode = document.getElementById('pincode');
 
 const checkoutButton = document.getElementById('checkoutButton');
 checkoutButton.addEventListener('click', checkoutButton_fnc);
@@ -10,24 +11,11 @@ function checkoutButton_fnc() {
         window.location.href = 'products.html';
     };
 
-    window.sessionStorage.removeItem('foo');
-    check_pincode(pincode.value).then( function(result){
-        if(!result){
-            window.sessionStorage.setItem('foo', "1");
-            pincodeWarning.innerHTML = '*Delivery is not possible at your area!'; 
-        }
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-        pincodeWarning.innerHTML = '*Delivery is not possible at your area!';
-        window.sessionStorage.setItem('foo', "1");
-
-    });
-    if(window.sessionStorage.getItem('foo') == "1" ){
-        window.sessionStorage.removeItem('foo');
-        return;
+    //Todo: Use check_pincode from exportfunctions.js to remove this hardcoding
+    if (pincode.value!='201303' && pincode.value!='201304' && pincode.value!='201305') {
+    pincodeWarning.innerHTML = '* Delivery is not possible at your area!';
+    return;
     }
-    
     if (localStorage.getItem('access')) {
         fetch('/auth/jwt/verify/', {
             method: 'POST',
