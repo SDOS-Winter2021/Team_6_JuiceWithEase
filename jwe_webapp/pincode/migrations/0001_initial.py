@@ -7,16 +7,18 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Pincode',
+            name="Pincode",
             fields=[
-                ('pincode', models.CharField(max_length=200, null=True)),
-                ('serviceable', models.BooleanField(default=True)),
-                ('_id', models.AutoField(editable=False, primary_key=True, serialize=False)),
+                ("pincode", models.CharField(max_length=200, null=True)),
+                ("serviceable", models.BooleanField(default=True)),
+                (
+                    "_id",
+                    models.AutoField(editable=False, primary_key=True, serialize=False),
+                ),
             ],
         ),
     ]

@@ -7,19 +7,21 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Feedback',
+            name="Feedback",
             fields=[
-                ('username', models.CharField(max_length=200, null=True)),
-                ('useremail', models.CharField(max_length=200, null=True)),
-                ('subject', models.TextField(max_length=200, null=True)),
-                ('message', models.TextField(null=True)),
-                ('createdAt', models.DateTimeField(auto_now_add=True)),
-                ('_id', models.AutoField(editable=False, primary_key=True, serialize=False)),
+                ("username", models.CharField(max_length=200, null=True)),
+                ("useremail", models.CharField(max_length=200, null=True)),
+                ("subject", models.TextField(max_length=200, null=True)),
+                ("message", models.TextField(null=True)),
+                ("createdAt", models.DateTimeField(auto_now_add=True)),
+                (
+                    "_id",
+                    models.AutoField(editable=False, primary_key=True, serialize=False),
+                ),
             ],
         ),
     ]
