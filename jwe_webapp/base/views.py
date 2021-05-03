@@ -21,6 +21,7 @@ def getRoutes(request):
 def getProducts(request):
     products = Product.objects.all()
     serializer = ProductSerializer(products, many=True)
+    print(serializer.data)
     return Response(serializer.data)
 
 

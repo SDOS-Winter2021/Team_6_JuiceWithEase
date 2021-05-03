@@ -55,7 +55,8 @@ def addOrderItems(request):
 
         total_price = 0
         for i in orderItems:
-            product = Product.objects.get(_id=int(i[0]))
+            print(i)
+            product = Product.objects.get(pk=int(i[0]))
             price = i[1] * product.price
             item = OrderItem.objects.create(
                 product=product,

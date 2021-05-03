@@ -421,13 +421,16 @@ var images = [
 for (var i in products) {
   products[i]['image'] = images[i];
 }
+
 products = JSON.parse(localStorage.getItem('productTable'));
 var container = document.getElementsByClassName('portfolio-container')[0];
 if (container != undefined) {
   for (var i in products) {
+    products[i].image = products[i].image.substring(1,)
+    console.log("category ",products[i].category)
     container.innerHTML += `<div class="col-lg-4 col-md-6 portfolio-item ${products[i].category}">
   <div onclick="productDetails(event, ${products[i].id})" class="portfolio-wrap">
-    <img aria-label="logo-img" src=${products[i].image} class="img-fluid" alt="">
+    <img aria-label="logo-img" src= ${products[i].image} class="img-fluid" alt="">
     <div class="portfolio-info">
       <h4>${products[i].name}</h4>
       <p class="productCategory">${products[i].category}</p>
