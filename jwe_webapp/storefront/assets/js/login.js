@@ -29,5 +29,6 @@ loginButton = (e) => {
     })
     .catch((error) => {
         console.error('Error:', error);
+        alert("Email not registered! please signup.");
     });
 }

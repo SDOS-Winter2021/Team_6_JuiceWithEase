@@ -20,9 +20,10 @@ activate = (e) => {
         .then(response => response.json())
         .then(data => {
             console.log('Success:', data);
-            window.location.search("login.html");
+            window.location.href = "login.html";
         })
         .catch((error) => {
             console.error('Error:', error);
+            window.location.href = "login.html";
         });
 }

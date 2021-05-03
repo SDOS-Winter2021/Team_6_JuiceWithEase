@@ -11,7 +11,64 @@ var pincode = document.getElementById('pincode');
 var address = document.getElementById('address');
 
 var datetime = document.getElementById('datetime');
+var selecttime = document.getElementById('selecttime');
 var warning = document.getElementById('warning');
+
+var today = new Date();
+var dd = today.getDate();
+
+var mm = today.getMonth()+1; 
+var yyyy = today.getFullYear();
+if(dd<10) {
+    dd='0'+dd;
+}
+if(mm<10) {
+    mm='0'+mm;
+}
+today = yyyy+'-'+mm+'-'+dd;
+console.log(today);
+datetime.setAttribute('min', today);
+
+fetch('/accounts/user/address/', {
+    method: 'GET',
+    headers: {
+        'Authorization': `Bearer ${window.localStorage.getItem('access')}`,
+        'Content-Type': 'application/json',
+    },
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        userAddress = data;
+        if (userAddress.address && userAddress.address!="") {
+            address.innerHTML = userAddress.address;
+        }
+        if (userAddress.city && userAddress.city!="") {
+            city.innerHTML = userAddress.city;
+        }
+        if (userAddress.pinCode && userAddress.pinCode!="") {
+            pincode.innerHTML = userAddress.pinCode;
+        }
+    })
+    .catch((error) => {
+        console.log('Error:', error);
+    });
+
+var pincodes;
+fetch('/pincode/get_pincodes/', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        pincodes = data;
+    })
+    .catch((error) => {
+        console.log('Error:', error);
+    });
 
 function calculatePrice() {
     var c = 0;
@@ -130,14 +187,64 @@ for (var i in cartProducts) {
     </tr>`
 }
 
+function checkTime(userTime, userDate) {
+    userDate = userDate.split("-");
+    userDate = userDate[1]+'-'+userDate[2]+'-'+userDate[0];
+    var date1 = new Date(userDate);
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; 
+    var yyyy = today.getFullYear();
+    if(dd<10) {
+        dd='0'+dd;
+    }
+    if(mm<10) {
+        mm='0'+mm;
+    }
+    today = mm+'-'+dd+'-'+yyyy;
+    var date2 = new Date(today);
+    console.log(today);
+    console.log(userDate);
+    var Difference_In_Time = date1.getTime() - date2.getTime();
+    var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+    console.log(Difference_In_Days);
+    if (Difference_In_Days > 0) {
+        return true;
+    } else {
+        var current = new Date();
+        var hours = current.getHours()+1;
+        var userHours = userTime.substring(0, 2);
+        if (parseInt(userHours) - parseInt(hours) >= 6) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+function checkPincode(pincode) {
+    for (var i in pincodes) {
+        if (pincodes[i]['pincode'] == pincode) {
+            return true;
+        }
+    }
+    return false;
+}
+
 var checkoutbtn = document.getElementsByClassName('checkoutbtn')[0];
 console.log(checkoutbtn);
 checkoutbtn.addEventListener('click', () => {
     if (c == 0) {
+        alert("Your cart is empty!");
         window.location.href = 'products.html';
+        return;
     }
-    if (pincode.value!='201303' && pincode.value!='201304' && pincode.value!='201305') {
+    if (!checkPincode(pincode.value)) {
         pincodeWarning.innerHTML = '* Delivery is not possible at your area!';
+        return;
+    }
+    if (!checkTime(selecttime.value, datetime.value)) {
+        alert ("Delivery time should be atleast 6 hours from your current time!");
         return;
     }
     if (localStorage.getItem('access')) {

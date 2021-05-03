@@ -421,7 +421,7 @@ var images = [
 for (var i in products) {
   products[i]['image'] = images[i];
 }
-
+products = JSON.parse(localStorage.getItem('productTable'));
 var container = document.getElementsByClassName('portfolio-container')[0];
 if (container != undefined) {
   for (var i in products) {

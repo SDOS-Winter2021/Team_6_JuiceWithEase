@@ -128,5 +128,4 @@ form.addEventListener('submit', event => {
         main_layout.style.overflow = 'visible';
     }, 1200)
     event.preventDefault();
-})
-
+});

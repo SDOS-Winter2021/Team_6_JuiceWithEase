@@ -36,3 +36,12 @@ textarea {
   color: red;
   font-size: small;
 }
+
+#selecttime {
+  width: 100%;
+  border: 1px solid lightgray;
+  padding: 7px;
+  border-radius: 5px;
+  color: grey;
+  margin-top: 20px;
+}

@@ -62,16 +62,25 @@
                     </div> -->
                     <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Confirm or Edit your address</div>
                     <div class="p-4">
-                      <p class="font-italic mb-4">Confirm your address.</p>
+                      <p class="font-italic mb-4">Confirm address and time of delivery.</p>
                       <textarea id="city" placeholder="Enter your city" name="" cols="10" rows="1" class="form-control"></textarea>
                       <textarea id="pincode" placeholder="Enter your pin-code" name="" cols="10" rows="1" class="form-control"></textarea>
                       <p id="pincodeWarning"></p>
                       <textarea id="address" placeholder="Enter your street address" name="" cols="30" rows="2" class="form-control"></textarea>
+                      <!-- <input id="datetime" type="datetime-local" id="birthdaytime" name="datetime"> -->
+                      <input id="datetime" type="date" value="yyyy-mm-dd" min="">
+                      <select name="time" id="selecttime">
+                        <option value="06-08">06:00 - 08:00</option>
+                        <option value="08-10">08:00 - 10:00</option>
+                        <option value="16-18">16:00 - 18:00</option>
+                        <option value="18-20">18:00 - 20:00</option>
+                      </select>
+                      <p id="warning"></p>
                     </div>
                     <div class="p-4">
-                      <p id="datetimeline" class="font-italic mb-4">Choose the date and time of delivery.</p>
-                      <input id="datetime" type="datetime-local" id="birthdaytime" name="datetime">
-                      <p id="warning"></p>
+                      <!-- <p id="datetimeline" class="font-italic mb-4">Choose the date and time of delivery.</p> -->
+                      <!-- <input id="datetime" type="datetime-local" id="birthdaytime" name="datetime">
+                      <p id="warning"></p> -->
                     </div>
                   </div>
                   <div class="col-lg-6">
