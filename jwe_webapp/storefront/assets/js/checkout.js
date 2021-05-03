@@ -7,7 +7,6 @@ if (count != null) {
 }
 
 var city = document.getElementById('city');
-var pincode = document.getElementById('pincode');
 var address = document.getElementById('address');
 
 var datetime = document.getElementById('datetime');
