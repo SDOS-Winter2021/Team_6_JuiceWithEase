@@ -17,4 +17,4 @@ Finally, go to the Team_6_JuiceWithEase/jwe_webapp/storefront directory and run 
 
 To access the admin functionality, go to the link `127.0.0.0.8000/admin` and login using the credentials:  
 Email : admin@example.com  
-password: 123  
+password: 123
