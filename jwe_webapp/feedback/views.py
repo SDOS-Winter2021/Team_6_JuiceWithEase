@@ -9,6 +9,13 @@ from .serializers import FeedbackSerializer
 
 @api_view(["POST"])
 def addfeedback(request):
+    """
+    Saves the feedback into the database. Attributes required are \n
+    :Username:  The name of the feedback submitter \n
+    :Useremail: The email id of the feedback submitter \n
+    :Subject: The subject of the feedback   \n
+    :Message: The content of the feedback   \n
+    """
     fb = Feedback.objects.create(
         username=request.data["username"],
         useremail=request.data["useremail"],

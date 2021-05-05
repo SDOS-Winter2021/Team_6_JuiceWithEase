@@ -95,6 +95,13 @@ def addOrderItems(request):
 @csrf_exempt
 @api_view(["POST"])
 def payment_verify(request):
+    """
+    The request 
+    The method verifies the payment from razorpay and creates the order in the database.
+    Razorpay returns 3 parameters: razorpay_payment_id, razorpay_order_id and rpay_signature.
+    These credentials need to be verified before adding the order 
+    to the database. If verified successfully, the order is added to the database.
+    """
     if request.method == "POST":
         print("reached here")
         # print()

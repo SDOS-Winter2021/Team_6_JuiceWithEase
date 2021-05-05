@@ -31,7 +31,7 @@ urlpatterns = [
     path("feedback/", include("feedback.urls")),
     path("pincode/", include("pincode.urls")),
     path("accounts/", include("accounts.urls")),
-    path("docs/",include_docs_urls(title="pincode")),
+    path("docs/",include_docs_urls(title="Juice With Ease Documentation")),
     path('schema', get_schema_view(
         title="BlogAPI",
         description="API for the BlogAPI",

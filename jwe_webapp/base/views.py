@@ -19,6 +19,9 @@ def getRoutes(request):
 
 @api_view(["GET"])
 def getProducts(request):
+    """
+    Returns all the products in the database
+    """
     products = Product.objects.all()
     serializer = ProductSerializer(products, many=True)
     print(serializer.data)
@@ -27,6 +30,9 @@ def getProducts(request):
 
 @api_view(["GET"])
 def getProductCategories(request):
+    """
+    Returns all the product categories in the database
+    """
     products = ProductCategory.objects.all()
     serializer = ProductCategorySerializer(products, many=True)
     return Response(serializer.data)
@@ -34,6 +40,9 @@ def getProductCategories(request):
 
 @api_view(["GET"])
 def getProduct(request, pk):
+    """
+    Returns the product with id = pk
+    """
     product = Product.objects.get(_id=pk)
     serializer = ProductSerializer(product, many=False)
     return Response(serializer.data)
@@ -41,6 +50,9 @@ def getProduct(request, pk):
 
 @api_view(["GET"])
 def getProducts_in_Category(request, catg):
+    """
+    Return the products ing product category = catg
+    """
     products = Product.objects.filter(category_Id=catg)
     serializer = ProductSerializer(products, many=True)
     return Response(serializer.data)
