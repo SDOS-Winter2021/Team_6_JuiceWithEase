@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.views.generic import TemplateView
 from .views import getHome
+from rest_framework.schemas import get_schema_view
+from rest_framework.documentation import include_docs_urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -29,6 +31,12 @@ urlpatterns = [
     path("feedback/", include("feedback.urls")),
     path("pincode/", include("pincode.urls")),
     path("accounts/", include("accounts.urls")),
+    path("docs/",include_docs_urls(title="pincode")),
+    path('schema', get_schema_view(
+        title="BlogAPI",
+        description="API for the BlogAPI",
+        version="1.0.0"
+    ), name='openapi-schema'),
 ]
 
 # For React URLS. Modify if needed.
