@@ -175,12 +175,31 @@ Low Priority Features
 - ReactJS & JavaScript(Frontend)
 - Razorpay(Payment)
 
-## <span style="color:grey"> Running the Frontend </span>
+## <span style="color:grey"> Running the website on local system </span>
+```bat
+cd jwe_webapp
+```
 
-- Clone the frontend folder
-- Unzip and open the frontend folder in terminal
-- Run "npm install"
-- Run "npm start"
-- Go to "localhost:8000/" in your browser
+Create a virtual env using  and activate it.
 
-## <span style="color:grey"> Running the Backend </span>
+```console
+python3 -m venv <environment name>
+source <environment name>/bin/activate
+```
+
+Install the requirements 
+
+```console
+pip3 install -r requirements.txt
+```
+
+Running the server
+
+```console
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py runserver
+```
+Finally, open http://localhost:8000/ .
+
+To view the documentation, visit http://localhost:8000/docs/
