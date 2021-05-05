@@ -24,6 +24,11 @@ from .serializers import *
 
 
 class UserAddressAPI(APIView):
+    """
+    Returns the Address Details of the Request User if found otherwise returns a 404 Not Found.\n
+    The Request must contain a Bearer token
+    """
+
     def get(self, request, *args, **kwargs):
         print("Request", request)
         user = request.user

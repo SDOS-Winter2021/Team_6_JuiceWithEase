@@ -10,7 +10,7 @@ from rest_framework.response import Response
 def get_pincodes(request):
     """
     Returns the serviciable pincodes from the database
-    """ 
+    """
     serv_pins = Pincode.objects.filter(serviceable=True)
     print(serv_pins)
     serializer = PincodeSerializer(serv_pins, many=True)

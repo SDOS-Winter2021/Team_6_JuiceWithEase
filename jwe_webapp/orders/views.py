@@ -25,6 +25,7 @@ client = razorpay.Client(auth=(key_ID, key_secret))
 @api_view(["POST"])
 # @permission_classes([IsAuthenticated])
 def addOrderItems(request):
+    """Add Items from Cookie to the Database"""
     user = request.user
     data = request.data
 
@@ -96,10 +97,9 @@ def addOrderItems(request):
 @api_view(["POST"])
 def payment_verify(request):
     """
-    The request 
     The method verifies the payment from razorpay and creates the order in the database.
     Razorpay returns 3 parameters: razorpay_payment_id, razorpay_order_id and rpay_signature.
-    These credentials need to be verified before adding the order 
+    These credentials need to be verified before adding the order
     to the database. If verified successfully, the order is added to the database.
     """
     if request.method == "POST":
@@ -144,6 +144,7 @@ def payment_verify(request):
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def getMyOrders(request):
+    """Returns the previous order history of the user"""
     user = request.user
     orders = user.order_set.all()
     serializer = OrderSerializer(orders, many=True)
@@ -153,6 +154,7 @@ def getMyOrders(request):
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def getOrderById(request, pk):
+    """Fetches a specific order using the given id"""
 
     user = request.user
 
