@@ -202,4 +202,4 @@ python3 manage.py runserver
 ```
 Finally, open http://localhost:8000/ .
 
-To view the documentation, visit http://localhost:8000/docs/
+To view the documentation,clone documentation branch and visit http://localhost:8000/docs/
